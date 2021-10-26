@@ -1,10 +1,10 @@
 import React from 'react'
 
-const NavLink = () => {
+const NavLink = ({ linkName }) => {
     return (
-        <div>
-            
-        </div>
+        <li>
+            {linkName}
+        </li>
     )
 }
 
