@@ -4,7 +4,10 @@ import NavLink from './NavLink';
 const Nav = () => {
     return (
         <nav>
-            <NavLink />
+            <ul>
+                <NavLink linkName='Movies' />
+                <NavLink linkName='TV Shows' />
+            </ul>
         </nav>
     )
 }
