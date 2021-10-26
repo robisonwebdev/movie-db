@@ -1,5 +1,6 @@
 import React from 'react';
 import NavLink from './NavLink';
+import '../styles/Navbar.css';
 
 const Nav = () => {
     return (
