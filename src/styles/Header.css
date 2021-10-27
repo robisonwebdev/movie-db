@@ -4,6 +4,7 @@ header {
     justify-content: space-around;
     align-items: center;
 
-    height: auto;
+    background-color: aquamarine;
+    height: 75px;
     width: 100%;
 }
