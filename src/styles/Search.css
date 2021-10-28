@@ -1,0 +1,9 @@
+.search {
+    width: 100%;
+}
+
+.search input {
+    padding-left: 15px;
+    height: 40px;
+    width: 100%;
+}
