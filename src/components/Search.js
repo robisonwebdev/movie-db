@@ -9,7 +9,7 @@ const Search = () => {
     return (
         <form className='search' onSubmit={handleSubmit}>
             <input type='text' placeholder='Search for a movie, tv show, person......' />
-            <button>Search</button>
+            <button type='submit'>Search</button>
         </form>
     )
 };
