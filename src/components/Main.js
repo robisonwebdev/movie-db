@@ -19,14 +19,14 @@ const Main = () => {
       })
       .catch(err => console.log(err))
     
-  }, []);
+  }, [apiKey]);
 
   // Temp useEffect
   useEffect(() => {
     if (!loading) {
       console.log(popularMovies);
     }
-  }, [loading]);
+  }, [loading, popularMovies]);
 
   return (
     <main>Main</main>
