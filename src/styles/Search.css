@@ -1,4 +1,10 @@
 .search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    height: auto;
     width: 100%;
 }
 
@@ -6,4 +12,10 @@
     padding-left: 15px;
     height: 40px;
     width: 100%;
+}
+
+.search button {
+    padding: 0 10px;
+    height: 100%;
+    width: auto;
 }
