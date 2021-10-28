@@ -1,10 +1,11 @@
 import React from 'react';
+import '../styles/Search.css';
 
 const Search = () => {
     return (
-        <div>
-            Search
-        </div>
+        <form>
+            <input type='text' />
+        </form>
     )
 };
 
