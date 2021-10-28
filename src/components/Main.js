@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Welcome from './Welcome';
 import '../styles/Main.css';
 
 const Main = () => {
@@ -29,7 +30,9 @@ const Main = () => {
   }, [loading, popularMovies]);
 
   return (
-    <main>Main</main>
+    <main>
+      <Welcome />
+    </main>
   );
 }
 
