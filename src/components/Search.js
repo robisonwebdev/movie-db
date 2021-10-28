@@ -3,8 +3,9 @@ import '../styles/Search.css';
 
 const Search = () => {
     return (
-        <form>
-            <input type='text' />
+        <form className='search'>
+            <input type='text' placeholder='Search for a movie, tv show, person......' />
+            <button>Search</button>
         </form>
     )
 };
