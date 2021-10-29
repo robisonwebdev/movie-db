@@ -1,11 +1,17 @@
 import React from 'react';
 
-const Date = () => {
+const ShowDate = ({ value }) => {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const convertDate = new Date(value);
+    const displayDay = convertDate.getUTCDate();
+    const displayMonth = convertDate.getUTCMonth();
+    const displayYear = convertDate.getUTCFullYear();
+
     return (
-        <div>
-            Date
-        </div>
+        <p>
+            {`${months[displayMonth]} ${displayDay}, ${displayYear}`}
+        </p>
     )
 };
 
-export default Date;
+export default ShowDate;
