@@ -10,8 +10,10 @@ const Card = ({ movie }) => {
     return (
         <div className='card'>
             <img src={poster} alt={`${title} poster`} />
-            <h4>{title}</h4>
-            <ShowDate value={releaseDate} />
+            <div className='cardContent'>
+                <h4>{title}</h4>
+                <ShowDate value={releaseDate} />
+            </div>            
         </div>
     )
 };
