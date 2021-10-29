@@ -3,7 +3,7 @@ import React from 'react'
 const Logo = () => {
     return (
         <div>
-            Logo
+            TMDB Clone
         </div>
     )
 }
