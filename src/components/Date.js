@@ -8,7 +8,7 @@ const ShowDate = ({ value }) => {
     const displayYear = convertDate.getUTCFullYear();
 
     return (
-        <p>
+        <p className='showDate'>
             {`${months[displayMonth]} ${displayDay}, ${displayYear}`}
         </p>
     )
