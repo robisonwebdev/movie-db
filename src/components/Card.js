@@ -1,5 +1,6 @@
 import React from 'react';
 import ShowDate from './ShowDate';
+import '../styles/Card.css';
 
 const Card = ({ movie }) => {
     const poster = `https://image.tmdb.org/t/p/w185/${movie.poster_path}`;
