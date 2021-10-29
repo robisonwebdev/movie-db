@@ -12,7 +12,7 @@ const App = () => {
       <Footer
         address='https://github.com/robisonwebdev'
         name='David Robison'
-        text='Developed by '
+        text='Recreated by '
       />
     </div>
   );
