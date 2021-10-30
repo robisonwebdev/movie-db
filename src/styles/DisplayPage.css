@@ -6,6 +6,18 @@
     gap: 15px;
 
     background-color: cadetblue;
+    padding-top: 30px;
+    height: 100%;
+    width: 100%;
+}
+
+.results {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+
     height: 100%;
     width: 100%;
 }
