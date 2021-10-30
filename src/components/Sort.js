@@ -1,11 +1,14 @@
 import React from 'react';
 
 const Sort = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
     return (
         <div className='sort'>
             <div className='sortTitle'>Sort</div>
             <div className='sortContent'>
-                <form>
+                <form className='sortForm' onSubmit={handleSubmit}>
                     <label>Sort Results By</label>
                     <select>
                         <option>Popularity Descending</option>
