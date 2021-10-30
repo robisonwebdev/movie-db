@@ -1,9 +1,14 @@
 import React from 'react';
+import FilterPanel from './FilterPanel';
 
-const DisplayPage = () => {
+const DisplayPage = ({}) => {
     return (
-        <div>
-            DisplayPage
+        <div className='displayPage'>
+            <h2>Title</h2>
+            <div className='results'>
+                <FilterPanel />
+                <p>--Movies--</p>
+            </div>
         </div>
     )
 };
