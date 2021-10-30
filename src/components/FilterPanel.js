@@ -1,9 +1,10 @@
 import React from 'react';
+import Sort from './Sort';
 
 const FilterPanel = () => {
     return (
-        <div>
-            
+        <div className='filterPanel'>
+            <Sort />
         </div>
     )
 };
