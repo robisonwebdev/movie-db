@@ -1,5 +1,6 @@
 import React from 'react';
 import FilterPanel from './FilterPanel';
+import '../styles/DisplayPage.css';
 
 const DisplayPage = ({}) => {
     return (
