@@ -9,9 +9,19 @@
     border-radius: 8px;
     box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.22);
     font-weight: bold;
-    padding: 12px;
     height: auto;
     width: 250px;
+}
+
+.sortTitle {
+    padding: 12px;
+    width: 100%;
+}
+
+.sortContent {
+    border-top: 1px solid rgba(184, 183, 183, 0.5);
+    padding: 12px;
+    width: 100%;
 }
 
 .sortForm {
