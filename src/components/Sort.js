@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Sort.css';
 
 const Sort = () => {
+    const [showContent, setShowContent] = useState(true);
+
     const handleSubmit = (event) => {
         event.preventDefault();
     }
+
     return (
         <div className='sort'>
             <div className='sortTitle'>Sort</div>
-            <div className='sortContent'>
+            <div className={`sortContent ${showContent ? 'showContent' : ''}`}>
                 <form className='sortForm' onSubmit={handleSubmit}>
                     <label>Sort Results By</label>
                     <select>
