@@ -4,7 +4,7 @@ const SortForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
     }
-    
+
     return (
         <div className='sortContent'>
             <form className='sortForm' onSubmit={handleSubmit}>
