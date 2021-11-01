@@ -14,7 +14,9 @@ const FilterCard = ({ component, title }) => {
                 <p>{title}</p>
                 {openCard ? <i className='las la-angle-down' /> : <i className='las la-angle-right' />}
             </div>
-            <div className='filterContent'>{component}</div>
+            <div className='filterContent'>
+                {openCard ? component : null}
+            </div>
         </div>
     )
 };
