@@ -10,9 +10,10 @@ const FilterCard = ({ component, title }) => {
 
     return (
         <div className='filterCard'>
-            <p className='filterCardTitle' onClick={handleOpenCard}>
-                {title}
-            </p>
+            <div className='filterCardTitle' onClick={handleOpenCard}>
+                <p>{title}</p>
+                {openCard ? <i className='las la-angle-down' /> : <i className='las la-angle-right' />}
+            </div>
             <div className='filterContent'>{component}</div>
         </div>
     )
