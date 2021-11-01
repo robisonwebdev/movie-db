@@ -1,9 +1,10 @@
 import React from 'react';
 
-const FilterCard = ({ title }) => {
+const FilterCard = ({ component, title }) => {
     return (
         <div className='filterCard'>
             <p>{title}</p>
+            {component}
         </div>
     )
 };
