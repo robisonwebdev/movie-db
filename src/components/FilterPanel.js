@@ -1,10 +1,10 @@
 import React from 'react';
-import Sort from './Sort';
+import FilterCard from './FilterCard';
 
 const FilterPanel = () => {
     return (
         <div className='filterPanel'>
-            <Sort />
+            <FilterCard />
         </div>
     )
 };
