@@ -12,3 +12,14 @@
     height: auto;
     width: 250px;
 }
+
+.filterCardTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+    padding: 12px;
+    width: 100%;
+}
