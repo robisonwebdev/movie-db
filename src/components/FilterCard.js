@@ -4,7 +4,7 @@ import '../styles/FilterCard.css';
 const FilterCard = ({ component, title }) => {
     return (
         <div className='filterCard'>
-            <p>{title}</p>
+            <p className='filterCardTitle'>{title}</p>
             {component}
         </div>
     )
