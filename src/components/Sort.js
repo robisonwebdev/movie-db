@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
-import SortForm from './SortForm';
+import React from 'react';
 import '../styles/Sort.css';
 
 const Sort = () => {
-    const [showContent, setShowContent] = useState(false);
-
-    const handleSortClick = () => {
-        setShowContent(!showContent);
+    const handleSubmit = (event) => {
+        event.preventDefault();
     };
 
     return (
-        <div className='sort'>
-            <div className='sortTitle' onClick={handleSortClick}>
-                <p>Sort</p>
-                {showContent ? <i className='las la-angle-down' /> : <i className='las la-angle-right' />}
-            </div>
-            {showContent ? <SortForm /> : null}
-        </div>
+        <form className='sort' onSubmit={handleSubmit}>
+            <label>Sort Results By</label>
+            <select>
+                <option>Popularity Descending</option>
+                <option>Popularity Ascending</option>
+                <option>Rating Descending</option>
+                <option>Rating Ascending</option>
+                <option>Release Date Descending</option>
+                <option>Release Date Ascending</option>
+                <option>Title (A-Z)</option>
+                <option>Title (Z-A)</option>
+            </select>
+        </form>
     )
 };
 
