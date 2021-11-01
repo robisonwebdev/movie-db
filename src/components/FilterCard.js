@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/FilterCard.css';
 
 const FilterCard = ({ component, title }) => {
     return (
