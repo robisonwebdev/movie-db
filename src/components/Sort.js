@@ -1,13 +1,9 @@
 import React from 'react';
 import '../styles/Sort.css';
 
-const Sort = ({ onChange, value }) => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-    };
-
+const Sort = ({ onChange, onSubmit, value }) => {
     return (
-        <form className='sort' onSubmit={handleSubmit}>
+        <form className='sort' onSubmit={onSubmit}>
             <label>Sort Results By</label>
             <select value={value} onChange={onChange}>
                 <option value='pop_des'>Popularity Descending</option>
