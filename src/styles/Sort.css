@@ -22,3 +22,7 @@
     padding: 6px;
     width: 100%;
 }
+
+.sort select:hover {
+    background-color: #c7cdd5;
+}
