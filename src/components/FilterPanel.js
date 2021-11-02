@@ -8,9 +8,8 @@ const FilterPanel = () => {
     return (
         <div className='filterPanel'>
             <FilterCard
-                component={<Sort />}
+                component={<Sort value={sort} />}
                 title='Sort'
-                value={sort}
             />
         </div>
     )
