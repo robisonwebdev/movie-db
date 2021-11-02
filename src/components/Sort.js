@@ -10,14 +10,14 @@ const Sort = () => {
         <form className='sort' onSubmit={handleSubmit}>
             <label>Sort Results By</label>
             <select>
-                <option>Popularity Descending</option>
-                <option>Popularity Ascending</option>
-                <option>Rating Descending</option>
-                <option>Rating Ascending</option>
-                <option>Release Date Descending</option>
-                <option>Release Date Ascending</option>
-                <option>Title (A-Z)</option>
-                <option>Title (Z-A)</option>
+                <option value='pop_des'>Popularity Descending</option>
+                <option value='pop_asc'>Popularity Ascending</option>
+                <option value='rate_des'>Rating Descending</option>
+                <option value='rate_asc'>Rating Ascending</option>
+                <option value='rel_des'>Release Date Descending</option>
+                <option value='res_asc'>Release Date Ascending</option>
+                <option value='title_az'>Title (A-Z)</option>
+                <option value='title_za'>Title (Z-A)</option>
             </select>
         </form>
     )
