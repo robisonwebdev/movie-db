@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import FilterCard from './FilterCard';
+import Button from './Button';
 import Sort from './Sort';
 
 const FilterPanel = () => {
@@ -14,6 +15,10 @@ const FilterPanel = () => {
             <FilterCard
                 component={<Sort onChange={handleSortChange} value={sort} />}
                 title='Sort'
+            />
+            <Button
+                text='Search'
+                type='submit'
             />
         </div>
     )
