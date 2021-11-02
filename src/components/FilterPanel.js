@@ -10,10 +10,14 @@ const FilterPanel = () => {
         setSort(event.target.value);
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    };
+
     return (
         <div className='filterPanel'>
             <FilterCard
-                component={<Sort onChange={handleSortChange} value={sort} />}
+                component={<Sort onChange={handleSortChange} onSubmit={handleSubmit} value={sort} />}
                 title='Sort'
             />
             <Button
