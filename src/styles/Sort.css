@@ -9,7 +9,16 @@
     width: 100%;
 }
 
+.sort label {
+    font-weight: normal;
+}
+
 .sort select {
-    padding: 5px;
+    background-color: #ced3db;
+    border: 1px solid #ced3db;
+    border-radius: 4px;
+    color: #212529;
+    cursor: pointer;
+    padding: 6px;
     width: 100%;
 }
