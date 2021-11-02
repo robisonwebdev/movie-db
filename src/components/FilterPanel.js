@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FilterCard from './FilterCard';
 import Button from './Button';
 import Sort from './Sort';
+import '../styles/FilterPanel.css';
 
 const FilterPanel = () => {
     const [sort, setSort] = useState('pop_des')
