@@ -1,14 +1,15 @@
 import React from 'react';
 import FilterPanel from './FilterPanel';
+import ResultPanel from './ResultPanel';
 import '../styles/DisplayPage.css';
 
-const DisplayPage = ({}) => {
+const DisplayPage = ({ title }) => {
     return (
         <div className='displayPage'>
-            <h2>Title</h2>
+            <h2>{title || 'Title'}</h2>
             <div className='results'>
                 <FilterPanel />
-                <p>--Movies--</p>
+                <ResultPanel />
             </div>
         </div>
     )
