@@ -3,7 +3,7 @@ import '../styles/ResultPanel.css';
 
 const ResultPanel = () => {
     return (
-        <div>
+        <div className='resultPanel'>
             ResultPanel
         </div>
     )
