@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FilterPanel from './FilterPanel';
 import ResultPanel from './ResultPanel';
 import '../styles/DisplayPage.css';
 
 const DisplayPage = ({ movies, title }) => {
+    const [sortBy, setSortBy] = useState('pop_des');
+
     return (
         <div className='displayPage'>
             <h2>{title || 'Title'}</h2>
             <div className='results'>
-                <FilterPanel />
-                <ResultPanel movies={movies} />
+                <FilterPanel setSortBy={setSortBy} />
+                <ResultPanel movies={movies} sortBy={sortBy} />
             </div>
         </div>
     )
