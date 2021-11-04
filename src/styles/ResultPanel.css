@@ -3,11 +3,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    row-gap: 25px;
+    align-items: flex-start;
+    gap: 30px;
 
-    padding: 25px;
+    padding: 0 25px;
     height: auto;
     width: 100%;
 }
