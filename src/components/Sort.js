@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/Sort.css';
 
-const Sort = ({ onChange, onSubmit, value }) => {
+const Sort = ({ onChange, value }) => {
     return (
-        <form className='sort' onSubmit={onSubmit}>
+        <div className='sort'>
             <label>Sort Results By</label>
             <select value={value} onChange={onChange}>
                 <option value='pop_des'>Popularity Descending</option>
@@ -15,7 +15,7 @@ const Sort = ({ onChange, onSubmit, value }) => {
                 <option value='title_az'>Title (A-Z)</option>
                 <option value='title_za'>Title (Z-A)</option>
             </select>
-        </form>
+        </div>
     )
 };
 
