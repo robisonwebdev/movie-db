@@ -25,7 +25,7 @@
 }
 
 .filterContent {
-    border-top: 1px solid rgba(184, 183, 183, 0.5);
+    border-top: 1px solid #eeeeee;
     padding: 12px;
     width: 100%;
 }
