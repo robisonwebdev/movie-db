@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+:root {
+    --tmdbDarkBlue: rgb(3, 37, 65);
+}
+
 body {
     height: 100vh;
     width: 100vw;
