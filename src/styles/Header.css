@@ -4,7 +4,7 @@ header {
     justify-content: space-around;
     align-items: center;
 
-    background-color: aquamarine;
-    height: 75px;
+    background-color: var(--tmdbDarkBlue);
+    height: 65px;
     width: 100%;
 }
