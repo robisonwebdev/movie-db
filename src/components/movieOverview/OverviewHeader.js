@@ -1,11 +1,11 @@
 import React from 'react';
 
-const MovieHeader = () => {
+const OverviewHeader = () => {
     return (
         <div>
-            Movie Header
+            Overview Header
         </div>
     )
 };
 
-export default MovieHeader;
+export default OverviewHeader;
