@@ -1,9 +1,10 @@
 import React from 'react';
+import OverviewHeader from './OverviewHeader';
 
 const Overview = () => {
     return (
         <div>
-            Overview
+            <OverviewHeader />
         </div>
     )
 };
