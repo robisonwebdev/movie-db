@@ -23,17 +23,17 @@ const Overview = ({ movieID }) => {
             .catch(err => console.log(err))
     }, [apiKey]);
 
-    useEffect(() => {
-        if (!loading) {
-          console.log('MovieData:', movieData);
-          console.log('Release Date:', releaseDateData);
-          console.log('Credits:', creditData);
-        }
-      }, [loading, movieData, releaseDateData, creditData]);
+    // useEffect(() => {
+    //     if (!loading) {
+    //       console.log('MovieData:', movieData);
+    //       console.log('Release Date:', releaseDateData);
+    //       console.log('Credits:', creditData);
+    //     }
+    //   }, [loading, movieData, releaseDateData, creditData]);
 
     return (
         <div>
-            <OverviewHeader />
+            {loading ? null : <OverviewHeader credits={creditData} movie={movieData} releaseDate={releaseDateData} />}
         </div>
     )
 };
