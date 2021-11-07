@@ -1,7 +1,17 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 65px;
+    width: 75%;
+}
+
 nav ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
     gap: 20px;
     
