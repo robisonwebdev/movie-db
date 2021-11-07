@@ -3,12 +3,16 @@ import OverviewCrew from './OverviewCrew';
 import OverviewDescription from './OverviewDescription';
 import OverviewTitle from './OverviewTitle';
 
-const OverviewHeader = ({ image }) => {
+const OverviewHeader = ({ credits, movie, releaseDate }) => {
     return (
         <div className='overviewHeader'>
-            <img src={image} />
+            <img />
             <div>
-                <OverviewTitle />
+                <OverviewTitle
+                    credits={credits}
+                    movie={movie}
+                    releaseDate={releaseDate}
+                />
                 <OverviewDescription />
                 <OverviewCrew />
             </div>
