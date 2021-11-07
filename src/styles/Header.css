@@ -1,11 +1,11 @@
 header {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 
     background-color: var(--tmdbDarkBlue);
     color: #fff;
-    height: 65px;
+    height: auto;
     width: 100%;
 }
