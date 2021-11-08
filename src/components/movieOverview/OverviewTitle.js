@@ -13,7 +13,7 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
         const hours = Math.floor(runtimeToHours);
         const minutes = Math.round((runtimeToHours - hours) * 60);
 
-        return `${hours}h ${minutes}m`
+        return hours >=1 ? `${hours}h ${minutes}m` : `${minutes}m`;
     }
 
     return (
