@@ -26,10 +26,12 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
     }
 
     return (
-        <div className='overviewTitle'>
-            <h1>{title}</h1>
-            <div className='overviewFacts'>
+        <div className='overviewTitle'>            
+            <div className='overviewTitle_Date'>
+                <h1>{title}</h1>
                 <p>{certification}</p>
+            </div>
+            <div className='overviewFacts'>                
                 <p>{date}</p>
                 <p>{joinGenres()}</p>
                <p>{convertRuntime()}</p>
