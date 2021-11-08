@@ -32,7 +32,7 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
                 <p>{date}</p>
             </div>
             <div className='overviewFacts'> 
-                <p>{certification}</p>
+                <p className='overviewCert'>{certification}</p>
                 <p>{joinGenres()}</p>
                <p>{convertRuntime()}</p>
             </div>
