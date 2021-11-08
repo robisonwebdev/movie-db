@@ -8,6 +8,7 @@ const Overview = ({ movieID }) => {
     const [loading, setLoading] = useState(true);
     const [movieData, setMovieData] = useState([]);
     const [releaseDateData, setReleaseDateData] = useState([]);
+    const [usReleaseDate, setUSReleaseDate] = useState([]);
 
     useEffect(() => {
         setLoading(true);
@@ -16,12 +17,18 @@ const Overview = ({ movieID }) => {
             .get(`https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&append_to_response=release_dates,credits&&language=en-US`)
             .then(res => {
                 setMovieData(res.data);
-                setReleaseDateData(res.data['release_dates']['results'][20]);
+                setReleaseDateData(res.data['release_dates']['results']);
                 setCreditData(res.data.credits);
                 setLoading(false);
             })
             .catch(err => console.log(err))
     }, [apiKey]);
+
+    // Get US Release Date
+    useEffect(() => {
+        let usData = releaseDateData.filter(obj => obj['iso_3166_1'] === 'US');
+        setUSReleaseDate(usData);
+    }, [releaseDateData])
 
     // useEffect(() => {
     //     if (!loading) {
@@ -33,7 +40,7 @@ const Overview = ({ movieID }) => {
 
     return (
         <div>
-            {loading ? null : <OverviewHeader credits={creditData} movie={movieData} releaseDate={releaseDateData} />}
+            {loading ? null : <OverviewHeader credits={creditData} movie={movieData} releaseDate={usReleaseDate} />}
         </div>
     )
 };
