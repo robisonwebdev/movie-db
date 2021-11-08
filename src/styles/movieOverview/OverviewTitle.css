@@ -1,0 +1,27 @@
+.overviewTitle {
+    display: flex;
+    flex-direction: column;
+}
+
+.overviewTitle_Date {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.overviewFacts {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.overviewCert {
+    border: 1px solid #a5a2a2;
+    border-radius: 3px;
+    color: #a5a2a2;
+    padding: 2px;
+}
