@@ -2,7 +2,7 @@ import React from 'react';
 
 const OverviewTitle = ({ credits, movie, releaseDate }) => {
     const title = movie.title;
-    // const certification = releaseDate['release_dates'][0]['certification'];
+    const certification = releaseDate[0]['release_dates'][0]['certification'];
     const date = new Date(releaseDate[0]['release_dates'][0]['release_date']).getUTCFullYear();
 
     const convertRuntime = () => {
@@ -12,10 +12,6 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
         const minutes = Math.round((runtimeToHours - hours) * 60);
 
         return hours >=1 ? `${hours}h ${minutes}m` : `${minutes}m`;
-    }
-
-    const getCertification = () => {
-
     }
 
     const joinGenres = () => {
@@ -32,7 +28,7 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
         <div className='overviewTitle'>
             <h1>{title}</h1>
             <div className='overviewFacts'>
-                <p></p>
+                <p>{certification}</p>
                 <p>{date}</p>
                 <p>{joinGenres()}</p>
                <p>{convertRuntime()}</p>
