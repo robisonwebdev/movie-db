@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/movieOverview/OverviewTitle.css';
 
 const OverviewTitle = ({ credits, movie, releaseDate }) => {
     const title = movie.title;
