@@ -12,6 +12,15 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
 
         return hours >=1 ? `${hours}h ${minutes}m` : `${minutes}m`;
     }
+    const getAndJoinGenres = () => {
+        const genresList = [];
+
+        movie.genres.forEach(genre => {
+            genresList.push(genre.name);
+        });
+
+        return genresList.join(', ');
+    }
 
     const getCertification = () => {
         const apiPath = releaseDate[0]['release_dates'];
@@ -34,16 +43,6 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
         return null;
     }
 
-    const joinGenres = () => {
-        const genresList = [];
-
-        movie.genres.forEach(genre => {
-            genresList.push(genre.name);
-        });
-
-        return genresList.join(', ');
-    }
-
     console.log(releaseDate);
 
     return (
@@ -52,7 +51,7 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
             <div className='overviewFacts'> 
                 <p className='overviewCert'>{getCertification()}</p>
                 <p>{getDate('mm/dd/yyyy')}</p>
-                <p>{joinGenres()}</p>
+                <p>{getAndJoinGenres()}</p>
                <p>{convertRuntime()}</p>
             </div>
         </div>
