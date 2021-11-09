@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/movieOverview/OverviewTitle.css';
 
-const OverviewTitle = ({ credits, movie, releaseDate }) => {
+const OverviewTitle = ({ movie, releaseDate }) => {
     const title = movie.title;
 
     const convertRuntime = () => {
@@ -42,8 +42,6 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
 
         return null;
     }
-
-    console.log(releaseDate);
 
     return (
         <div className='overviewTitle'>            
