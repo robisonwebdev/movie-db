@@ -3,6 +3,7 @@ import OverviewPoster from './OverviewPoster';
 import OverviewCrew from './OverviewCrew';
 import OverviewDescription from './OverviewDescription';
 import OverviewTitle from './OverviewTitle';
+import '../../styles/movieOverview/OverviewHeader.css';
 
 const OverviewHeader = ({ credits, movie, releaseDate }) => {
     return (
@@ -10,7 +11,6 @@ const OverviewHeader = ({ credits, movie, releaseDate }) => {
             <OverviewPoster movie={movie} />
             <div>
                 <OverviewTitle
-                    credits={credits}
                     movie={movie}
                     releaseDate={releaseDate}
                 />
