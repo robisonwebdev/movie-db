@@ -40,7 +40,7 @@ const Overview = ({ movieID }) => {
     //   }, [loading, movieData, releaseDateData, creditData]);
 
     return (
-        <div>
+        <div className='overview'>
             {loading ? null : <OverviewHeader credits={creditData} movie={movieData} releaseDate={usReleaseDate} />}
         </div>
     )
