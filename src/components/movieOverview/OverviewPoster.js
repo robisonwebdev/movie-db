@@ -1,8 +1,10 @@
 import React from 'react';
 
-const OverviewPoster = () => {
+const OverviewPoster = ({ movie }) => {
+    const poster = `https://image.tmdb.org/t/p/w300/${movie.poster_path}`;
+
     return (
-        <img />
+        <img src={poster} alt={movie.title} />
     )
 };
 
