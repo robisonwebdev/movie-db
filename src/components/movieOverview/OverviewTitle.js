@@ -39,7 +39,7 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
 
     return (
         <div className='overviewTitle'>            
-            <h2>{`${title} (${getDate('yyyy')})`}</h2>
+            <h1>{`${title} (${getDate('yyyy')})`}</h1>
             <div className='overviewFacts'> 
                 <p className='overviewCert'>{certification}</p>
                 <p>{getDate('mm/dd/yyyy')}</p>
