@@ -4,7 +4,6 @@ import '../../styles/movieOverview/OverviewTitle.css';
 const OverviewTitle = ({ credits, movie, releaseDate }) => {
     const title = movie.title;
     const certification = releaseDate[0]['release_dates'][0]['certification'];
-    const date = new Date(releaseDate[0]['release_dates'][0]['release_date']).getUTCFullYear();
 
     const convertRuntime = () => {
         const runtime = movie.runtime;
@@ -13,6 +12,17 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
         const minutes = Math.round((runtimeToHours - hours) * 60);
 
         return hours >=1 ? `${hours}h ${minutes}m` : `${minutes}m`;
+    }
+
+    const getDate = (format) => {
+        const apiDate = new Date(releaseDate[0]['release_dates'][0]['release_date']);
+        const year = apiDate.getUTCFullYear();
+        const month = apiDate.getUTCMonth() + 1;
+        const day = apiDate.getUTCDate();
+
+        if (format === 'yyyy') return year;
+
+        if (format === 'mm/dd/yyyy') return `${month}/${day}/${year}`;
     }
 
     const joinGenres = () => {
@@ -29,10 +39,11 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
         <div className='overviewTitle'>            
             <div className='overviewTitle_Date'>
                 <h1>{title}</h1>
-                <p>{date}</p>
+                <p>{getDate('yyyy')}</p>
             </div>
             <div className='overviewFacts'> 
                 <p className='overviewCert'>{certification}</p>
+                <p>{getDate('mm/dd/yyyy')}</p>
                 <p>{joinGenres()}</p>
                <p>{convertRuntime()}</p>
             </div>
