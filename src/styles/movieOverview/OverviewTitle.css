@@ -3,14 +3,6 @@
     flex-direction: column;
 }
 
-.overviewTitle_Date {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-}
-
 .overviewFacts {
     display: flex;
     flex-direction: row;
