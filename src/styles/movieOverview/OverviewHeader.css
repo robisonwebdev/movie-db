@@ -1,0 +1,11 @@
+.overviewHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+
+    background-color: bisque;
+    height: 90%;
+    width: 100%;
+}
