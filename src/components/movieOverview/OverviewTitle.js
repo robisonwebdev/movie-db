@@ -23,6 +23,8 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
         if (format === 'yyyy') return year;
 
         if (format === 'mm/dd/yyyy') return `${month}/${day}/${year}`;
+
+        return null;
     }
 
     const joinGenres = () => {
