@@ -3,7 +3,6 @@ import '../../styles/movieOverview/OverviewTitle.css';
 
 const OverviewTitle = ({ credits, movie, releaseDate }) => {
     const title = movie.title;
-    const certification = releaseDate[0]['release_dates'][0]['certification'];
 
     const convertRuntime = () => {
         const runtime = movie.runtime;
@@ -12,6 +11,14 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
         const minutes = Math.round((runtimeToHours - hours) * 60);
 
         return hours >=1 ? `${hours}h ${minutes}m` : `${minutes}m`;
+    }
+
+    const getCertification = () => {
+        const apiPath = releaseDate[0]['release_dates'];
+        const findCertification = apiPath.find(({ certification }) => certification !== '');
+        const certification = findCertification['certification'];
+
+        return certification;
     }
 
     const getDate = (format) => {
@@ -37,11 +44,13 @@ const OverviewTitle = ({ credits, movie, releaseDate }) => {
         return genresList.join(', ');
     }
 
+    console.log(releaseDate);
+
     return (
         <div className='overviewTitle'>            
             <h1>{`${title} (${getDate('yyyy')})`}</h1>
             <div className='overviewFacts'> 
-                <p className='overviewCert'>{certification}</p>
+                <p className='overviewCert'>{getCertification()}</p>
                 <p>{getDate('mm/dd/yyyy')}</p>
                 <p>{joinGenres()}</p>
                <p>{convertRuntime()}</p>
