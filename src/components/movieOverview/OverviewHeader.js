@@ -6,8 +6,13 @@ import OverviewTitle from './OverviewTitle';
 import '../../styles/movieOverview/OverviewHeader.css';
 
 const OverviewHeader = ({ credits, movie, releaseDate }) => {
+    const backdropImage = `http://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
+    const backdropStyle = {
+        background: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url(${backdropImage})`
+    };
+
     return (
-        <div className='overviewHeader'>
+        <div className='overviewHeader'  style={backdropStyle}>
             <div className='overviewHeaderContent'>
                 <OverviewPoster movie={movie} />
                 <div className='overviewHeaderInfo'>
