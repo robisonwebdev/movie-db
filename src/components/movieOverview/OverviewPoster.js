@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/movieOverview/OverviewPoster.css';
 
 const OverviewPoster = ({ movie }) => {
     const poster = `https://image.tmdb.org/t/p/w300/${movie.poster_path}`;
