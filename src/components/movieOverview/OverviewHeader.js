@@ -10,7 +10,7 @@ const OverviewHeader = ({ credits, movie, releaseDate }) => {
         <div className='overviewHeader'>
             <div className='overviewHeaderContent'>
                 <OverviewPoster movie={movie} />
-                <div>
+                <div className='overviewHeaderInfo'>
                     <OverviewTitle
                         movie={movie}
                         releaseDate={releaseDate}
@@ -18,7 +18,9 @@ const OverviewHeader = ({ credits, movie, releaseDate }) => {
                     <OverviewDescription
                         description={movie.overview}
                     />
-                    <OverviewCrew />
+                    <OverviewCrew
+                        credits={credits}
+                    />
                 </div>
             </div>
         </div>
