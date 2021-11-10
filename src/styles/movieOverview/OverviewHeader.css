@@ -6,6 +6,8 @@
     gap: 25px;
 
     background-color: bisque;
-    height: 90%;
+    padding: 25px 0;
+
+    height: auto;
     width: 100%;
 }
