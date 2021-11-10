@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../../styles/movieOverview/OverviewCrew.css';
 
 const OverviewCrew = ({ credits }) => {
     const [crew] = useState(credits.crew);
