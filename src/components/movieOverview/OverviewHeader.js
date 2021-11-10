@@ -8,14 +8,18 @@ import '../../styles/movieOverview/OverviewHeader.css';
 const OverviewHeader = ({ credits, movie, releaseDate }) => {
     return (
         <div className='overviewHeader'>
-            <OverviewPoster movie={movie} />
-            <div>
-                <OverviewTitle
-                    movie={movie}
-                    releaseDate={releaseDate}
-                />
-                <OverviewDescription />
-                <OverviewCrew />
+            <div className='overviewHeaderContent'>
+                <OverviewPoster movie={movie} />
+                <div>
+                    <OverviewTitle
+                        movie={movie}
+                        releaseDate={releaseDate}
+                    />
+                    <OverviewDescription
+                        description={movie.overview}
+                    />
+                    <OverviewCrew />
+                </div>
             </div>
         </div>
     )
