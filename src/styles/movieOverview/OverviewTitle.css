@@ -3,6 +3,20 @@
     flex-direction: column;
 }
 
+.overview_Title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 1.3em;
+}
+
+.title_Date {
+    color: #dcdcda;
+}
+
 .overviewFacts {
     display: flex;
     flex-direction: row;
@@ -10,6 +24,10 @@
     align-items: center;
     gap: 10px;
     font-size: 1em;
+}
+
+.titleDate {
+    color: #dcdcdb;
 }
 
 .overviewCert {
