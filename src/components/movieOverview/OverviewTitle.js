@@ -49,7 +49,9 @@ const OverviewTitle = ({ movie, releaseDate }) => {
             <div className='overviewFacts'> 
                 <p className='overviewCert'>{getCertification()}</p>
                 <p>{getDate('mm/dd/yyyy')}</p>
+                <p className='bulletPoint'>•</p>
                 <p>{getAndJoinGenres()}</p>
+                <p className='bulletPoint'>•</p>
                <p>{convertRuntime()}</p>
             </div>
         </div>
