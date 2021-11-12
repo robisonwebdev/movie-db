@@ -1,9 +1,10 @@
 import React from 'react';
 import '../../styles/movieOverview/OverviewDescription.css';
 
-const OverviewDescription = ({ description }) => {
+const OverviewDescription = ({ description, tagline }) => {
     return (
         <div className='overviewDescription'>
+            <p className='tagline'>{tagline}</p>
             <h2>Overview</h2>
             <p>{description}</p>
         </div>
