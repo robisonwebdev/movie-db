@@ -16,6 +16,7 @@ const OverviewHeader = ({ credits, movie, releaseDate }) => {
 
     return (
         <div className='overviewHeader'  style={backdropStyle}>
+            {console.log('tg', movie)}
             <div className='overviewHeaderContent'>
                 <OverviewPoster movie={movie} />
                 <div className='overviewHeaderInfo'>
@@ -25,6 +26,7 @@ const OverviewHeader = ({ credits, movie, releaseDate }) => {
                     />
                     <OverviewDescription
                         description={movie.overview}
+                        tagline={movie.tagline}
                     />
                     <OverviewCrew
                         credits={credits}
