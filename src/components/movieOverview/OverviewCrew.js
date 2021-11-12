@@ -8,32 +8,24 @@ const OverviewCrew = ({ credits }) => {
     const [screenplay, setScreenplay] = useState('');
 
     useEffect(() => {
-        // Get Director
         crew.find(member => {
+            // Get Director
             if (member.job === 'Director') {
                 setDirector(member.name);
             }
 
-            return null;
-        })
-
-        // Get Screenplay
-        crew.find(member => {
+            // Get Screenplay
             if (member.job === 'Screenplay') {
                 setScreenplay(member.name);
             }
 
-            return null;
-        })
-
-        // Get Producer
-        crew.find(member => {
+            // Get Producer
             if (member.job === 'Producer') {
                 setProducer(member.name);
             }
 
             return null;
-        })
+        });
     }, [crew]);
 
     console.log('Crew:', crew);
