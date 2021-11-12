@@ -16,7 +16,6 @@ const OverviewHeader = ({ credits, movie, releaseDate }) => {
 
     return (
         <div className='overviewHeader'  style={backdropStyle}>
-            {console.log('tg', movie)}
             <div className='overviewHeaderContent'>
                 <OverviewPoster movie={movie} />
                 <div className='overviewHeaderInfo'>

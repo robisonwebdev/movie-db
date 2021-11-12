@@ -28,7 +28,6 @@ const OverviewCrew = ({ credits }) => {
         });
     }, [crew]);
 
-    console.log('Crew:', crew);
     return (
         <div className='overviewCrew'>
             <Crew job={'Director'} name={director} />            
