@@ -1,0 +1,11 @@
+.overviewDescription {
+    height: auto;
+    width: 100%;
+}
+
+.tagline {
+    color: var(--liteGrey);
+    font-size: 1.2em;
+    font-style: italic;
+    padding-bottom: 10px;
+}
