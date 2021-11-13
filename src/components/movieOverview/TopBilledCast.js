@@ -9,7 +9,10 @@ const TopBilledCast = ({ cast }) => {
 
     return (
         <div className='topBilledCast'>
-            {topNineCast}
+            <h3>Top Billed Cast</h3>
+            <div className='topCast'>
+                {topNineCast}
+            </div>
         </div>
     )
 };
