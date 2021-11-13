@@ -1,0 +1,27 @@
+.topBilledCast {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    height: 100%;
+    width: 75%;
+}
+
+.topBilledCast h3, .topCast {
+    padding-left: 15px;
+}
+
+.topCast {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 15px;
+
+    overflow-x: scroll;
+    padding-bottom: 15px;
+    
+    height: auto;
+    width: 100%;
+}
