@@ -12,6 +12,7 @@ const TopBilledCast = ({ cast }) => {
             <h3>Top Billed Cast</h3>
             <div className='topCast'>
                 {topNineCast}
+                <h4 className='viewMore'>View More <i className='las la-arrow-right' /></h4>
             </div>
         </div>
     )
