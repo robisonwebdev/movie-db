@@ -1,9 +1,13 @@
 import React from 'react';
 
-const CastCard = () => {
+const CastCard = ({ character, name }) => {
     return (
-        <div>
-            Cast Card
+        <div className='castCard'>
+            <img />
+            <div className='castCard_Info'>
+                <h4>{name}</h4>
+                <p>{character}</p>
+            </div>
         </div>
     )
 };
