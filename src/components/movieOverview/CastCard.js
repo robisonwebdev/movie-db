@@ -1,9 +1,13 @@
 import React from 'react';
 
-const CastCard = ({ character, name }) => {
+const CastCard = ({ person }) => {
+    const { character, name, profile_path } = person;
+
+    const poster = `https://image.tmdb.org/t/p/w185/${profile_path}`;
+
     return (
         <div className='castCard'>
-            <img />
+            <img src={poster} alt={name} />
             <div className='castCard_Info'>
                 <h4>{name}</h4>
                 <p>{character}</p>
