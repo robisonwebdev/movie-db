@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/movieOverview/CastCard.css';
 
 const CastCard = ({ person }) => {
     const { character, name, profile_path } = person;
