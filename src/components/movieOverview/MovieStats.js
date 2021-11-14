@@ -16,11 +16,11 @@ const MovieStats = ({ stats }) => {
             </div>
             <div className='budget'>
                 <h4>Budget</h4>
-                {budget}
+                {`$${budget.toLocaleString('en-US')}`}
             </div>
             <div className='revenue'>
                 <h4>Revenue</h4>
-                {revenue}
+                {`$${revenue.toLocaleString('en-US')}`}
             </div>
         </div>
     )
