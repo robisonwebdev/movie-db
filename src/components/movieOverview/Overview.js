@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import OverviewHeader from './OverviewHeader';
 import TopBilledCast from './TopBilledCast';
+import MovieStats from './MovieStats';
 import '../../styles/movieOverview/Overview.css';
 
 const Overview = ({ movieID }) => {
@@ -47,7 +48,9 @@ const Overview = ({ movieID }) => {
                 <div className='dividerLeft'>
                     {loading ? null : <TopBilledCast cast={creditData.cast} />}
                 </div>
-                <div className='dividerRight'>TEMP</div>
+                <div className='dividerRight'>
+                    {loading ? null :<MovieStats stats={movieData} />}
+                </div>
             </div>            
         </div>
     )
