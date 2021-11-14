@@ -8,38 +8,45 @@ import '../../styles/movieOverview/Overview.css';
 const Overview = ({ movieID }) => {
     const [apiKey] = useState('9289aca3a6413b200619b263ac82e4c0');
     const [creditData, setCreditData] = useState([]);
+    const [languages, setLanguages] = useState([]);
     const [loading, setLoading] = useState(true);
     const [movieData, setMovieData] = useState([]);
     const [releaseDateData, setReleaseDateData] = useState([]);
     const [usReleaseDate, setUSReleaseDate] = useState([]);
 
-    useEffect(() => {
+    const fetchData = () => {
+        const movieAPI = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&append_to_response=release_dates,credits&&language=en-US`;
+        const languagesAPI = ` https://api.themoviedb.org/3/configuration/languages?api_key=${apiKey}`;
+
+        const getMovie_Data = axios.get(movieAPI);
+        const getLanguages_Data = axios.get(languagesAPI);
+
         setLoading(true);
 
         axios
-            .get(`https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&append_to_response=release_dates,credits&&language=en-US`)
-            .then(res => {
-                setMovieData(res.data);
-                setReleaseDateData(res.data['release_dates']['results']);
-                setCreditData(res.data.credits);
+            .all([getMovie_Data, getLanguages_Data])
+            .then(axios.spread((...all_Data) => {
+                const movie_Data = all_Data[0].data;
+                const language_Data = all_Data[1].data;
+
+                setMovieData(movie_Data);
+                setReleaseDateData(movie_Data['release_dates']['results']);
+                setCreditData(movie_Data.credits);
+                setLanguages(language_Data);
                 setLoading(false);
-            })
-            .catch(err => console.log(err))
-    }, [apiKey]);
+            }))
+            .catch(err => console.log(err));
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     // Get US Release Date
     useEffect(() => {
         let usData = releaseDateData.filter(obj => obj['iso_3166_1'] === 'US');
         setUSReleaseDate(usData);
-    }, [releaseDateData])
-
-    // useEffect(() => {
-    //     if (!loading) {
-    //       console.log('MovieData:', movieData);
-    //       console.log('Release Date:', releaseDateData);
-    //       console.log('Credits:', creditData);
-    //     }
-    //   }, [loading, movieData, releaseDateData, creditData]);
+    }, [releaseDateData]);
 
     return (
         <div className='overview'>
@@ -49,7 +56,7 @@ const Overview = ({ movieID }) => {
                     {loading ? null : <TopBilledCast cast={creditData.cast} />}
                 </div>
                 <div className='dividerRight'>
-                    {loading ? null :<MovieStats stats={movieData} />}
+                    {loading ? null :<MovieStats languages={languages} stats={movieData} />}
                 </div>
             </div>            
         </div>
