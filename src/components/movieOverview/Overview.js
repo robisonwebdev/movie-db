@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import OverviewHeader from './OverviewHeader';
 import TopBilledCast from './TopBilledCast';
@@ -14,7 +14,7 @@ const Overview = ({ movieID }) => {
     const [releaseDateData, setReleaseDateData] = useState([]);
     const [usReleaseDate, setUSReleaseDate] = useState([]);
 
-    const fetchData = () => {
+    const fetchData = useCallback(() => {
         const movieAPI = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&append_to_response=release_dates,credits&&language=en-US`;
         const languagesAPI = ` https://api.themoviedb.org/3/configuration/languages?api_key=${apiKey}`;
 
@@ -36,11 +36,11 @@ const Overview = ({ movieID }) => {
                 setLoading(false);
             }))
             .catch(err => console.log(err));
-    }
+    }, [apiKey, movieID]);
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [fetchData]);
 
     // Get US Release Date
     useEffect(() => {
