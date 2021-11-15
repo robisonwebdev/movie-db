@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 const MovieStats = ({ languages, stats }) => {
     const { budget, original_language, revenue, status } = stats;
