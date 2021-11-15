@@ -1,4 +1,5 @@
 import React from 'react';
+import SliderNav from './SliderNav';
 
 const Discover = ({ className, title }) => {
     return (
@@ -6,7 +7,7 @@ const Discover = ({ className, title }) => {
             <div className={className}>
                 <div className={'discover_header'}>
                     <h2>{title}</h2>
-                    {/* nav slider */}
+                    <SliderNav />
                 </div>
                 <div className={'discover_content'}>
                     {/* Cards */}
