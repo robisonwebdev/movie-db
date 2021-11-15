@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MediaDiscover = ({ className, title }) => {
+const Discover = ({ className, title }) => {
     return (
         <section className='discover'>
             <div className={className}>
@@ -16,4 +16,4 @@ const MediaDiscover = ({ className, title }) => {
     )
 };
 
-export default MediaDiscover;
+export default Discover;
