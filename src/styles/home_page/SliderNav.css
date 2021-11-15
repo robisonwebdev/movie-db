@@ -1,0 +1,19 @@
+.sliderNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    height: 100%;
+    width: auto;
+}
+
+.sliderNav ul {
+    border: 1px solid #032541;
+    border-radius: 25px;
+    padding: 3px 10px;
+}
+
+.sliderNav ul li {
+    padding: 0 10px;
+}
