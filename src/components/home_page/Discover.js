@@ -2,10 +2,10 @@ import React from 'react';
 import SliderNav from './SliderNav';
 import '../../styles/home_page/Discover.css';
 
-const Discover = ({ className, selectors, title }) => {
+const Discover = ({ selectors, title }) => {
     return (
         <section className='discover'>
-            <div className={className}>
+            <div className='discover_container'>
                 <div className={'discover_header'}>
                     <h2>{title}</h2>
                     <SliderNav selectors={selectors}  />
