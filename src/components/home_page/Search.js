@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Search.css';
+import '../../styles/home_page/Search.css';
 
 const Search = () => {
     const handleSubmit = (event) => {
