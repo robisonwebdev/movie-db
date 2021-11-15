@@ -1,5 +1,6 @@
 import React from 'react';
 import SliderNav from './SliderNav';
+import '../../styles/home_page/Discover.css';
 
 const Discover = ({ className, selectors, title }) => {
     return (
