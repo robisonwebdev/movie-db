@@ -7,7 +7,11 @@ const Home = () => {
     return (
         <div className='home'>
             <Welcome />
-            <Discover className='whatsPopular' title="What's Popular" />
+            <Discover
+                className='whatsPopular'
+                selectors={['On TV', 'For Rent', 'In Theaters']}
+                title="What's Popular"
+            />
         </div>
     )
 };
