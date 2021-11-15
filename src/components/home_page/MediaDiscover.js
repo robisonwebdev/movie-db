@@ -1,10 +1,18 @@
 import React from 'react';
 
-const MediaDiscover = () => {
+const MediaDiscover = ({ className, title }) => {
     return (
-        <div>
-            Media Discover
-        </div>
+        <section className='discover'>
+            <div className={className}>
+                <div className={'discover_header'}>
+                    <h2>{title}</h2>
+                    {/* nav slider */}
+                </div>
+                <div className={'discover_content'}>
+                    {/* Cards */}
+                </div>
+            </div>
+        </section>
     )
 };
 
