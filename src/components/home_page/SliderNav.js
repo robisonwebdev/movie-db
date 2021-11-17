@@ -1,9 +1,9 @@
 import React from 'react';
 import '../../styles/home_page/SliderNav.css';
 
-const SliderNav = ({ selectors }) => {
+const SliderNav = ({ onClick, selectors }) => {
     const buildNav = selectors.map(selector => {
-        return <li key={selector}>{selector}</li>;
+        return <li key={selector} onClick={() => onClick(selector)}>{selector}</li>;
     });
 
     return (
