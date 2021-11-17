@@ -7,30 +7,56 @@ import '../../styles/home_page/Home.css';
 const Home = () => {
     const [apiKey] = useState('9289aca3a6413b200619b263ac82e4c0');
     const [loading, setLoading] = useState(true);
-    const [popularMovies, setPopularMovies] = useState([]);
-    const [popularShows, setPopularShows] = useState([]);
+    const [whatsPopular, setWhatsPopular] = useState();
+    const [popularOnTV, setPopularOnTV] = useState([]);
+    const [popularForRent, setPopularForRent] = useState([]);
+    const [popularStreaming, setPopularStreaming] = useState([]);
+    const [popularStreamingMovies, setPopularStreamingMovies] = useState([]);
+    const [popularStreamingShows, setPopularStreamingShows] = useState([]);
     const [popularInTheaters, setPopularInTheaters] = useState([]);
 
-    const fetchData = useCallback(() => {
-        const moviesAPI = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
-        const showsAPI = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=en-US&page=1`;
-        const theatersAPI = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&sort_by=popularity.desc`;
+    const handleSelectors = (selector) => {
+        if (selector === 'On TV') {
+            setWhatsPopular(popularOnTV);
+        }
 
-        const getMoviesData = axios.get(moviesAPI);
-        const getShowsData = axios.get(showsAPI);
+        if (selector === 'For Rent') {
+            setWhatsPopular(popularForRent);
+        }
+
+        if (selector === 'In Theaters') {
+            setWhatsPopular(popularInTheaters);
+        }
+    }
+
+    const fetchData = useCallback(() => {
+        const streamingMoviesAPI = ` https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`;
+        const streamingShowsAPI = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_monetization_types=flatrate`;
+        const TVAPI = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=en-US&page=1`;
+        const forRentAPI = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_watch_monetization_types=rent`;
+        const theatersAPI = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
+
+        const getStreamingMoviesData = axios.get(streamingMoviesAPI);
+        const getStreamingShowsData = axios.get(streamingShowsAPI);
+        const getTVData = axios.get(TVAPI);
+        const getForRentData = axios.get(forRentAPI);
         const getTheathersData = axios.get(theatersAPI);
 
         setLoading(true);
 
         axios
-            .all([getMoviesData, getShowsData, getTheathersData])
+            .all([getStreamingMoviesData, getStreamingShowsData, getTVData, getForRentData, getTheathersData])
             .then(axios.spread((...allData) => {
-                const moviesData = allData[0].data;
-                const showsData = allData[1].data;
-                const theatersData = allData[2].data;
+                const streamingMoviesData = allData[0].data;
+                const streamingShowsData = allData[1].data;
+                const TVData = allData[2].data;
+                const forRentData = allData[3].data;
+                const theatersData = allData[4].data;
 
-                setPopularMovies(moviesData);
-                setPopularShows(showsData);
+                setPopularStreamingMovies(streamingMoviesData)
+                setPopularStreamingShows(streamingShowsData)
+                setPopularOnTV(TVData);
+                setPopularForRent(forRentData);
                 setPopularInTheaters(theatersData);
                 setLoading(false);
             }))
@@ -43,22 +69,28 @@ const Home = () => {
 
     useEffect(() => {
         if (!loading) {
-            console.log('Movies', popularMovies);
-            console.log('Shows', popularShows);
+            console.log('Streaming Movie', popularStreamingMovies);
+            console.log('Streaming Shows', popularStreamingShows);
+            console.log('TV', popularOnTV);
+            console.log('For Rent', popularForRent);
             console.log('Theater', popularInTheaters);
         }
-    }, [loading, popularShows, popularMovies, popularInTheaters]);
+    }, [loading, popularStreamingMovies, popularStreamingShows, popularOnTV, popularForRent, popularInTheaters]);
 
     return (
         <div className='home'>
             <Welcome />
-            <Discover
-                className='whatsPopular'
-                movies={loading ? null : popularMovies}
-                shows={loading ? null : popularShows}
-                selectors={['On TV', 'For Rent', 'In Theaters']}
-                title="What's Popular"
-            />
+            {loading
+                ?   null
+                :   <Discover
+                        className='whatsPopular'
+                        handleSelectors={handleSelectors}
+                        items={whatsPopular || popularOnTV}
+                        loading={loading}
+                        selectors={['On TV', 'For Rent', 'In Theaters']}
+                        title="What's Popular"
+                    />
+            }
         </div>
     )
 };
