@@ -1,17 +1,22 @@
 import React from 'react';
 import SliderNav from './SliderNav';
+import Card from './Card';
 import '../../styles/home_page/Discover.css';
 
-const Discover = ({ selectors, title }) => {
+const Discover = ({ handleSelectors, items, selectors, title }) => {
+    const buildCards = items.results.map(item => {
+        return <Card media={item} />
+    })
+
     return (
         <section className='discover'>
             <div className='discover_container'>
                 <div className={'discover_header'}>
                     <h2>{title}</h2>
-                    <SliderNav selectors={selectors}  />
+                    <SliderNav onClick={handleSelectors} selectors={selectors}  />
                 </div>
                 <div className={'discover_content'}>
-                    {/* Cards */}
+                    {buildCards}
                 </div>
             </div>
         </section>
