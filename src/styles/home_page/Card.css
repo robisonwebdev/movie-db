@@ -1,34 +1,31 @@
 .card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
 
-    border: 1px solid #e3e3e3;
-    border-radius: 8px;
-    box-shadow: 0px 0px 3px 2px #efefef;
-    height: auto;
-    width: 185px;
+    height: 100%;
+    width: 147px;
 }
 
 .card img {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    width: 183px;
+    border-radius: 8px;
+    height: 225px;
+    width: 145px;
 }
 
 .cardContent {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
-    flex: 1 1 100px;
+    justify-content: center;
 
-    background-color: white;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    font-size: 12px;
+    font-size: 15px;
     padding: 20px 10px;
-    height: 100%;
-    width: 183px;
+    height: auto;
+    width: 145px;
+}
+
+.showDate {
+    color: #666666;
 }
