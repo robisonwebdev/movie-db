@@ -5,7 +5,7 @@ import '../../styles/home_page/Discover.css';
 
 const Discover = ({ handleSelectors, items, selectors, title }) => {
     const buildCards = items.results.map(item => {
-        return <Card media={item} />
+        return <Card key={item.id} media={item} />
     })
 
     return (
