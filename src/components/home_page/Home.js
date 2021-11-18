@@ -7,6 +7,8 @@ import '../../styles/home_page/Home.css';
 const Home = () => {
     const [apiKey] = useState('9289aca3a6413b200619b263ac82e4c0');
     const [freeMovies, setFreeMovies] = useState([]);
+    const [freeTV, setFreeTV] = useState([]);
+    const [freeToWatch, setFreeToWatch] = useState();
     const [loading, setLoading] = useState(true);
     const [whatsPopular, setWhatsPopular] = useState();
     const [popularOnTV, setPopularOnTV] = useState([]);
@@ -28,6 +30,14 @@ const Home = () => {
         if (selector === 'In Theaters') {
             setWhatsPopular(popularInTheaters);
         }
+
+        if (selector === 'Movies') {
+            setFreeToWatch(freeMovies);
+        }
+
+        if (selector === 'TV') {
+            setFreeToWatch(freeTV);
+        }
     }
 
     const fetchData = useCallback(() => {
@@ -37,6 +47,7 @@ const Home = () => {
         const forRentAPI = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&watch_region=US&with_watch_monetization_types=rent`;
         const theatersAPI = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
         const freeMoviesAPI = ` https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&watch_region=US&with_watch_monetization_types=free`;
+        const freeTVAPI = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&watch_region=US&with_watch_monetization_types=free`;
 
         const getStreamingMoviesData = axios.get(streamingMoviesAPI);
         const getStreamingShowsData = axios.get(streamingShowsAPI);
@@ -44,11 +55,12 @@ const Home = () => {
         const getForRentData = axios.get(forRentAPI);
         const getTheathersData = axios.get(theatersAPI);
         const getFreeMovies = axios.get(freeMoviesAPI);
+        const getFreeTV = axios.get(freeTVAPI);
 
         setLoading(true);
 
         axios
-            .all([getStreamingMoviesData, getStreamingShowsData, getTVData, getForRentData, getTheathersData, getFreeMovies])
+            .all([getStreamingMoviesData, getStreamingShowsData, getTVData, getForRentData, getTheathersData, getFreeMovies, getFreeTV])
             .then(axios.spread((...allData) => {
                 const streamingMoviesData = allData[0].data;
                 const streamingShowsData = allData[1].data;
@@ -56,6 +68,7 @@ const Home = () => {
                 const forRentData = allData[3].data;
                 const theatersData = allData[4].data;
                 const freeMoviesData = allData[5].data;
+                const freeTVData = allData[6].data;
 
                 setPopularStreamingMovies(streamingMoviesData)
                 setPopularStreamingShows(streamingShowsData)
@@ -63,6 +76,7 @@ const Home = () => {
                 setPopularForRent(forRentData);
                 setPopularInTheaters(theatersData);
                 setFreeMovies(freeMoviesData);
+                setFreeTV(freeTVData);
                 setLoading(false);
             }))
             .catch(err => console.log(err))
@@ -101,7 +115,7 @@ const Home = () => {
                 :   <Discover 
                         className='freeToWatch'
                         handleSelectors={handleSelectors}
-                        items={freeMovies}
+                        items={freeToWatch || freeMovies}
                         selectors={['Movies', 'TV']}
                         title='Free To Watch'
                     />    
