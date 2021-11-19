@@ -1,10 +1,10 @@
 import React from 'react';
-import Card from './Card';
-import '../styles/ResultPanel.css';
+import Card from '../Home/Card';
+import '../../styles/ResultPanel.css';
 
 const ResultPanel = ({ movies }) => {
     const generateMovieList = movies.map(movie => {
-        return <Card key={movie.id} movie={movie} />
+        return <Card key={movie.id} media={movie} />
     })
 
     return (
