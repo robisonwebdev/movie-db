@@ -3,7 +3,7 @@ import axios from 'axios';
 import OverviewHeader from './OverviewHeader';
 import TopBilledCast from './TopBilledCast';
 import MovieStats from './MovieStats';
-import '../../styles/movieOverview/Overview.css';
+import '../../styles/Movies/Overview.css';
 
 const Overview = ({ movieID }) => {
     const [apiKey] = useState('9289aca3a6413b200619b263ac82e4c0');

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CastCard from './CastCard';
-import '../../styles/movieOverview/TopBilledCast.css';
+import '../../styles/Movies/TopBilledCast.css';
 
 const TopBilledCast = ({ cast }) => {
     const [topCast] = useState(cast.slice(0, 9));
