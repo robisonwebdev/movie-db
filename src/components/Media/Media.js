@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import FilterPanel from './FilterPanel';
-import ResultPanel from './ResultPanel';
-import '../styles/DisplayPage.css';
+import FilterPanel from '../FilterPanel';
+import ResultPanel from '../ResultPanel';
+import '../../styles/DisplayPage.css';
 
-const DisplayPage = ({ movies, title }) => {
+const Media = ({ movies, title }) => {
     const [sortBy, setSortBy] = useState('pop_des');
 
     return (
@@ -17,4 +17,4 @@ const DisplayPage = ({ movies, title }) => {
     )
 };
 
-export default DisplayPage;
+export default Media;
