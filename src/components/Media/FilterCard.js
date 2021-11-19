@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/FilterCard.css';
+import '../../styles/Media/FilterCard.css';
 
 const FilterCard = ({ component, title }) => {
     const [openCard, setOpenCard] = useState(false);
