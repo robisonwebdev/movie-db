@@ -2,7 +2,7 @@ import React from 'react';
 import OverviewPoster from './OverviewPoster';
 import Crew from './Crew';
 import Description from './Description';
-import OverviewTitle from './OverviewTitle';
+import Title from './Title';
 import '../../styles/Overview/OverviewHeader.css';
 
 const OverviewHeader = ({ credits, movie, releaseDate }) => {
@@ -19,7 +19,7 @@ const OverviewHeader = ({ credits, movie, releaseDate }) => {
             <div className='overviewHeaderContent'>
                 <OverviewPoster movie={movie} />
                 <div className='overviewHeaderInfo'>
-                    <OverviewTitle
+                    <Title
                         movie={movie}
                         releaseDate={releaseDate}
                     />
