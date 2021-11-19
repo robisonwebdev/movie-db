@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FilterCard from '../FilterCard';
+import FilterCard from './FilterCard';
 import Button from '../Button';
 import Sort from '../Sort';
 import '../../styles/Media/FilterPanel.css';
