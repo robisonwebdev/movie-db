@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Movies/OverviewDescription.css';
+import '../../styles/Overview/OverviewDescription.css';
 
 const OverviewDescription = ({ description, tagline }) => {
     return (

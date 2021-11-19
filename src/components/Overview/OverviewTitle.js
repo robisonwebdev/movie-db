@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Movies/OverviewTitle.css';
+import '../../styles/Overview/OverviewTitle.css';
 
 const OverviewTitle = ({ movie, releaseDate }) => {
     const title = movie.title;

@@ -3,7 +3,7 @@ import OverviewPoster from './OverviewPoster';
 import OverviewCrew from './OverviewCrew';
 import OverviewDescription from './OverviewDescription';
 import OverviewTitle from './OverviewTitle';
-import '../../styles/Movies/OverviewHeader.css';
+import '../../styles/Overview/OverviewHeader.css';
 
 const OverviewHeader = ({ credits, movie, releaseDate }) => {
     const backdropImage = `http://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
