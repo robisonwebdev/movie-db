@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
-import OverviewHeader from './OverviewHeader';
+import Header from './Header';
 import TopBilledCast from './TopBilledCast';
 import MovieStats from './MovieStats';
 import '../../styles/Overview/Overview.css';
@@ -50,7 +50,7 @@ const Overview = ({ movieID }) => {
 
     return (
         <div className='overview'>
-            {loading ? null : <OverviewHeader credits={creditData} movie={movieData} releaseDate={usReleaseDate} />}
+            {loading ? null : <Header credits={creditData} movie={movieData} releaseDate={usReleaseDate} />}
             <div className='overviewDivider'>
                 <div className='dividerLeft'>
                     {loading ? null : <TopBilledCast cast={creditData.cast} />}
