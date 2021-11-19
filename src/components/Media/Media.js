@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FilterPanel from './FilterPanel';
-import ResultPanel from '../ResultPanel';
+import ResultPanel from './ResultPanel';
 import '../../styles/DisplayPage.css';
 
 const Media = ({ movies, title }) => {
