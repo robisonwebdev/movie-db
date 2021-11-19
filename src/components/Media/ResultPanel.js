@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../Home/Card';
-import '../../styles/ResultPanel.css';
+import '../../styles/Media/ResultPanel.css';
 
 const ResultPanel = ({ movies }) => {
     const generateMovieList = movies.map(movie => {
