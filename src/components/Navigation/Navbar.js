@@ -1,7 +1,7 @@
 import React from 'react';
 import NavLink from './NavLink';
 import Logo from './Logo';
-import '../styles/Navbar.css';
+import '../../styles/Navigation/Navbar.css';
 
 const Nav = () => {
     return (
