@@ -1,6 +1,6 @@
 import React from 'react';
 import ShowDate from './ShowDate';
-import '../../styles/home_page/Card.css';
+import '../../styles/Home/Card.css';
 
 const Card = ({ media }) => {
     const airDate = media.first_air_date;

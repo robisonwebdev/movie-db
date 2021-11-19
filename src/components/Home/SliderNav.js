@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/home_page/SliderNav.css';
+import '../../styles/Home/SliderNav.css';
 
 const SliderNav = ({ onClick, selectors }) => {
     const buildNav = selectors.map(selector => {

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import Welcome from './Welcome';
 import Discover from './Discover';
-import '../../styles/home_page/Home.css';
+import '../../styles/Home/Home.css';
 
 const Home = () => {
     const [apiKey] = useState('9289aca3a6413b200619b263ac82e4c0');

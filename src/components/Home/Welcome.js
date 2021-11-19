@@ -1,6 +1,6 @@
 import React from 'react';
 import Search from './Search';
-import '../../styles/home_page/Welcome.css';
+import '../../styles/Home/Welcome.css';
 
 const Welcome = () => {
     return (

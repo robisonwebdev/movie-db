@@ -1,7 +1,7 @@
 import React from 'react';
 import SliderNav from './SliderNav';
 import Card from './Card';
-import '../../styles/home_page/Discover.css';
+import '../../styles/Home/Discover.css';
 
 const Discover = ({ handleSelectors, items, selectors, title }) => {
     const buildCards = items.results.map(item => {
