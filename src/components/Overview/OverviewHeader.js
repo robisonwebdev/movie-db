@@ -1,5 +1,5 @@
 import React from 'react';
-import OverviewPoster from './OverviewPoster';
+import Poster from './Poster';
 import Crew from './Crew';
 import Description from './Description';
 import Title from './Title';
@@ -17,7 +17,7 @@ const OverviewHeader = ({ credits, movie, releaseDate }) => {
     return (
         <div className='overviewHeader'  style={backdropStyle}>
             <div className='overviewHeaderContent'>
-                <OverviewPoster movie={movie} />
+                <Poster movie={movie} />
                 <div className='overviewHeaderInfo'>
                     <Title
                         movie={movie}
