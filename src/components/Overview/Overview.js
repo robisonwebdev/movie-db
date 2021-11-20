@@ -4,8 +4,9 @@ import Header from './Header';
 import TopBilledCast from './TopBilledCast';
 import MovieStats from './MovieStats';
 import '../../styles/Overview/Overview.css';
+import { useParams } from 'react-router-dom';
 
-const Overview = ({ movieID }) => {
+const Overview = () => {
     const [apiKey] = useState('9289aca3a6413b200619b263ac82e4c0');
     const [creditData, setCreditData] = useState([]);
     const [languages, setLanguages] = useState([]);
@@ -14,8 +15,10 @@ const Overview = ({ movieID }) => {
     const [releaseDateData, setReleaseDateData] = useState([]);
     const [usReleaseDate, setUSReleaseDate] = useState([]);
 
+    const { id } = useParams();
+
     const fetchData = useCallback(() => {
-        const movieAPI = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&append_to_response=release_dates,credits&&language=en-US`;
+        const movieAPI = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&append_to_response=release_dates,credits&&language=en-US`;
         const languagesAPI = ` https://api.themoviedb.org/3/configuration/languages?api_key=${apiKey}`;
 
         const getMovie_Data = axios.get(movieAPI);
@@ -36,7 +39,7 @@ const Overview = ({ movieID }) => {
                 setLoading(false);
             }))
             .catch(err => console.log(err));
-    }, [apiKey, movieID]);
+    }, [apiKey, id]);
 
     useEffect(() => {
         fetchData();
