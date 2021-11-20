@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import Home from './Home/Home';
+import Overview from './Overview/Overview';
+import Media from './Media/Media';
 import '../styles/Main.css';
 
 const Main = () => {
@@ -30,8 +33,20 @@ const Main = () => {
   }, [loading, popularMovies]);
 
   return (
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path='movies' element={<Media movies={popularMovies} title='Popular Movies' />} />
+        <Route path='shows' element={<Media movies={popularMovies} title='Popular TV Shows' />} />
+      </Route>
+    </Routes>
+  );
+}
+
+const Layout = () => {
+  return (
     <main>
-      {loading ? null : <Home />}
+      <Outlet />
     </main>
   );
 }
