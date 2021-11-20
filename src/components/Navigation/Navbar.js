@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NavLink from './NavLink';
 import Logo from './Logo';
 import '../../styles/Navigation/Navbar.css';
@@ -6,10 +7,10 @@ import '../../styles/Navigation/Navbar.css';
 const Nav = () => {
     return (
         <nav>
-            <Logo />
+            <Link to='/'><Logo /></Link>
             <ul>
-                <NavLink linkName='Movies' />
-                <NavLink linkName='TV Shows' />
+                <Link to='/movies'><NavLink linkName='Movies' /></Link>
+                <Link to='/shows'><NavLink linkName='TV Shows' /></Link>                
             </ul>
         </nav>
     )
