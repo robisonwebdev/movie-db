@@ -25,6 +25,12 @@ const OverviewTitle = ({ movie, releaseDate }) => {
     const getCertification = () => {
         const apiPath = releaseDate[0]['release_dates'];
         const findCertification = apiPath.find(({ certification }) => certification !== '');
+        
+        // Temp Fix
+        if (findCertification === undefined) {
+            return '404';
+        }
+
         const certification = findCertification['certification'];
 
         return certification;
