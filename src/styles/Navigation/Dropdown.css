@@ -2,6 +2,11 @@
     position: relative;
 }
 
+.dropdown-title {
+    cursor: pointer;
+    padding: 10px;
+}
+
 .dropdown-menu {
     display: flex;
     flex-direction: column;
@@ -18,6 +23,7 @@
 }
 
 .dropdown-item {
+    cursor: pointer;
     background-color: azure;
     border: none;
     font-size: 14px;
