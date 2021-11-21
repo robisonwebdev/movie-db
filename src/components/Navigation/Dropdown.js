@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../../styles/Navigation/Dropdown.css';
 
 const Dropdown = ({ items, title }) => {
     const [show, setShow] = useState(false);
