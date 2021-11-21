@@ -8,9 +8,11 @@ const Navbar = () => {
     return (
         <nav>
             <Link to='/'><Logo /></Link>
-            <Dropdown items={['Popular', 'Now Playing', 'Upcoming', 'Top Rated']} title={'Movies'} />
-            <Dropdown items={['Popular', 'Airing Today', 'On TV', 'Top Rated']} title={'TV Shows'} />
-            <Dropdown items={['Popular People']} title={'People'} />
+            <div className='navMenus'>
+                <Dropdown items={['Popular', 'Now Playing', 'Upcoming', 'Top Rated']} title={'Movies'} />
+                <Dropdown items={['Popular', 'Airing Today', 'On TV', 'Top Rated']} title={'TV Shows'} />
+                <Dropdown items={['Popular People']} title={'People'} />
+            </div>
         </nav>
     )
 };
