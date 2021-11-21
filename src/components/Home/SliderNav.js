@@ -7,11 +7,11 @@ const SliderNav = ({ onClick, selectors }) => {
     });
 
     return (
-        <nav className='sliderNav'>
+        <div className='sliderNav'>
             <ul>
                 {buildNav}
             </ul>
-        </nav>
+        </div>
     )
 };
 
