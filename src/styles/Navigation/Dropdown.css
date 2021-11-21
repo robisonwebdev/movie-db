@@ -2,10 +2,6 @@
     position: relative;
 }
 
-.dropdown-show {
-    display: none;
-}
-
 .dropdown-menu {
     display: flex;
     flex-direction: column;
