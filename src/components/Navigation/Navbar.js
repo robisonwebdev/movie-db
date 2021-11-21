@@ -1,19 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavLink from './NavLink';
 import Logo from './Logo';
+import Dropdown from './Dropdown';
 import '../../styles/Navigation/Navbar.css';
 
-const Nav = () => {
+const Navbar = () => {
     return (
         <nav>
             <Link to='/'><Logo /></Link>
-            <ul>
-                <Link to='/movies'><NavLink linkName='Movies' /></Link>
-                <Link to='/shows'><NavLink linkName='TV Shows' /></Link>                
-            </ul>
+            <Dropdown items={['Popular', 'Now Playing', 'Upcoming', 'Top Rated']} title={'Movies'} />
+            <Dropdown items={['Popular', 'Airing Today', 'On TV', 'Top Rated']} title={'TV Shows'} />
+            <Dropdown items={['Popular People']} title={'People'} />
         </nav>
     )
-}
+};
 
-export default Nav;
+
+
+export default Navbar;
