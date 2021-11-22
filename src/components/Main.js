@@ -36,17 +36,24 @@ const Main = () => {
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path='movies/popular' element={<Media movies={popularMovies} title='Popular Movies' />} />
-        <Route path='movies/now_playing' element={<Media movies={popularMovies} title='Now Playing' />} />
-        <Route path='movies/upcoming' element={<Media movies={popularMovies} title='Upcoming' />} />
-        <Route path='movies/top_rated' element={<Media movies={popularMovies} title='Top Rated' />} />
-        <Route path='tv_shows/popular' element={<Media movies={popularMovies} title='Popular TV Shows' />} />
-        <Route path='tv_shows/airing_today' element={<Media movies={popularMovies} title='Airing Today' />} />
-        <Route path='tv_shows/on_tv' element={<Media movies={popularMovies} title='On TV' />} />
-        <Route path='tv_shows/top_rated' element={<Media movies={popularMovies} title='Top Rated' />} />
-        <Route path='people/popular_people' element={<Media movies={popularMovies} title='Popular People' />} />
-        <Route path='movie/:id' element={<Overview format='movie' />} />
-        <Route path='tv/:id' element={<Overview format='tv' />} />
+
+        <Route path='/movies' element={<Layout />}>
+          <Route path='/movies/popular' element={<Media movies={popularMovies} title='Popular Movies' />} />
+          <Route path='/movies/now_playing' element={<Media movies={popularMovies} title='Now Playing Movies' />} />
+          <Route path='/movies/upcoming' element={<Media movies={popularMovies} title='Upcoming Movies' />} />
+          <Route path='/movies/top_rated' element={<Media movies={popularMovies} title='Top Rated Movies' />} />
+        </Route>
+
+        <Route path='/shows' element={<Layout />}>
+          <Route path='/shows/popular' element={<Media movies={popularMovies} title='Popular TV Shows' />} />
+          <Route path='/shows/airing_today' element={<Media movies={popularMovies} title='TV Shows Airing Today' />} />
+          <Route path='/shows/on_tv' element={<Media movies={popularMovies} title='Currently Airing TV Shows' />} />
+          <Route path='/shows/top_rated' element={<Media movies={popularMovies} title='Top Rated TV Shows' />} />
+        </Route>
+
+        <Route path='/person' element={<Layout />}>
+          <Route path='/person/popular_people' element={<p>People</p>} />
+        </Route>
       </Route>
     </Routes>
   );
