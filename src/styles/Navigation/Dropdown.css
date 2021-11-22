@@ -4,6 +4,7 @@
 
 .dropdown-title {
     cursor: pointer;
+    font-weight: bold;
     padding: 10px;
 }
 
@@ -19,6 +20,10 @@
     position: absolute;
 
     width: 173px;
+}
+
+.dropdown-link {
+    width: 100%;
 }
 
 .dropdown-item {
