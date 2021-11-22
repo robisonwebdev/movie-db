@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import DropdownItem from "./DropdownItem";
 import '../../styles/Navigation/Dropdown.css';
 
-const Dropdown = ({ items, title }) => {
+const Dropdown = ({ items, path, title }) => {
     const [show, setShow] = useState(false);
 
     const buildButtons = items.map(item => {
-        const item_link_path = item.replace(/\s/g, "_").toLowerCase();
-        const title_link_path = title.replace(/\s/g, "_").toLowerCase();
-
-        return <Link className='dropdown-link' to={`${title_link_path}/${item_link_path}`} key={`${title}_${item}`}><DropdownItem item={item} /></Link>
+        return <DropdownItem item={item} path={path} title={title}  />
     });
 
     return (
@@ -20,12 +17,6 @@ const Dropdown = ({ items, title }) => {
                 : null
             }            
         </div>
-    );
-};
-
-const DropdownItem = ({ item }) => {
-    return (
-        <button className='dropdown-item'>{item}</button>
     );
 };
 
