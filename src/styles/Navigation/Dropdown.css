@@ -4,6 +4,7 @@
 
 .dropdown-title {
     cursor: pointer;
+    font-size: 15px;
     font-weight: bold;
     padding: 10px;
 }
@@ -16,7 +17,7 @@
 
     background-color: #fff;
     border-radius: 5px;
-    padding: 15px 0;
+    padding: 8px 0;
     position: absolute;
 
     width: 173px;
@@ -30,9 +31,9 @@
     cursor: pointer;
     background-color: #fff;
     border: none;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: normal;
-    padding: 5px 15px;
+    padding: 8px 15px;
     text-align: left;
     width: 100%;
 }
