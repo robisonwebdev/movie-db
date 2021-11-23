@@ -6,7 +6,7 @@ const Dropdown = ({ items, path, title }) => {
     const [show, setShow] = useState(false);
 
     const buildButtons = items.map(item => {
-        return <DropdownItem item={item} path={path} title={title}  />
+        return <DropdownItem key={`${path}_${item}`} item={item} path={path} title={title}  />
     });
 
     return (

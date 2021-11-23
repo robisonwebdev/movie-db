@@ -5,7 +5,7 @@ const DropdownItem = ({ item, path, title }) => {
     const childPath = item.replace(/\s/g, "_").toLowerCase();
 
     return (
-        <Link className='dropdown-link' to={`/${path}/${childPath}`} key={`${title}_${item}`}>
+        <Link className='dropdown-link' to={`/${path}/${childPath}`}>
             <button className='dropdown-item'>{item}</button>
         </Link>
     );
