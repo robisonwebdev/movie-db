@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import Home from './Home/Home';
 import Media from './Media/Media';
+import Overview from '../components/Overview/Overview';
 import '../styles/Main.css';
 
 const Main = () => {
@@ -16,6 +17,10 @@ const Main = () => {
           <Route path='/movies/upcoming' element={<Media format='movie' get='upcoming' title='Upcoming Movies' />} />
           <Route path='/movies/top_rated' element={<Media format='movie' get='top_rated' title='Top Rated Movies' />} />
           <Route index element={<Media format='movie' get='popular' title='Popular Movies' />} />
+        </Route>
+
+        <Route path='/movie' element={<Layout />}>
+          <Route path='/movie/:id' element={<Overview />} />
         </Route>
 
         <Route path='/shows' element={<Layout />}>
