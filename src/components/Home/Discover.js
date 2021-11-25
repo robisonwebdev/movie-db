@@ -1,11 +1,16 @@
 import React from 'react';
+import { Routes, Route, Outlet, Link } from 'react-router-dom';
 import SliderNav from './SliderNav';
 import Card from './Card';
 import '../../styles/Home/Discover.css';
 
-const Discover = ({ handleSelectors, items, selectors, title }) => {
-    const buildCards = items.results.map(item => {
-        return <Card key={item.id} media={item} />
+const Discover = ({ format, handleSelectors, media, selectors, title }) => {
+    const buildCards = media.map(item => {
+        if (format === 'movie') {
+            return <Link key={item.id} to={`movie/${item.id}`}><Card media={item} /></Link>
+        }
+        
+       return <Link key={item.id} to={`tv/${item.id}`}><Card media={item} /></Link>
     })
 
     return (
@@ -24,3 +29,5 @@ const Discover = ({ handleSelectors, items, selectors, title }) => {
 };
 
 export default Discover;
+
+
