@@ -6,6 +6,7 @@ import '../../styles/Home/Home.css';
 
 const Home = () => {
     const [apiKey] = useState('9289aca3a6413b200619b263ac82e4c0');
+    const [format, setFormat] = useState()
     const [freeMovies, setFreeMovies] = useState([]);
     const [freeTV, setFreeTV] = useState([]);
     const [freeToWatch, setFreeToWatch] = useState();
@@ -21,22 +22,27 @@ const Home = () => {
     const handleSelectors = (selector) => {
         if (selector === 'On TV') {
             setWhatsPopular(popularOnTV);
+            setFormat('tv');
         }
 
         if (selector === 'For Rent') {
             setWhatsPopular(popularForRent);
+            setFormat('movie');
         }
 
         if (selector === 'In Theaters') {
             setWhatsPopular(popularInTheaters);
+            setFormat('movie');
         }
 
         if (selector === 'Movies') {
             setFreeToWatch(freeMovies);
+            setFormat('movie');
         }
 
         if (selector === 'TV') {
             setFreeToWatch(freeTV);
+            setFormat('tv');
         }
     }
 
@@ -113,6 +119,7 @@ useEffect(() => {
                 ?   null
                 :   <Discover
                         className='whatsPopular'
+                        format={format || 'tv'}
                         handleSelectors={handleSelectors}
                         media={whatsPopular || popularOnTV}
                         loading={loading}
@@ -124,6 +131,7 @@ useEffect(() => {
                 ?   null
                 :   <Discover 
                         className='freeToWatch'
+                        format={format || 'movie'}
                         handleSelectors={handleSelectors}
                         media={freeToWatch || freeMovies}
                         selectors={['Movies', 'TV']}
