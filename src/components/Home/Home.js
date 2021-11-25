@@ -40,14 +40,24 @@ const Home = () => {
         }
     }
 
-    const fetchData = useCallback(() => {
-        const streamingMoviesAPI = ` https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`;
-        const streamingShowsAPI = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_monetization_types=flatrate`;
-        const TVAPI = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&watch_region=US&with_watch_monetization_types=flatrate`;
-        const forRentAPI = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&watch_region=US&with_watch_monetization_types=rent`;
-        const theatersAPI = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
-        const freeMoviesAPI = ` https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&watch_region=US&with_watch_monetization_types=free`;
-        const freeTVAPI = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&watch_region=US&with_watch_monetization_types=free`;
+    const mediaAPI = (format, monetization, page, sort) => {
+        if (format === 'movie') {
+            return `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=${sort || 'popularity.desc'}&include_adult=true&include_video=false&page=${page || '1'}&watch_region=US&&with_watch_monetization_types=${monetization || 'flatrate'}`;
+        };
+    
+        if (format === 'tv') {
+            return `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=en-US&sort_by=${sort || 'popularity.desc'}&page=${page || '1'}&timezone=America%2FNew_York&include_null_first_air_dates=false&watch_region=US&with_watch_monetization_types=${monetization || 'flatrate'}&with_status=0&with_type=0`;
+        }
+    }
+
+    const fetchData = useCallback(() => {    
+        const streamingMoviesAPI = mediaAPI('movie', 'flatrate', 1, 'popularity.desc');
+        const streamingShowsAPI = mediaAPI('tv', 'flatrate', 1, 'popularity.desc');
+        const TVAPI = mediaAPI('tv', 'flatrate', 1, 'popularity.desc');
+        const forRentAPI = mediaAPI('movie', 'rent', 1, 'popularity.desc');
+        const theatersAPI = mediaAPI('movie', 'buy', 1, 'popularity.desc');
+        const freeMoviesAPI = mediaAPI('movie', 'free', 1, 'popularity.desc');
+        const freeTVAPI = mediaAPI('tv', 'free', 1, 'popularity.desc');
 
         const getStreamingMoviesData = axios.get(streamingMoviesAPI);
         const getStreamingShowsData = axios.get(streamingShowsAPI);
@@ -62,13 +72,13 @@ const Home = () => {
         axios
             .all([getStreamingMoviesData, getStreamingShowsData, getTVData, getForRentData, getTheathersData, getFreeMovies, getFreeTV])
             .then(axios.spread((...allData) => {
-                const streamingMoviesData = allData[0].data;
-                const streamingShowsData = allData[1].data;
-                const TVData = allData[2].data;
-                const forRentData = allData[3].data;
-                const theatersData = allData[4].data;
-                const freeMoviesData = allData[5].data;
-                const freeTVData = allData[6].data;
+                const streamingMoviesData = allData[0].data.results;
+                const streamingShowsData = allData[1].data.results;
+                const TVData = allData[2].data.results;
+                const forRentData = allData[3].data.results;
+                const theatersData = allData[4].data.results;
+                const freeMoviesData = allData[5].data.results;
+                const freeTVData = allData[6].data.results;
 
                 setPopularStreamingMovies(streamingMoviesData)
                 setPopularStreamingShows(streamingShowsData)
@@ -82,19 +92,19 @@ const Home = () => {
             .catch(err => console.log(err))
     }, [apiKey]);
 
-    useEffect(() => {
-        fetchData();
-    }, [fetchData]);
+useEffect(() => {
+    fetchData();
+}, [fetchData]);
 
-    useEffect(() => {
-        if (!loading) {
-            console.log('Streaming Movie', popularStreamingMovies);
-            console.log('Streaming Shows', popularStreamingShows);
-            console.log('TV', popularOnTV);
-            console.log('For Rent', popularForRent);
-            console.log('Theater', popularInTheaters);
-        }
-    }, [loading, popularStreamingMovies, popularStreamingShows, popularOnTV, popularForRent, popularInTheaters]);
+useEffect(() => {
+    if (!loading) {
+        console.log('Streaming Movie', popularStreamingMovies);
+        console.log('Streaming Shows', popularStreamingShows);
+        console.log('TV', popularOnTV);
+        console.log('For Rent', popularForRent);
+        console.log('Theater', popularInTheaters);
+    }
+}, [loading, popularStreamingMovies, popularStreamingShows, popularOnTV, popularForRent, popularInTheaters]);
 
     return (
         <div className='home'>
@@ -104,7 +114,7 @@ const Home = () => {
                 :   <Discover
                         className='whatsPopular'
                         handleSelectors={handleSelectors}
-                        items={whatsPopular || popularOnTV}
+                        media={whatsPopular || popularOnTV}
                         loading={loading}
                         selectors={['On TV', 'For Rent', 'In Theaters']}
                         title="What's Popular"
@@ -115,7 +125,7 @@ const Home = () => {
                 :   <Discover 
                         className='freeToWatch'
                         handleSelectors={handleSelectors}
-                        items={freeToWatch || freeMovies}
+                        media={freeToWatch || freeMovies}
                         selectors={['Movies', 'TV']}
                         title='Free To Watch'
                     />    
@@ -125,3 +135,5 @@ const Home = () => {
 };
 
 export default Home;
+
+
