@@ -4,6 +4,8 @@
     align-content: flex-start;
     justify-content: center;
 
+    border: 1px solid #e3e3e3;
+    box-shadow: 0px 0px 3px 2px #efefef;
     height: 100%;
     width: 100%;
 }
@@ -12,7 +14,11 @@
 
     object-fit: cover;
     height: 235px;
-    width: 235px;
+    max-width: 235px;
+}
+
+.personInfo {
+    padding: 10px 8px;
 }
 
 .noImage {
