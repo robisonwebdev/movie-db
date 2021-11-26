@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import Home from './Home/Home';
 import Media from './Media/Media';
+import People from './People/People';
 import Overview from '../components/Overview/Overview';
 import '../styles/Main.css';
 
@@ -32,8 +33,8 @@ const Main = () => {
         </Route>
 
         <Route path='/person' element={<Layout />}>
-          <Route path='/person/popular_people' element={<p>People</p>} />
-          <Route index element={<p>People</p>} />
+          <Route path='/person/popular_people' element={<People />} />
+          <Route index element={<People />} />
         </Route>
       </Route>
     </Routes>
