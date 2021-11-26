@@ -1,0 +1,20 @@
+.person {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
+}
+
+.person img {
+
+    object-fit: cover;
+    height: 235px;
+    width: 235px;
+}
+
+.noImage {
+    background-color: #dbdbdb;
+}
