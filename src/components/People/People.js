@@ -1,6 +1,6 @@
-import React, { useCallback, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import axios from 'axios';
-import { useEffect } from 'react/cjs/react.development';
+import '../../styles/People/People.css';
 
 const People = () => {
     const [apiKey] = useState('9289aca3a6413b200619b263ac82e4c0');
