@@ -2,11 +2,14 @@ import React, { useEffect, useCallback, useState } from 'react';
 import axios from 'axios';
 import Card from './Card';
 import '../../styles/People/People.css';
+import Pagination from '../Pagination';
 
 const People = () => {
     const [apiKey] = useState('9289aca3a6413b200619b263ac82e4c0');
+    const [currentPage, setCurrentPage] = useState(4);
     const [loading, setLoading] = useState(true);
     const [popularPeople, setPopularPeople] = useState([]);
+    const [totalPages, setTotalPages] = useState();
 
     const buildCards = popularPeople.map(person => {
         return <Card key={person.id} person={person} />
@@ -21,13 +24,14 @@ const People = () => {
         .get(peopleAPI)
         .then(res => {
             setPopularPeople(res.data.results);
+            setTotalPages(res.data.total_pages);
             setLoading(false);
         })
         .catch(err => console.log(err))
     }, [apiKey]);
 
     useEffect(() => {
-        fetchData('1');
+        fetchData(currentPage);
     }, [fetchData]);
 
     return (
@@ -36,6 +40,7 @@ const People = () => {
             <div className='people_content'>
                 {loading ? null : buildCards}
             </div>
+            <Pagination currentPage={currentPage} totalPages={totalPages} />
         </section>
     )
 };
