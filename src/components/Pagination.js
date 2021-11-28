@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Pagination.css';
 
-const TestPagination = ({ currentPage, totalPages }) => {
+const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
+    const [value, setValue] = useState(currentPage);
+
+    const handleDecrease = () => {
+        return value === 1 ? null : setValue(value - 1);
+    };
+
+    const handleIncrease = () => {
+        return value === 500 ? null : setValue(value + 1);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setCurrentPage(parseInt(value));
+    }
+
+    const onChange = (event) => {
+        setValue(event.target.value);
+    }
+
     return (
-        <nav></nav>
+        <form className='pagination' onSubmit={handleSubmit}>
+            <button type='submit'><i className='las la-angle-left' onClick={handleDecrease} /></button>
+            <input
+                onChange={onChange}
+                max={totalPages}
+                min='1'
+                type='number'
+                value={value}
+            />
+            <button type='submit'><i className='las la-angle-right' onClick={handleIncrease} /></button>
+        </form>
     )
 };
 
-export default TestPagination;
+export default Pagination;
