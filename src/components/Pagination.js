@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Pagination = () => {
+const TestPagination = ({ currentPage, totalPages }) => {
     return (
-        <nav>
-            
-        </nav>
+        <nav></nav>
     )
 };
 
-export default Pagination;
+export default TestPagination;
