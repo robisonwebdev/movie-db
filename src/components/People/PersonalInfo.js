@@ -29,23 +29,36 @@ const PersonalInfo = ({ person }) => {
     return (
         <div className='personalInfo'>
             <h3>Personal Info</h3>
-            <PersonalInfoSection info={person.known_for_department} title='Known For' />
-            <PersonalInfoSection info={'Temp Text'} title='Known Credits' />
-            <PersonalInfoSection info={getGender()} title='Gender' />
-            <PersonalInfoSection info={getBirthDay()} title='Birthday' />
-            <PersonalInfoSection info={person.place_of_birth} title='Place of Birth' />
-            <PersonalInfoSection info={'Temp Text'} title='Also Known As' />
+            <Info info={person.known_for_department} title='Known For' />
+            <Info info={'Temp Text'} title='Known Credits' />
+            <Info info={getGender()} title='Gender' />
+            <Info info={getBirthDay()} title='Birthday' />
+            <Info info={person.place_of_birth} title='Place of Birth' />
+            <AlsoKnownAs person={person} title='Also Known As' />
         </div>
     )
 };
 
 export default PersonalInfo;
 
-const PersonalInfoSection = ({ info, title}) => {
+const Info = ({ info, title}) => {
     return (
         <div>
             <h4>{title}</h4>
             <p>{info}</p>
+        </div>
+    );
+}
+
+const AlsoKnownAs = ({ person, title }) => {
+    const names = person.also_known_as.map(name => {
+        return <p>{name}</p>
+    });
+
+    return (
+        <div>
+            <h4>{title}</h4>
+            {names}
         </div>
     );
 }
