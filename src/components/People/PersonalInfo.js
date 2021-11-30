@@ -8,6 +8,22 @@ const PersonalInfo = ({ person }) => {
         const age = today.getFullYear() - birthDate.getFullYear();
 
         return `${person.birthday} (${age} years old)`;
+    };
+
+    const getGender = () => {
+        if (person.gender === 0) {
+            return 'Unspecified'
+        };
+
+        if (person.gender === 1) {
+            return 'Female'
+        };
+
+        if (person.gender === 2) {
+            return 'Male'
+        };
+
+        return null;
     }
 
     return (
@@ -15,9 +31,9 @@ const PersonalInfo = ({ person }) => {
             <h3>Personal Info</h3>
             <PersonalInfoSection info={person.known_for_department} title='Known For' />
             <PersonalInfoSection info={'Temp Text'} title='Known Credits' />
-            <PersonalInfoSection info={'Temp Text'} title='Gender' />
+            <PersonalInfoSection info={getGender()} title='Gender' />
             <PersonalInfoSection info={getBirthDay()} title='Birthday' />
-            <PersonalInfoSection info={'Temp Text'} title='Place of Birth' />
+            <PersonalInfoSection info={person.place_of_birth} title='Place of Birth' />
             <PersonalInfoSection info={'Temp Text'} title='Also Known As' />
         </div>
     )
