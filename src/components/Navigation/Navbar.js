@@ -11,7 +11,7 @@ const Navbar = () => {
             <div className='navMenus'>
                 <Dropdown items={['Popular', 'Now Playing', 'Upcoming', 'Top Rated']} path='movies' title={'Movies'} />
                 <Dropdown items={['Popular', 'Airing Today', 'On TV', 'Top Rated']} path='shows' title={'TV Shows'} />
-                <Dropdown items={['Popular People']} path='person' title={'People'} />
+                <Dropdown items={['Popular People']} path='people' title={'People'} />
             </div>
         </nav>
     )
