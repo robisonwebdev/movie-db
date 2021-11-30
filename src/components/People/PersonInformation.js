@@ -4,7 +4,8 @@ import '../../styles/People/PersonInformation.css';
 const PersonInformation = () => {
     return (
         <div className='personInformaiton'>
-            Person Information
+            <div className='personInformation_left'>Left</div>
+            <div className='personInformation_right'>Right</div>
         </div>
     )
 };
