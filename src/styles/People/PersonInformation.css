@@ -5,6 +5,29 @@
     align-items: flex-start;
 
     height: 100%;
+    width: 75%;
+}
+
+.personInformation_left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 30px;
+
+    background-color: bisque;
+    height: 100%;
     width: auto;
 }
 
+.personInformation_left img {
+    border-radius: 8px;
+    object-fit: cover;
+    height: auto;
+    width: 300px;
+}
+
+.personInformation_right {
+    height: 100%;
+    width: 75%;
+}
