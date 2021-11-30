@@ -5,6 +5,7 @@ import Media from './Media/Media';
 import People from './People/People';
 import Overview from '../components/Overview/Overview';
 import '../styles/Main.css';
+import PersonInformation from './People/PersonInformation';
 
 const Main = () => {
   return (
@@ -35,6 +36,7 @@ const Main = () => {
 
       <Route path='/person' element={<Layout />}>
         <Route path='/person/popular_people' element={<People />} />
+        <Route path='person/:id' element={<PersonInformation />} />
         <Route index element={<People />} />
       </Route>
     </Routes>
