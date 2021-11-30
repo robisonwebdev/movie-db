@@ -4,7 +4,7 @@ import '../../styles/People/PersonalInfo.css';
 const PersonalInfo = () => {
     return (
         <div className='personalInfo'>
-            <h2>Personal Info</h2>
+            <h3>Personal Info</h3>
             <PersonalInfoSection info={'Temp Text'} title='Known For' />
             <PersonalInfoSection info={'Temp Text'} title='Known Credits' />
             <PersonalInfoSection info={'Temp Text'} title='Gender' />
@@ -20,7 +20,7 @@ export default PersonalInfo;
 const PersonalInfoSection = ({ info, title}) => {
     return (
         <div>
-            <h3>{title}</h3>
+            <h4>{title}</h4>
             <p>{info}</p>
         </div>
     );
