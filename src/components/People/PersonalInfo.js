@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/People/PersonalInfo.css';
 
-const PersonalInfo = ({ person }) => {
+const PersonalInfo = ({ combinedCredits, person }) => {
     const getBirthDay = () => {
         const today = new Date();
         const birthDate = new Date(person.birthday);
@@ -9,6 +9,10 @@ const PersonalInfo = ({ person }) => {
 
         return `${person.birthday} (${age} years old)`;
     };
+
+    const getKnownCredits = () => {
+        return combinedCredits.cast.length;
+    }
 
     const getGender = () => {
         if (person.gender === 0) {
@@ -30,7 +34,7 @@ const PersonalInfo = ({ person }) => {
         <div className='personalInfo'>
             <h3>Personal Info</h3>
             <Info info={person.known_for_department} title='Known For' />
-            <Info info={'Temp Text'} title='Known Credits' />
+            <Info info={getKnownCredits()} title='Known Credits' />
             <Info info={getGender()} title='Gender' />
             <Info info={getBirthDay()} title='Birthday' />
             <Info info={person.place_of_birth} title='Place of Birth' />
@@ -51,8 +55,8 @@ const Info = ({ info, title}) => {
 }
 
 const AlsoKnownAs = ({ person, title }) => {
-    const names = person.also_known_as.map(name => {
-        return <p>{name}</p>
+    const names = person.also_known_as.map((name, index) => {
+        return <p key={index}>{name}</p>
     });
 
     return (
