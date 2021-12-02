@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PersonalInfo from './PersonalInfo';
+import Biography from './Biography';
 import '../../styles/People/PersonInformation.css';
 import axios from 'axios';
 
@@ -46,7 +47,10 @@ const PersonInformation = () => {
                 {loading ? null : <img src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${image}`} alt='#' />}
                 {loading ? null : <PersonalInfo combinedCredits={combinedCredits} person={person} />}
             </div>
-            <div className='personInformation_right'>Right</div>
+            <div className='personInformation_right'>
+                {loading ? null : <h1>{person.name}</h1>}
+                {loading ? null : <Biography text={person.biography} />}
+            </div>
         </div>
     )
 };
