@@ -1,9 +1,11 @@
 import React from 'react';
+import '../../styles/People/Biography.css';
 
-const Biography = () => {
+const Biography = ({ text }) => {
     return (
-        <div>
-            Biography
+        <div className='biography'>
+            <h3>Biography</h3>
+            <p className='new-line'>{text}</p>
         </div>
     )
 };
