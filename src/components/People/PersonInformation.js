@@ -51,7 +51,7 @@ const PersonInformation = () => {
             <div className='personInformation_right'>
                 {loading ? null : <h1>{person.name}</h1>}
                 {loading ? null : <Biography text={person.biography} />}
-                {loading ? null : <KnownFor />}
+                {loading ? null : <KnownFor knownFor={combinedCredits} />}
             </div>
         </div>
     )
