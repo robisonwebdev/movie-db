@@ -4,7 +4,6 @@ nav {
     justify-content: space-between;
     align-items: center;
 
-    padding: 0 15px;
     height: 65px;
     width: 75%;
 }
@@ -15,4 +14,10 @@ nav {
     justify-content: flex-end;
     align-items: center;
     gap: 45px;
+
+    width: 100%;
+}
+
+.logo {
+    width: 100%;
 }
