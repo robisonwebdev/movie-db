@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PersonalInfo from './PersonalInfo';
 import Biography from './Biography';
+import KnownFor from './KnownFor';
 import '../../styles/People/PersonInformation.css';
 import axios from 'axios';
 
@@ -50,6 +51,7 @@ const PersonInformation = () => {
             <div className='personInformation_right'>
                 {loading ? null : <h1>{person.name}</h1>}
                 {loading ? null : <Biography text={person.biography} />}
+                {loading ? null : <KnownFor />}
             </div>
         </div>
     )
