@@ -11,6 +11,12 @@
 .knownForCard img {
     border-radius: 10px;
     object-fit: cover;
-    height: 225px;
-    width: 150px;
+    height: 195px;
+    width: 130px;
+}
+
+.knownForCard p {
+    padding-bottom: 10px;
+    padding-top: 5px;
+    text-align: center;
 }
