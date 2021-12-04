@@ -3,10 +3,11 @@ import React from 'react';
 const CreditsList = () => {
     return (
         <div className='creditsList'>
-            <div className='creditsHeader'>
+            <div className='credits_Header'>
                 <h3>{title}</h3>
-                <div className='creditFilters'></div>
+                <div className='credit_Filters'></div>
             </div>
+            <div className='credits_body'></div>
         </div>
     )
 };
