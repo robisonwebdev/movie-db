@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Filmography = () => {
+const CreditsList = () => {
     return (
-        <div>
-            Filmography
+        <div className='creditsList'>
+            CreditsList
         </div>
     )
 };
 
-export default Filmography;
+export default CreditsList;
