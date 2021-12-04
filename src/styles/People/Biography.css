@@ -5,6 +5,7 @@
     justify-content: flex-start;
     gap: 10px;
 
+    padding-right: 15px;
     height: auto;
     width: 100%;
 }
