@@ -53,7 +53,7 @@ const PersonInformation = () => {
                 {loading ? null : <h1>{person.name}</h1>}
                 {loading ? null : <Biography text={person.biography} />}
                 {loading ? null : <KnownFor knownFor={combinedCredits} />}
-                {loading ? null : <CreditsList />}
+                {loading ? null : <CreditsList combinedCredits={combinedCredits} />}
             </div>
         </div>
     )
