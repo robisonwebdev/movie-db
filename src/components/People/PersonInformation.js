@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import PersonalInfo from './PersonalInfo';
 import Biography from './Biography';
 import KnownFor from './KnownFor';
+import CreditsList from './CreditsList';
 import '../../styles/People/PersonInformation.css';
 import axios from 'axios';
 
@@ -52,6 +53,7 @@ const PersonInformation = () => {
                 {loading ? null : <h1>{person.name}</h1>}
                 {loading ? null : <Biography text={person.biography} />}
                 {loading ? null : <KnownFor knownFor={combinedCredits} />}
+                {loading ? null : <CreditsList />}
             </div>
         </div>
     )
