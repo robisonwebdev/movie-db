@@ -12,7 +12,25 @@ const CreditsList = ({ credits }) => {
             </div>
             <div className='credits_body'></div>
         </div>
-    )
+    );
 };
+
+const CreditGroup = () => {
+    return (
+        <div className='creditGroup'>
+
+        </div>
+    );
+};
+
+const CreditItem = () => {
+    return (
+        <div className='creditItem'>
+            <p>{`year`}</p>
+            <i />
+            <p>{`media title`}</p>
+        </div>
+    );
+}
 
 export default CreditsList;
