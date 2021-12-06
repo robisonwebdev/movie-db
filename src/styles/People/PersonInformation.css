@@ -19,7 +19,7 @@
     justify-content: flex-start;
     gap: 30px;
 
-    flex: 0 1 300px;
+    flex: 0 0 300px;
 
     background-color: cadetblue;
     height: 100%;
