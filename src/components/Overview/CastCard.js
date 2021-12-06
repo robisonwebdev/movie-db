@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../styles/Overview/CastCard.css';
 
 const CastCard = ({ person }) => {
@@ -8,9 +9,9 @@ const CastCard = ({ person }) => {
 
     return (
         <div className='castCard'>
-            <img src={poster} alt={name} />
+            <Link to={`/people/person/${person.id}`}><img src={poster} alt={name} /></Link>
             <div className='castCard_Info'>
-                <h4>{name}</h4>
+                <Link to={`/people/person/${person.id}`}><h4>{name}</h4></Link>
                 <p>{character}</p>
             </div>
         </div>
