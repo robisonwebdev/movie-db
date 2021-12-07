@@ -16,8 +16,8 @@ const Credits = ({ credits }) => {
         setActingCredits(newArray);
     }, []);
 
-    const buildTimeline = actingCredits.map(arr =>{
-        return <CreditGroup key={Math.floor(Math.random() * 99999)} group={arr} />
+    const buildTableGroups = actingCredits.map(arr =>{
+        return <TableGroup key={Math.floor(Math.random() * 99999)} group={arr} />
     });
 
     return (
@@ -26,30 +26,38 @@ const Credits = ({ credits }) => {
                 <h3>{department}</h3>
                 <div className='credit_Filters'></div>
             </div>
-            <div className='credits_body'>
-                {buildTimeline}
-            </div>
+            <table className='credits_table'>
+                <tbody>
+                    {buildTableGroups}
+                </tbody>
+            </table>
         </div>
     );
 };
 
-const CreditGroup = ({ group }) => {
-    const buildItems = group.map(item => <CreditItem key={item.id} item={item} />);
+const TableGroup = ({ group }) => {
+    const buildTableItems = group.map(item => <TableItem key={item.id} item={item} />);
 
     return (
-        <div className='creditGroup'>
-            {buildItems}
-        </div>
+        <tr className='tableGroup'>
+            <td className='tableTest'>
+                <table>
+                    <tbody>
+                        {buildTableItems}
+                    </tbody>
+                </table>
+            </td>
+        </tr>
     );
 };
 
-const CreditItem = ({ item }) => {
+const TableItem = ({ item }) => {
     const itemYear = () => {
         let itemDate;
         let itemYear;
 
         if (item.release_date === "" || item.first_air_date === "") {
-            return "-";
+            return "—";
         }
 
         if (item.release_date) {
@@ -66,11 +74,11 @@ const CreditItem = ({ item }) => {
     }
 
     return (
-        <div className='creditItem'>
-            <p>{itemYear()}</p>
-            <i />
-            <p>{item.title || item.name}</p>
-        </div>
+        <tr className='tableItem'>
+            <td>{itemYear()}</td>
+            <td><i className='las la-circle' /></td>
+            <td>{item.title || item.name} </td>
+        </tr>
     );
 }
 
