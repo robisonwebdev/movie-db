@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const CreditsList = ({ credits }) => {
+const Credits = ({ credits }) => {
     const [department, setDepartment] = useState('Acting');
     const [actingCredits, setActingCredits] = useState([]);
 
@@ -20,7 +20,7 @@ const CreditsList = ({ credits }) => {
     });
 
     return (
-        <div className='creditsList'>
+        <div className='credits'>
             <div className='credits_Header'>
                 <h3>{department}</h3>
                 <div className='credit_Filters'></div>
@@ -73,4 +73,4 @@ const CreditItem = ({ item }) => {
     );
 }
 
-export default CreditsList;
+export default Credits;
