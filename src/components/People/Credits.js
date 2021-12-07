@@ -56,7 +56,7 @@ const TableItem = ({ item }) => {
         let itemDate;
         let itemYear;
 
-        if (item.release_date === "" || item.first_air_date === "") {
+        if (item.release_date === "" || item.first_air_date === "" || (!item.release_date && !item.first_air_date)) {
             return "—";
         }
 
