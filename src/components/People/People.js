@@ -6,7 +6,7 @@ import Pagination from '../Pagination';
 
 const People = () => {
     const [apiKey] = useState('9289aca3a6413b200619b263ac82e4c0');
-    const [currentPage, setCurrentPage] = useState(4);
+    const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState(true);
     const [popularPeople, setPopularPeople] = useState([]);
     const [totalPages, setTotalPages] = useState();
@@ -32,7 +32,7 @@ const People = () => {
 
     useEffect(() => {
         fetchData(currentPage);
-    }, [fetchData]);
+    }, [fetchData, currentPage]);
 
     return (
         <section className='popularPeople'>
@@ -40,7 +40,7 @@ const People = () => {
             <div className='people_content'>
                 {loading ? null : buildCards}
             </div>
-            <Pagination currentPage={currentPage} totalPages={totalPages} />
+            {loading ? null : <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
         </section>
     )
 };
