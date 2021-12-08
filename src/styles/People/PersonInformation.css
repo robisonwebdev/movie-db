@@ -34,7 +34,7 @@
     width: 100%;
 }
 
-/* Width is still fucked */
+/* Width is still wrong */
 .personInformation_right {  
     display: flex;
     flex-direction: column;
@@ -42,12 +42,13 @@
     justify-content: flex-start;
     gap: 30px;
 
-    flex-basis: auto;
-    flex-grow: 1;
-    flex-shrink: 1;
+    flex-basis: 75%;
+    flex-grow: 0;
+    flex-shrink: 0;
 
     background-color: burlywood;
     
     height: 100%;
-    width: 75%;
+    min-width: 75%;
+    max-width: 75%;
 }
