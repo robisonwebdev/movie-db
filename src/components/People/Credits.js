@@ -5,7 +5,7 @@ const Credits = ({ credits }) => {
     const [department, setDepartment] = useState('Acting');
     const [departments, setDepartments] = useState([]);
     const [actingCredits, setActingCredits] = useState([]);
-    const [selectValue, setSelectValue] = useState('Department')
+    const [optionValue, setOptionValue] = useState('Department')
 
     useEffect(() => {
         const groupByYear = credits.cast.reduce((r, a) => {
@@ -43,14 +43,27 @@ const Credits = ({ credits }) => {
         return <option key={item.toLowerCase()} value={item.toLowerCase()}>{item}</option>
     });
 
+    const handleForm = (event) => {
+        event.preventDefault();
+    }
+
+    const handleChange = (event) => {
+        setOptionValue(event.target.value)        
+    };
+
+    const handleClearButton = () => {
+        setOptionValue('Department');
+    };
+
     return (
         <div className='credits'>
             {console.log(departments)}
             <div className='credits_Header'>
                 <h3>{department}</h3>
                 <div className='credit_Filters'>
-                    <form>
-                        <select defaultValue={selectValue}>
+                    {optionValue === 'Department' ? null : <button type='button' onClick={handleClearButton}>Clear</button>}
+                    <form onSubmit={handleForm}>
+                        <select value={optionValue} defaultValue={optionValue} onChange={handleChange}>
                             <option value="Department" disabled hidden>Department</option>
                             {populateOptions}
                         </select>
@@ -67,7 +80,7 @@ const Credits = ({ credits }) => {
 };
 
 const TableGroup = ({ group }) => {
-    const buildTableItems = group.map(item => <TableItem key={item.id} item={item} />);
+    const buildTableItems = group.map(item => <TableItem key={Math.floor(Math.random() * 99999)} item={item} />);
 
     return (
         <tr className='tableGroup'>
