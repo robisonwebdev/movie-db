@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Table from './Table';
 import '../../styles/People/Credits.css';
 
 const Credits = ({ credits }) => {
@@ -35,10 +36,6 @@ const Credits = ({ credits }) => {
         setDepartments(newArray);
     }, [])
 
-    const buildTableGroups = actingCredits.map(arr =>{
-        return <TableGroup key={Math.floor(Math.random() * 99999)} group={arr} />
-    });
-
     const populateOptions = departments.map(item => {
         return <option key={item.toLowerCase()} value={item.toLowerCase()}>{item}</option>
     });
@@ -63,67 +60,16 @@ const Credits = ({ credits }) => {
                 <div className='credit_Filters'>
                     {optionValue === 'Department' ? null : <button type='button' onClick={handleClearButton}>Clear</button>}
                     <form onSubmit={handleForm}>
-                        <select value={optionValue} defaultValue={optionValue} onChange={handleChange}>
+                        <select value={optionValue} onChange={handleChange}>
                             <option value="Department" disabled hidden>Department</option>
                             {populateOptions}
                         </select>
                     </form>
                 </div>
             </div>
-            <table className='credits_table'>
-                <tbody>
-                    {buildTableGroups}
-                </tbody>
-            </table>
+            <Table items={actingCredits} />
         </div>
     );
 };
-
-const TableGroup = ({ group }) => {
-    const buildTableItems = group.map(item => <TableItem key={Math.floor(Math.random() * 99999)} item={item} />);
-
-    return (
-        <tr className='tableGroup'>
-            <td className='tableTest'>
-                <table>
-                    <tbody>
-                        {buildTableItems}
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    );
-};
-
-const TableItem = ({ item }) => {
-    const itemYear = () => {
-        let itemDate;
-        let itemYear;
-
-        if (item.release_date === "" || item.first_air_date === "" || (!item.release_date && !item.first_air_date)) {
-            return "—";
-        }
-
-        if (item.release_date) {
-            itemDate = new Date(item.release_date);
-            itemYear = itemDate.getUTCFullYear();
-        }
-    
-        if (item.first_air_date) {
-            itemDate = new Date(item.first_air_date);
-            itemYear = itemDate.getUTCFullYear();
-        }
-
-        return itemYear;
-    }
-
-    return (
-        <tr className='tableItem'>
-            <td>{itemYear()}</td>
-            <td><i className='las la-circle' /></td>
-            <td>{item.title || item.name} </td>
-        </tr>
-    );
-}
 
 export default Credits;
