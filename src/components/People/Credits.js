@@ -3,7 +3,9 @@ import '../../styles/People/Credits.css';
 
 const Credits = ({ credits }) => {
     const [department, setDepartment] = useState('Acting');
+    const [departments, setDepartments] = useState([]);
     const [actingCredits, setActingCredits] = useState([]);
+    const [selectValue, setSelectValue] = useState('Department')
 
     useEffect(() => {
         const groupByYear = credits.cast.reduce((r, a) => {
@@ -16,15 +18,44 @@ const Credits = ({ credits }) => {
         setActingCredits(newArray);
     }, []);
 
+    // Get departments
+    useEffect(() => {
+        const newArray = [];
+
+        if (credits.cast) {
+            newArray.push('Acting');
+        }
+
+        credits.crew.forEach((obj) => {
+            if (!newArray.includes(obj.department)) {
+                newArray.push(obj.department);
+            }
+        });
+
+        setDepartments(newArray);
+    }, [])
+
     const buildTableGroups = actingCredits.map(arr =>{
         return <TableGroup key={Math.floor(Math.random() * 99999)} group={arr} />
     });
 
+    const populateOptions = departments.map(item => {
+        return <option key={item.toLowerCase()} value={item.toLowerCase()}>{item}</option>
+    });
+
     return (
         <div className='credits'>
+            {console.log(departments)}
             <div className='credits_Header'>
                 <h3>{department}</h3>
-                <div className='credit_Filters'></div>
+                <div className='credit_Filters'>
+                    <form>
+                        <select defaultValue={selectValue}>
+                            <option value="Department" disabled hidden>Department</option>
+                            {populateOptions}
+                        </select>
+                    </form>
+                </div>
             </div>
             <table className='credits_table'>
                 <tbody>
