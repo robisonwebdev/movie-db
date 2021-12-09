@@ -10,5 +10,18 @@
 }
 
 .credits_Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
     font-size: 18px;
+    width: 100%;
+}
+
+.credit_Filters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
 }
