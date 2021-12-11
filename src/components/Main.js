@@ -6,6 +6,7 @@ import People from './People/People';
 import Overview from '../components/Overview/Overview';
 import '../styles/Main.css';
 import PersonInformation from './People/PersonInformation';
+import ResultsPage from './Search/ResultsPage';
 
 const Main = () => {
   return (
@@ -38,6 +39,10 @@ const Main = () => {
         <Route path='popular_people' element={<People />} />
         <Route path='person/:id' element={<PersonInformation />} />
         <Route index element={<People />} />
+      </Route>
+
+      <Route path='/search' element={<Layout />}>
+        <Route index element={<ResultsPage />} />
       </Route>
     </Routes>
   );
