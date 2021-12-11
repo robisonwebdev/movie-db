@@ -24,3 +24,7 @@
     cursor: pointer;
     padding: 0 10px;
 }
+
+.activeTab {
+    background-color: blue;
+}
