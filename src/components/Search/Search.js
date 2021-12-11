@@ -1,12 +1,12 @@
 import React from 'react';
 import '../../styles/Search/Search.css';
 
-const Search = () => {
+const ResultsPage = () => {
     return (
-        <div>
-            Search
-        </div>
+        <section className='results_Page'>
+            Results Page
+        </section>
     )
 };
 
-export default Search;
+export default ResultsPage;
