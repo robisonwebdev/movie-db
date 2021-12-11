@@ -4,9 +4,9 @@ import SliderNav from './SliderNav';
 import Card from './Card';
 import '../../styles/Home/Discover.css';
 
-const Discover = ({ format, handleSelectors, media, selectors, title }) => {
+const Discover = ({ handleSelectors, media, selectors, title }) => {
     const buildCards = media.map(item => {
-        if (format === 'movie') {
+        if (item.release_date) {
             return <Link key={item.id} to={`movie/${item.id}`}><Card media={item} /></Link>
         }
         
