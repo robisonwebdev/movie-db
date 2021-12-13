@@ -1,4 +1,4 @@
-import React, { useCallback, useState} from 'react';
+import React, { useCallback, useEffect, useState} from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import '../../styles/Search/ResultsPage.css';
@@ -34,12 +34,12 @@ const ResultsPage = () => {
         axios
         .all([getCollections_Data, getCompanies_Data, getKeywords_Data, getMovies_Data, getPeople_Data, getShows_Data])
         .then(axios.spread((...all_Data) => {
-            const collections_Data = all_Data[0].data;
-            const companies_Data = all_Data[1].data;
-            const keywords_Data = all_Data[2].data;
-            const movies_Data = all_Data[3].data;
-            const people_Data = all_Data[4].data;
-            const shows_Data = all_Data[5].data;
+            const collections_Data = all_Data[0].data.results;
+            const companies_Data = all_Data[1].data.results;
+            const keywords_Data = all_Data[2].data.results;
+            const movies_Data = all_Data[3].data.results;
+            const people_Data = all_Data[4].data.results;
+            const shows_Data = all_Data[5].data.results;
 
             setCollections(collections_Data);
             setComponies(companies_Data);
@@ -49,7 +49,22 @@ const ResultsPage = () => {
             setShows(shows_Data);
             setLoading(false);
         }))
-    });
+    }, [apiKey, searchParam]);
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
+
+    useEffect(() => {
+        if (!loading) {
+            console.log(`Collection`, collections);
+            console.log(`Companies`, companies);
+            console.log(`Keywords`, keywords);
+            console.log(`Movies`, movies);
+            console.log(`People`, people);
+            console.log(`Shows`, shows);
+        }
+    }, [loading, collections, companies, keywords, movies, people, shows]);
 
     return (
         <section className='results_Page'>
