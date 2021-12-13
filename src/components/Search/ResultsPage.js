@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState} from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
+import Search from './Search';
 import '../../styles/Search/ResultsPage.css';
 
 const ResultsPage = () => {
@@ -55,20 +56,23 @@ const ResultsPage = () => {
         fetchData();
     }, [fetchData])
 
-    useEffect(() => {
-        if (!loading) {
-            console.log(`Collection`, collections);
-            console.log(`Companies`, companies);
-            console.log(`Keywords`, keywords);
-            console.log(`Movies`, movies);
-            console.log(`People`, people);
-            console.log(`Shows`, shows);
-        }
-    }, [loading, collections, companies, keywords, movies, people, shows]);
+    // useEffect(() => {
+    //     if (!loading) {
+    //         console.log(`Collection`, collections);
+    //         console.log(`Companies`, companies);
+    //         console.log(`Keywords`, keywords);
+    //         console.log(`Movies`, movies);
+    //         console.log(`People`, people);
+    //         console.log(`Shows`, shows);
+    //     }
+    // }, [loading, collections, companies, keywords, movies, people, shows]);
 
     return (
-        <section className='results_Page'>
-            Results
+        <section className='resultsPage'>
+            <div className='resultsPage_Search'>
+                <Search />
+            </div>
+            <div className='resultsPage_Content'></div>
         </section>
     )
 };
