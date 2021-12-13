@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Search = () => {
+    const [value, setValue] = useState('');
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
+
     return (
-        <form>
-            
+        <form onSubmit={handleSubmit}>
+            <input onChange={handleChange} placeholder='Search for a movie, tv show, person...' type='text' value={value} />
         </form>
     )
 };
