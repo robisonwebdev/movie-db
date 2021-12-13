@@ -42,6 +42,7 @@ const Main = () => {
       </Route>
 
       <Route path='/search' element={<Layout />}>
+        <Route path=':searchParam' element={<ResultsPage />} />
         <Route index element={<ResultsPage />} />
       </Route>
     </Routes>
