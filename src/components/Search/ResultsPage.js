@@ -104,10 +104,15 @@ const ResultsPage = () => {
             <div className='resultsPage_Search'>
                 <Search />
             </div>
-            <div className='resultsPage_Content'>
-                <h2>Search Results</h2>
+            <div className='resultsPage_Content'>                
                 <div className='filters'>
-                    {buildFiltersList}
+                    <h3>Search Results</h3>
+                    <div className='filter_List'>
+                        {buildFiltersList}
+                    </div>
+                </div>
+                <div className='result_Cards'>
+                    CARDS
                 </div>
             </div>
         </section>
