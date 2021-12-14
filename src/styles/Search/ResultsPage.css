@@ -1,21 +1,27 @@
 .resultsPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr;
+    justify-items: center;
 
-    
     height: 100%;
-    width: 75%;
+    width: 100%;
+}
+
+.resultsPage_Search {
+    border-bottom: 1px solid #e3e3e3;
+    width: 100%;
 }
 
 .resultsPage_Content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 25px;
     
+    padding-top: 30px;
     height: 100%;
-    width: 100%;
+    width: 75%;
 }
 
 .filters {
@@ -28,7 +34,7 @@
     border-radius: 8px;
 
     height: auto;
-    width: 260px;
+    min-width: 260px;
 }
 
 .filters h3 {
@@ -43,5 +49,9 @@
 .filter_List {
     padding: 10px 0;
     height: auto;
+    width: 100%;
+}
+
+.result_Cards {
     width: 100%;
 }
