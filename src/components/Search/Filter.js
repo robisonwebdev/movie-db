@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/Search/Filter.css';
 
 const Filter = ({ number, title }) => {
     return (
