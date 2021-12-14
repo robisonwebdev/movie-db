@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Filter = () => {
+const Filter = ({ number, title }) => {
     return (
-        <div>
-            Filter
+        <div className='filter'>
+            <p>{title}</p>
+            <p>{number}</p>
         </div>
     )
 };
