@@ -1,0 +1,27 @@
+.resultsPage_Search form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    height: 100%;
+    width: 75%;
+}
+
+.resultsPage_Search form input {
+    border: none;
+    cursor: text;
+
+    height: 100%;
+    width: 100%;
+}
+
+.la-search {
+    font-size: 20px;
+    transform: scaleX(-1);
+}
+
+.la-times {
+    cursor: pointer;
+    font-size: 14px;
+}
