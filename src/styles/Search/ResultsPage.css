@@ -1,0 +1,47 @@
+.resultsPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    
+    height: 100%;
+    width: 75%;
+}
+
+.resultsPage_Content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+    height: 100%;
+    width: 100%;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+
+    height: auto;
+    width: 260px;
+}
+
+.filters h3 {
+    background-color: #01b4e4;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: white;
+    padding: 20px 20px;
+    width: 100%;
+}
+
+.filter_List {
+    padding: 10px 0;
+    height: auto;
+    width: 100%;
+}
