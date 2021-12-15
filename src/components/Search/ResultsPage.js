@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState} from 'react';
 import { useParams } from 'react-router';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import Card from './Card';
 import Filter from './Filter';
 import Search from './Search';
 import '../../styles/Search/ResultsPage.css';
@@ -53,6 +54,10 @@ const ResultsPage = () => {
     const buildFiltersList = filters.map(obj => {
         return <Filter key={obj.id} number={obj.filter.total_results} title={obj.name} />
     });
+
+    const buildMoviesList = movies.results.map(movie => {
+        return <Card key={movie.id} media={movie} />
+    })
 
     const fetchData = useCallback(() => {
         const collections_API = `https://api.themoviedb.org/3/search/collection?api_key=${apiKey}&language=en-US&query=${searchParam}&page=1`;
@@ -121,7 +126,7 @@ const ResultsPage = () => {
                     </div>
                 </div>
                 <div className='result_Cards'>
-                    CARDS
+                    {buildMoviesList}
                 </div>
             </div>
         </section>
