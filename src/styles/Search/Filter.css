@@ -6,3 +6,22 @@
     padding: 10px 20px;
     width: 100%;
 }
+
+.filter:hover {
+    background-color: #ebebeb;
+}
+
+.filter:hover > .filter_number {
+    background-color: white;
+}
+
+.filter_title {
+    cursor: pointer;
+}
+
+.filter_number {
+    background-color: #ebebeb;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 2px 13px;
+}
