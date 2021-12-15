@@ -4,8 +4,8 @@ import '../../styles/Search/Filter.css';
 const Filter = ({ number, title }) => {
     return (
         <div className='filter'>
-            <p>{title}</p>
-            <p>{number}</p>
+            <p className='filter_title'>{title}</p>
+            <p className='filter_number'>{number}</p>
         </div>
     )
 };
