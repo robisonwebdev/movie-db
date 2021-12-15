@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/Search/Card.css';
 
 const Card = ({ media }) => {
     const getImage = `https://image.tmdb.org/t/p/w94_and_h141_bestv2/${media.poster_path}`;
