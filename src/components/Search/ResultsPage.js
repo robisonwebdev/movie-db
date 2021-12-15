@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState} from 'react';
 import { useParams } from 'react-router';
+import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import Filter from './Filter';
 import Search from './Search';
@@ -19,32 +20,38 @@ const ResultsPage = () => {
     const filters = [
         {
             filter: shows,
+            id: 'shows_001',
             name: 'TV Shows'
         },
         {
             filter: movies,
+            id: 'movies_001',
             name: 'Movies'
         },
         {
             filter: people,
+            id: 'people_001',
             name: 'People'
         },
         {
             filter: keywords,
+            id: 'keywords_001',
             name: 'Keywords'
         },
         {
-            filter: collections, 
+            filter: collections,
+            id: 'collections_001', 
             name: 'Collections'
         },
         {
             filter: companies,
+            id: 'companies_001',
             name: 'Companies'
         }
     ];
 
     const buildFiltersList = filters.map(obj => {
-        return <Filter number={obj.filter.total_results} title={obj.name} />
+        return <Filter key={obj.id} number={obj.filter.total_results} title={obj.name} />
     });
 
     const fetchData = useCallback(() => {
@@ -96,6 +103,8 @@ const ResultsPage = () => {
             console.log(`Movies`, movies);
             console.log(`People`, people);
             console.log(`Shows`, shows);
+            console.log(`id1`, shows);
+            console.log(`id2`, shows);
         }
     }, [loading, collections, companies, keywords, movies, people, shows]);
 
