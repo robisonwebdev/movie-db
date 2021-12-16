@@ -6,7 +6,7 @@ const Card = ({ media }) => {
 
     return (
         <div className='result_card'>
-            <img src={getImage} />
+            <img src={getImage} alt={`${media.title} poster`} />
             <div className='card_content'>
                 <div className='card_header'>
                     <h3>{media.title}</h3>
