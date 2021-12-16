@@ -16,6 +16,7 @@ const ResultsPage = () => {
     const [movies, setMovies] = useState([]);
     const [people, setPeople] = useState([]);
     const [shows, setShows] = useState([]);
+    const [mediaList, setMediaList] = useState([]);
 
     const filters = [
         {
@@ -50,13 +51,23 @@ const ResultsPage = () => {
         }
     ];
 
+    const handleFilterSelection = (filter) => {
+        filters.forEach(object => {
+            if (filter === object.filter) {
+                setMediaList(object.filter);
+            }
+        })
+    };
+
     const buildFiltersList = filters.map(obj => {
-        return <Filter key={obj.id} number={obj.filter.total_results} title={obj.name} />
+        return <Filter key={obj.id} number={obj.filter.total_results} onClick={() => handleFilterSelection(obj.filter)} title={obj.name} />
     });
 
-    const buildMoviesList = movies.results?.map(movie => {
+    const buildMediaList = mediaList.results?.map(movie => {
         return <Card key={movie.id} media={movie} />
-    })
+    });
+
+    
 
     const fetchData = useCallback(() => {
         const collections_API = `https://api.themoviedb.org/3/search/collection?api_key=${apiKey}&language=en-US&query=${searchParam}&page=1`;
@@ -91,6 +102,7 @@ const ResultsPage = () => {
             setMovies(movies_Data);
             setPeople(people_Data);
             setShows(shows_Data);
+            setMediaList(shows_Data);
             setLoading(false);
         }))
     }, [apiKey, searchParam]);
@@ -107,8 +119,6 @@ const ResultsPage = () => {
             console.log(`Movies`, movies);
             console.log(`People`, people);
             console.log(`Shows`, shows);
-            console.log(`id1`, shows);
-            console.log(`id2`, shows);
         }
     }, [loading, collections, companies, keywords, movies, people, shows]);
 
@@ -125,7 +135,7 @@ const ResultsPage = () => {
                     </div>
                 </div>
                 <div className='result_Cards'>
-                    {buildMoviesList}
+                    {buildMediaList}
                 </div>
             </div>
         </section>
