@@ -58,5 +58,11 @@
 }
 
 .result_Cards {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 25px;
+
     width: 100%;
 }
