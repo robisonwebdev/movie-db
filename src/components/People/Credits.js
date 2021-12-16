@@ -17,7 +17,7 @@ const Credits = ({ credits }) => {
         const newArray = Object.keys(groupByYear).map((key) => groupByYear[key]).reverse();
 
         setActingCredits(newArray);
-    }, []);
+    }, [credits.cast]);
 
     // Get departments
     useEffect(() => {
@@ -34,7 +34,7 @@ const Credits = ({ credits }) => {
         });
 
         setDepartments(newArray);
-    }, [])
+    }, [credits.cast, credits.crew])
 
     const populateOptions = departments.map(item => {
         return <option key={item.toLowerCase()} value={item.toLowerCase()}>{item}</option>
