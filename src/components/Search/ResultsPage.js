@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState} from 'react';
 import { useParams } from 'react-router';
-import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import Card from './Card';
 import Filter from './Filter';
@@ -55,7 +54,7 @@ const ResultsPage = () => {
         return <Filter key={obj.id} number={obj.filter.total_results} title={obj.name} />
     });
 
-    const buildMoviesList = movies.results.map(movie => {
+    const buildMoviesList = movies.results?.map(movie => {
         return <Card key={movie.id} media={movie} />
     })
 
