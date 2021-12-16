@@ -14,7 +14,6 @@ const Home = () => {
     const [whatsPopular, setWhatsPopular] = useState();
     const [popularOnTV, setPopularOnTV] = useState([]);
     const [popularForRent, setPopularForRent] = useState([]);
-    const [popularStreaming, setPopularStreaming] = useState([]);
     const [popularStreamingMovies, setPopularStreamingMovies] = useState([]);
     const [popularStreamingShows, setPopularStreamingShows] = useState([]);
     const [popularInTheaters, setPopularInTheaters] = useState([]);
