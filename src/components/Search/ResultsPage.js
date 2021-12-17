@@ -12,49 +12,19 @@ const ResultsPage = () => {
     const [collections, setCollections] = useState([]);
     const [companies, setComponies] = useState([]);
     const [keywords, setKeywords] = useState([]);
+    const [filters, setFilters] = useState([]);
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState([]);
     const [people, setPeople] = useState([]);
     const [shows, setShows] = useState([]);
     const [mediaList, setMediaList] = useState([]);
-
-    const filters = [
-        {
-            filter: shows,
-            id: 'shows_001',
-            name: 'TV Shows'
-        },
-        {
-            filter: movies,
-            id: 'movies_001',
-            name: 'Movies'
-        },
-        {
-            filter: people,
-            id: 'people_001',
-            name: 'People'
-        },
-        {
-            filter: keywords,
-            id: 'keywords_001',
-            name: 'Keywords'
-        },
-        {
-            filter: collections,
-            id: 'collections_001', 
-            name: 'Collections'
-        },
-        {
-            filter: companies,
-            id: 'companies_001',
-            name: 'Companies'
-        }
-    ];
+    const [mediaType, setMediaType] = useState('TV Shows');
 
     const handleFilterSelection = (filter) => {
         filters.forEach(object => {
             if (filter === object.filter) {
                 setMediaList(object.filter);
+                setMediaType(object.name);
             }
         })
     };
@@ -63,11 +33,9 @@ const ResultsPage = () => {
         return <Filter key={obj.id} number={obj.filter.total_results} onClick={() => handleFilterSelection(obj.filter)} title={obj.name} />
     });
 
-    const buildMediaList = mediaList.results?.map(movie => {
-        return <Card key={movie.id} media={movie} />
-    });
-
-    
+    const buildMediaList = mediaList.results?.map(media => {
+        return <Card key={media.id} media={media} type={mediaType} />
+    });    
 
     const fetchData = useCallback(() => {
         const collections_API = `https://api.themoviedb.org/3/search/collection?api_key=${apiKey}&language=en-US&query=${searchParam}&page=1`;
@@ -113,12 +81,51 @@ const ResultsPage = () => {
 
     useEffect(() => {
         if (!loading) {
-            console.log(`Collection`, collections);
-            console.log(`Companies`, companies);
-            console.log(`Keywords`, keywords);
-            console.log(`Movies`, movies);
-            console.log(`People`, people);
-            console.log(`Shows`, shows);
+            const filtersArray = [
+                {
+                    filter: shows,
+                    id: 'shows_001',
+                    name: 'TV Shows'
+                },
+                {
+                    filter: movies,
+                    id: 'movies_001',
+                    name: 'Movies'
+                },
+                {
+                    filter: people,
+                    id: 'people_001',
+                    name: 'People'
+                },
+                {
+                    filter: keywords,
+                    id: 'keywords_001',
+                    name: 'Keywords'
+                },
+                {
+                    filter: collections,
+                    id: 'collections_001', 
+                    name: 'Collections'
+                },
+                {
+                    filter: companies,
+                    id: 'companies_001',
+                    name: 'Companies'
+                }
+            ];
+
+            filtersArray.sort((a, b) => {
+                return b.filter.total_results - a.filter.total_results;
+            });
+
+
+            setFilters(filtersArray)
+            // console.log(`Collection`, collections);
+            // console.log(`Companies`, companies);
+            // console.log(`Keywords`, keywords);
+            // console.log(`Movies`, movies);
+            // console.log(`People`, people);
+            // console.log(`Shows`, shows);
         }
     }, [loading, collections, companies, keywords, movies, people, shows]);
 
