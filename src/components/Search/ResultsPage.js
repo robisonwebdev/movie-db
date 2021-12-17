@@ -119,7 +119,9 @@ const ResultsPage = () => {
             });
 
 
-            setFilters(filtersArray)
+            setFilters(filtersArray);
+            setMediaList(filtersArray[0].filter);
+            setMediaType(filtersArray[0].name);
             // console.log(`Collection`, collections);
             // console.log(`Companies`, companies);
             // console.log(`Keywords`, keywords);
