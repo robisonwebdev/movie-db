@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../styles/Search/Search.css';
 
-const Search = () => {
+const Search = ({ setSearchValue }) => {
     const [value, setValue] = useState('');
     const [showCancelIcon, setShowCancelIcon] = useState(false);
 
@@ -27,6 +27,7 @@ const Search = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setSearchValue(value);
     }
 
     return (
