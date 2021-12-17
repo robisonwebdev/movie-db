@@ -16,6 +16,7 @@ const ResultsPage = () => {
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState([]);
     const [people, setPeople] = useState([]);
+    const [searchValue, setSearchValue] = useState(null);
     const [shows, setShows] = useState([]);
     const [mediaList, setMediaList] = useState([]);
     const [mediaType, setMediaType] = useState('TV Shows');
@@ -37,13 +38,13 @@ const ResultsPage = () => {
         return <Card key={media.id} media={media} type={mediaType} />
     });    
 
-    const fetchData = useCallback(() => {
-        const collections_API = `https://api.themoviedb.org/3/search/collection?api_key=${apiKey}&language=en-US&query=${searchParam}&page=1`;
-        const companies_API = `https://api.themoviedb.org/3/search/company?api_key=${apiKey}&query=${searchParam}&page=1`;
-        const keywords_API = `https://api.themoviedb.org/3/search/keyword?api_key=${apiKey}&query=${searchParam}&page=1`;
-        const movies_API = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${searchParam}&page=1&include_adult=false`;
-        const people_API = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&language=en-US&query=${searchParam}&page=1&include_adult=false`;
-        const shows_API = `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&language=en-US&page=1&query=${searchParam}&include_adult=false`;
+    const fetchData = useCallback((query) => {
+        const collections_API = `https://api.themoviedb.org/3/search/collection?api_key=${apiKey}&language=en-US&query=${query}&page=1`;
+        const companies_API = `https://api.themoviedb.org/3/search/company?api_key=${apiKey}&query=${query}&page=1`;
+        const keywords_API = `https://api.themoviedb.org/3/search/keyword?api_key=${apiKey}&query=${query}&page=1`;
+        const movies_API = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`;
+        const people_API = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`;
+        const shows_API = `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&language=en-US&page=1&query=${query}&include_adult=false`;
 
         const getCollections_Data = axios.get(collections_API);
         const getCompanies_Data = axios.get(companies_API);
@@ -73,11 +74,11 @@ const ResultsPage = () => {
             setMediaList(shows_Data);
             setLoading(false);
         }))
-    }, [apiKey, searchParam]);
+    }, [apiKey]);
 
     useEffect(() => {
-        fetchData();
-    }, [fetchData])
+        fetchData(searchValue || searchParam);
+    }, [fetchData, searchParam, searchValue])
 
     useEffect(() => {
         if (!loading) {
@@ -118,7 +119,6 @@ const ResultsPage = () => {
                 return b.filter.total_results - a.filter.total_results;
             });
 
-
             setFilters(filtersArray);
             setMediaList(filtersArray[0].filter);
             setMediaType(filtersArray[0].name);
@@ -134,7 +134,7 @@ const ResultsPage = () => {
     return (
         <section className='resultsPage'>
             <div className='resultsPage_Search'>
-                <Search />
+                <Search setSearchValue={setSearchValue} />
             </div>
             <div className='resultsPage_Content'>                
                 <div className='filters'>
