@@ -10,7 +10,12 @@
 
 .resultsPage_Search form input {
     border: none;
+    caret-color: #b6b4b4;
+    color: #6b6b6b;
     cursor: text;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-style: italic;
 
     height: 100%;
     width: 100%;
