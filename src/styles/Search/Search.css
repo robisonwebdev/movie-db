@@ -16,6 +16,10 @@
     width: 100%;
 }
 
+.resultsPage_Search form input:focus {
+    outline: none;
+}
+
 .la-search {
     font-size: 20px;
     transform: scaleX(-1);
