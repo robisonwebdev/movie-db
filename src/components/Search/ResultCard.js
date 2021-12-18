@@ -7,6 +7,10 @@ const ResultCard = ({ media, type }) => {
             return <MediaCard media={media} />
         }
 
+        if (type=== 'people') {
+            return <PeopleCard media={media} />
+        }
+
         return <p>ERROR</p>
     }
 
@@ -62,17 +66,39 @@ const MediaCard = ({ media }) => {
 };
 
 // People
-// const PeopleCard = () => {
-//     return (
-//         <>
-//             <img src={ /* src */} alt={/* alt */} />
-//             <div className='people'>
-//                 <h3>{/* title */}</h3>
-//                 <p>{/* info */}</p>
-//             </div>
-//         </>
-//     );
-// };
+const PeopleCard = ({ media }) => {
+    const getImage = () => {
+        const noImage = 'https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg';
+        const imageSize = (`w94_and_h141_bestv2` || 'w90_and_h90_face' || 'w180_and_h180_face');
+        const imagePath = (media.profile_path);
+
+        if (media.profile_path === null) {
+            return <img className='media_image noImage' src={noImage} alt='No Image' />;
+        }
+
+        return <img className='media_image' src={`https://image.tmdb.org/t/p/${imageSize}/${imagePath}`} alt={`${media.name || media.title} poster`} />
+    };
+
+    const getInfo = () => {
+        const knownForArray = [];
+
+        media.known_for.forEach(item => {
+            knownForArray.push(item.title || item.name);
+        });
+
+        return <p>{`${media.known_for_department} • ${knownForArray.join(', ')}`}</p>
+    }
+
+    return (
+        <>
+            {getImage()}
+            <div className='people'>
+                <h3>{media.name}</h3>
+                {getInfo()}
+            </div>
+        </>
+    );
+};
 
 // Keywords
 // const Keywords = () => {
