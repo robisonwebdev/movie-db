@@ -16,18 +16,58 @@ const ResultCard = ({ media }) => {
 
     return (
         <div className='resultCard'>
-            <img src={getImage()} alt={`${media.title} poster`} />
-            <div className='card_content'>
-                <div className='card_header'>
-                    <h3>{media.title}</h3>
-                    {/* Date */}
-                </div>
-                <div className='card_body'>
-                    <p>{media.overview}</p>
-                </div>
-            </div>
+            
         </div>
     )
 };
+
+// Movies, TV, and maybe Collections
+const MediaCard = () => {
+    return (
+        <>
+            <img src={/* src */} alt={`/* alt */ poster`} />
+            <div className='media'>
+                <div className='media_header'>
+                    <h3>{/* title */}</h3>
+                    {/* Date */}
+                </div>
+                <div className='media_body'>
+                    <p>{/* overview */}</p>
+                </div>
+            </div>
+        </>
+    );
+};
+
+// People
+const PeopleCard = () => {
+    return (
+        <>
+            <img src={ /* src */} alt={/* alt */} />
+            <div className='people'>
+                <h3>{/* title */}</h3>
+                <p>{/* info */}</p>
+            </div>
+        </>
+    );
+};
+
+// Keywords
+const Keywords = () => {
+    return (
+        <ul className='keywords'>
+
+        </ul>
+    );
+}
+
+// Companies
+const Companies = () => {
+    return (
+        <ul className='companies'>
+            
+        </ul>
+    );
+}
 
 export default ResultCard;
