@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import '../../styles/Search/Search.css';
 
-const Search = ({ setSearchValue }) => {
-    const [value, setValue] = useState('');
+const Search = ({ searchValue, setSearchValue }) => {
+    const [value, setValue] = useState(searchValue);
     const [showCancelIcon, setShowCancelIcon] = useState(false);
+
+    const handleCancel = () => {
+        setValue('');
+    }
 
     const handleChange = (event) => {
         setValue(event.target.value);
@@ -39,7 +43,7 @@ const Search = ({ setSearchValue }) => {
                 type='text'
                 value={value}
             />
-            {showCancelIcon ? <i className='las la-times' /> : null}
+            {showCancelIcon ? <i className='las la-times' onClick={handleCancel} /> : null}
         </form>
     )
 };
