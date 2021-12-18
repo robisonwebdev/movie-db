@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState} from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
-import Card from './Card';
+import ResultCard from './ResultCard';
 import Filter from './Filter';
 import Search from './Search';
 import '../../styles/Search/ResultsPage.css';
@@ -35,7 +35,7 @@ const ResultsPage = () => {
     });
 
     const buildMediaList = mediaList.results?.map(media => {
-        return <Card key={media.id} media={media} type={mediaType} />
+        return <ResultCard key={media.id} media={media} type={mediaType} />
     });    
 
     const fetchData = useCallback((query) => {
