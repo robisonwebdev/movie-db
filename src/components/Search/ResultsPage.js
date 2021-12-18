@@ -16,7 +16,7 @@ const ResultsPage = () => {
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState([]);
     const [people, setPeople] = useState([]);
-    const [searchValue, setSearchValue] = useState(null);
+    const [searchValue, setSearchValue] = useState(searchParam);
     const [shows, setShows] = useState([]);
     const [mediaList, setMediaList] = useState([]);
     const [mediaType, setMediaType] = useState('TV Shows');
@@ -77,8 +77,8 @@ const ResultsPage = () => {
     }, [apiKey]);
 
     useEffect(() => {
-        fetchData(searchValue || searchParam);
-    }, [fetchData, searchParam, searchValue])
+        fetchData(searchValue);
+    }, [fetchData, searchValue])
 
     useEffect(() => {
         if (!loading) {
@@ -134,7 +134,7 @@ const ResultsPage = () => {
     return (
         <section className='resultsPage'>
             <div className='resultsPage_Search'>
-                <Search setSearchValue={setSearchValue} />
+                <Search searchValue={searchValue} setSearchValue={setSearchValue} />
             </div>
             <div className='resultsPage_Content'>                
                 <div className='filters'>
