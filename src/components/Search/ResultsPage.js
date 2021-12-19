@@ -19,13 +19,13 @@ const ResultsPage = () => {
     const [searchValue, setSearchValue] = useState(searchParam);
     const [shows, setShows] = useState([]);
     const [mediaList, setMediaList] = useState([]);
-    const [mediaType, setMediaType] = useState('TV Shows');
+    const [mediaType, setMediaType] = useState('')
 
     const handleFilterSelection = (filter) => {
         filters.forEach(object => {
             if (filter === object.filter) {
                 setMediaList(object.filter);
-                setMediaType(object.name);
+                setMediaType(object.type);
             }
         })
     };
@@ -86,32 +86,38 @@ const ResultsPage = () => {
                 {
                     filter: shows,
                     id: 'shows_001',
-                    name: 'TV Shows'
+                    name: 'TV Shows',
+                    type: 'shows'
                 },
                 {
                     filter: movies,
                     id: 'movies_001',
-                    name: 'Movies'
+                    name: 'Movies',
+                    type: 'movie'
                 },
                 {
                     filter: people,
                     id: 'people_001',
-                    name: 'People'
+                    name: 'People',
+                    type: 'people'
                 },
                 {
                     filter: keywords,
                     id: 'keywords_001',
-                    name: 'Keywords'
+                    name: 'Keywords',
+                    type: 'keywords'
                 },
                 {
                     filter: collections,
                     id: 'collections_001', 
-                    name: 'Collections'
+                    name: 'Collections',
+                    type: 'collections'
                 },
                 {
                     filter: companies,
                     id: 'companies_001',
-                    name: 'Companies'
+                    name: 'Companies',
+                    type: 'companies'
                 }
             ];
 
@@ -121,12 +127,12 @@ const ResultsPage = () => {
 
             setFilters(filtersArray);
             setMediaList(filtersArray[0].filter);
-            setMediaType(filtersArray[0].name);
+            setMediaType(filtersArray[0].type)
             // console.log(`Collection`, collections);
             // console.log(`Companies`, companies);
             // console.log(`Keywords`, keywords);
             // console.log(`Movies`, movies);
-            // console.log(`People`, people);
+            console.log(`People`, people);
             // console.log(`Shows`, shows);
         }
     }, [loading, collections, companies, keywords, movies, people, shows]);
