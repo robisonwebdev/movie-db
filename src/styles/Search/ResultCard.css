@@ -23,18 +23,19 @@
 .media_content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    gap: 20px;
 
+    padding: 10px 10px 10px 0;
+    height: 141px;
     width: 100%;
 }
 
-.media_body {
-    display: inline-block;
-    text-overflow: clip;
-    width: calc(100%);
-    height: 80px;
+.media_text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* People Styling */
