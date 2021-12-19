@@ -4,8 +4,8 @@ import '../../styles/Search/ResultCard.css';
 
 const ResultCard = ({ media, type }) => {
     const getType = () => {
-        if (type === 'movies' || type==='shows' || type==='collections') {
-            return <MediaCard media={media} />
+        if (type === 'movie' || type==='shows' || type==='collections') {
+            return <MediaCard media={media} type={type} />
         }
 
         if (type=== 'people') {
@@ -23,7 +23,7 @@ const ResultCard = ({ media, type }) => {
 };
 
 // Movies, TV, and maybe Collections
-const MediaCard = ({ media }) => {
+const MediaCard = ({ media, type }) => {
     const getDate = () => {
         const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const mediaDate = new Date(media.release_date || media.first_air_date);
@@ -52,10 +52,11 @@ const MediaCard = ({ media }) => {
 
     return (
         <>
-            {getImage()}
+            <Link to={`/${type}/${media.id}`}>{getImage()}</Link>
+            {console.log(`${type}/${media.id}`)}
             <div className='media_content'>
                 <div className='media_header'>
-                    <h3>{media.title || media.name}</h3>
+                    <Link to={`/${type}/${media.id}`}><h3>{media.title || media.name}</h3></Link>
                     {getDate()}
                 </div>
                 <div className='media_body'>
