@@ -92,9 +92,9 @@ const PeopleCard = ({ media }) => {
 
     return (
         <>
-            {getImage()}
+            <Link to={`/people/person/${media.id}`}>{getImage()}</Link>
             <div className='people'>
-                <h3>{media.name}</h3>
+                <Link to={`/people/person/${media.id}`}><h3>{media.name}</h3></Link>
                 {getInfo()}
             </div>
         </>
