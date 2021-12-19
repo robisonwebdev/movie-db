@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../styles/Search/ResultCard.css';
 
 const ResultCard = ({ media, type }) => {
@@ -58,7 +59,7 @@ const MediaCard = ({ media }) => {
                     {getDate()}
                 </div>
                 <div className='media_body'>
-                    <p>{media.overview}</p>
+                    <p className='media_text'>{media.overview}</p>
                 </div>
             </div>
         </>
