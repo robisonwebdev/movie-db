@@ -4,7 +4,7 @@ import '../../styles/Search/ResultCard.css';
 
 const ResultCard = ({ media, type }) => {
     const getType = () => {
-        if (type === 'movie' || type==='shows' || type==='collections') {
+        if (type === 'movie' || type==='shows' || type==='collection') {
             return <MediaCard media={media} type={type} />
         }
 
@@ -53,7 +53,6 @@ const MediaCard = ({ media, type }) => {
     return (
         <>
             <Link to={`/${type}/${media.id}`}>{getImage()}</Link>
-            {console.log(`${type}/${media.id}`)}
             <div className='media_content'>
                 <div className='media_header'>
                     <Link to={`/${type}/${media.id}`}><h3>{media.title || media.name}</h3></Link>
