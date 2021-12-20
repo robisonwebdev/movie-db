@@ -35,6 +35,10 @@ const Main = () => {
         <Route index element={<Media format='tv' get='popular' title='Popular TV Shows' />} />
       </Route>
 
+      <Route path='collection' element={<Layout />}>
+        <Route path=':id' />
+      </Route>
+
       <Route path='/people' element={<Layout />}>
         <Route path='popular_people' element={<People />} />
         <Route path='person/:id' element={<PersonInformation />} />
