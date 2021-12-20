@@ -44,7 +44,7 @@ const MediaCard = ({ media, type }) => {
         const imagePath = (media.poster_path || media.profile_path);
 
         if (media.poster_path === null || media.poster_path === null) {
-            return <img className='media_image noImage' src={noImage} alt='No Image' />;
+            return <img className='media_image noImage' src={noImage} alt='' />;
         }
 
         return <img className='media_image' src={`https://image.tmdb.org/t/p/${imageSize}/${imagePath}`} alt={`${media.name || media.title} poster`} />
@@ -74,7 +74,7 @@ const PeopleCard = ({ media }) => {
         const imagePath = (media.profile_path);
 
         if (media.profile_path === null) {
-            return <img className='media_image noImage' src={noImage} alt='No Image' />;
+            return <img className='media_image noImage' src={noImage} alt='' />;
         }
 
         return <img className='media_image' src={`https://image.tmdb.org/t/p/${imageSize}/${imagePath}`} alt={`${media.name || media.title} poster`} />
