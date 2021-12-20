@@ -83,7 +83,7 @@ const PeopleCard = ({ media }) => {
     const getInfo = () => {
         const knownForArray = [];
 
-        media.known_for.forEach(item => {
+        media.known_for?.forEach(item => {
             knownForArray.push(item.title || item.name);
         });
 
