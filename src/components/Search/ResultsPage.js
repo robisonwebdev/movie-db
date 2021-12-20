@@ -111,7 +111,7 @@ const ResultsPage = () => {
                     filter: collections,
                     id: 'collections_001', 
                     name: 'Collections',
-                    type: 'collections'
+                    type: 'collection'
                 },
                 {
                     filter: companies,
