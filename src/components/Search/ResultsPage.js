@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState} from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
-import ResultCard from './ResultCard';
 import Filter from './Filter';
 import Search from './Search';
 import '../../styles/Search/ResultsPage.css';
+import Results from './Results';
 
 const ResultsPage = () => {
     const { searchParam } = useParams();
@@ -32,11 +32,7 @@ const ResultsPage = () => {
 
     const buildFiltersList = filters.map(obj => {
         return <Filter key={obj.id} number={obj.filter.total_results} onClick={() => handleFilterSelection(obj.filter)} title={obj.name} />
-    });
-
-    const buildMediaList = mediaList.results?.map(media => {
-        return <ResultCard key={media.id} media={media} type={mediaType} />
-    });    
+    });   
 
     const fetchData = useCallback((query) => {
         const collections_API = `https://api.themoviedb.org/3/search/collection?api_key=${apiKey}&language=en-US&query=${query}&page=1`;
@@ -129,10 +125,10 @@ const ResultsPage = () => {
             setMediaList(filtersArray[0].filter);
             setMediaType(filtersArray[0].type)
             // console.log(`Collection`, collections);
-            // console.log(`Companies`, companies);
+            console.log(`Companies`, companies);
             // console.log(`Keywords`, keywords);
             // console.log(`Movies`, movies);
-            console.log(`People`, people);
+            // console.log(`People`, people);
             // console.log(`Shows`, shows);
         }
     }, [loading, collections, companies, keywords, movies, people, shows]);
@@ -149,9 +145,7 @@ const ResultsPage = () => {
                         {buildFiltersList}
                     </div>
                 </div>
-                <div className='result_Cards'>
-                    {buildMediaList}
-                </div>
+                <Results media={mediaList} type={mediaType} />
             </div>
         </section>
     )
