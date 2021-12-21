@@ -1,6 +1,7 @@
 import React from 'react';
 import MediaCard from './MediaCard';
 import PeopleCard from './PeopleCard';
+import '../../styles/Search/Results.css';
 
 const Results = ({ media, type }) => {
     // Media Type movie, shows, or collection
