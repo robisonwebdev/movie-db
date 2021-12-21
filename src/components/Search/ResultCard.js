@@ -8,8 +8,12 @@ const ResultCard = ({ media, type }) => {
             return <MediaCard media={media} type={type} />
         }
 
-        if (type=== 'people') {
+        if (type === 'people') {
             return <PeopleCard media={media} />
+        }
+
+        if (type === 'companies') {
+            return <Companies media={media} />
         }
 
         return <p>ERROR</p>
@@ -111,12 +115,13 @@ const PeopleCard = ({ media }) => {
 // }
 
 // Companies
-// const Companies = () => {
-//     return (
-//         <ul className='companies'>
-
-//         </ul>
-//     );
-// }
+const Companies = ({ media }) => {
+    return (
+        <h4 className='companies'>
+            {media.name}
+            <span>{media.origin_country}</span>
+        </h4>
+    );
+}
 
 export default ResultCard;
