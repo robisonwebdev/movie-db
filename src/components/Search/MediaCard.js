@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../styles/Search/MediaCard.css';
 
 const MediaCard = ({ media, type }) => {
     const getDate = () => {
