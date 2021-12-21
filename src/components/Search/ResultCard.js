@@ -119,7 +119,7 @@ const Companies = ({ media }) => {
     return (
         <h4 className='companies'>
             {media.name}
-            <span>{media.origin_country}</span>
+            {media.origin_country === "" ? null : <span>{media.origin_country}</span>}
         </h4>
     );
 }
