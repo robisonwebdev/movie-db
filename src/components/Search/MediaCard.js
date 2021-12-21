@@ -30,7 +30,7 @@ const MediaCard = ({ media, type }) => {
     };
 
     return (
-        <>
+        <div className='resultCard'>
             <Link to={`/${type}/${media.id}`}>{getImage()}</Link>
             <div className='media_content'>
                 <div className='media_header'>
@@ -41,7 +41,7 @@ const MediaCard = ({ media, type }) => {
                     <p className='media_text'>{media.overview}</p>
                 </div>
             </div>
-        </>
+        </div>
     )
 };
 
