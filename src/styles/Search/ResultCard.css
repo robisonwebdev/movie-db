@@ -47,3 +47,24 @@
 }
 
 /* People Styling */
+
+/* Companies Styling */
+.companies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.companies span {
+    background-color: #cccccc;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 2px 3px;
+}
