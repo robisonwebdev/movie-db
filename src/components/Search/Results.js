@@ -12,7 +12,7 @@ const Results = ({ media, type }) => {
         });
 
         return (
-            <div className='result_card'>
+            <div className='result_cards'>
                 {mapMedia}
             </div>
         );
@@ -25,7 +25,7 @@ const Results = ({ media, type }) => {
         });
 
         return (
-            <div className='result_card'>
+            <div className='result_cards'>
                 {mapPeople}
             </div>
         );
