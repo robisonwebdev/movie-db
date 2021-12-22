@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/Search/CompanyCard.css';
 
 const CompanyCard = ({ company }) => {
     return (
