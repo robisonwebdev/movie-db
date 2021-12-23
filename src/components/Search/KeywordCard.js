@@ -1,9 +1,9 @@
 import React from 'react';
 
-const KeywordCard = () => {
+const KeywordCard = ({ keyword }) => {
     return (
-        <li>
-            
+        <li className='keyword'>
+            {keyword}
         </li>
     )
 };
