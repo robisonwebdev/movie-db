@@ -9,7 +9,7 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
     };
 
     const handleIncrease = () => {
-        return value === 500 ? null : setValue(value + 1);
+        return value === totalPages ? null : setValue(value + 1);
     };
 
     const handleSubmit = (event) => {
