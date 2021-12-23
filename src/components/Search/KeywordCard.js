@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/Search/KeywordCard.css';
 
 const KeywordCard = ({ keyword }) => {
     return (
