@@ -58,7 +58,7 @@ const Results = ({ media, type }) => {
     };
 
     return (
-        <div className='results'>
+        <div className='results_error'>
             <p>ERROR</p>
         </div>
     )
