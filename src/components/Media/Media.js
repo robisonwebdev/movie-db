@@ -28,7 +28,7 @@ const Media = ({ format, get, page, title }) => {
     return (
         <div className='media'>
             <h2>{title || 'Title'}</h2>
-            <div className='results'>
+            <div className='media_results'>
                 <FilterPanel setSortBy={setSortBy} />
                 <ResultPanel media={media} sortBy={sortBy} />
             </div>
