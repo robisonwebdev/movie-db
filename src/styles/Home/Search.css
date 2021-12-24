@@ -9,8 +9,13 @@
 }
 
 .search input {
-    padding-left: 15px;
-    height: 40px;
+    border: none;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    color: rgba(0,0,0,0.5);
+    font-size: 16px;
+    padding-left: 20px;
+    height: 46px;
     width: 100%;
 }
 
