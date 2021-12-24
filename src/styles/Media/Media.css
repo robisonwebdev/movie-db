@@ -10,7 +10,7 @@
     width: 100%;
 }
 
-.results {
+.media_results {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
