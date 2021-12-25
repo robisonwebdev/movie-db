@@ -6,6 +6,6 @@ header {
 
     background-color: var(--tmdbDarkBlue);
     color: #fff;
-    height: 75px;
+    height: auto;
     width: 100%;
 }
