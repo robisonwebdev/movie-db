@@ -1,0 +1,13 @@
+.logo {
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+.logo h3 {
+    background-image: linear-gradient(to right, rgba(30, 213, 169, 1) 0%, rgba(1, 180, 228, 1) 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+}
