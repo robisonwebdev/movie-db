@@ -1,17 +1,17 @@
 .search {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
+    position: relative;
     height: auto;
     width: 100%;
 }
 
 .search input {
     border: none;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
+    border-radius: 25px;
     color: rgba(0,0,0,0.5);
     font-size: 16px;
     padding-left: 20px;
@@ -20,7 +20,14 @@
 }
 
 .search button {
-    padding: 0 10px;
+    background: linear-gradient(to right, rgba(30, 213, 169, 1) 0%, rgba(1, 180, 228, 1) 100%);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 15px;
+    padding: 0 30px;
+    position: absolute;
+    right: 0;
     height: 100%;
     width: auto;
 }
