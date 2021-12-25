@@ -24,10 +24,15 @@
     border: none;
     border-radius: 25px;
     color: white;
+    cursor: pointer;
     font-size: 15px;
     padding: 0 30px;
     position: absolute;
     right: 0;
     height: 100%;
     width: auto;
+}
+
+.search button:hover {
+    color: #032541;
 }
