@@ -38,3 +38,7 @@
     height: auto;
     width: 100%;
 }
+
+.discover_content a {
+    text-decoration: none;
+}
