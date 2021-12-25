@@ -28,6 +28,11 @@
 
 .cardContent h4 {
     color: black;
+    cursor: pointer;
+}
+
+.cardContent h4:hover {
+    color: rgb(1, 180, 228);
 }
 
 .showDate {
