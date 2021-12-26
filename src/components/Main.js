@@ -1,18 +1,34 @@
 import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
+import Collection from '../components/Overview/Collection/Collection';
+import Company from '../components/Overview/Company/Company';
 import Home from './Home/Home';
+import Keyword from '../components/Overview/Keyword/Keyword';
 import Media from './Media/Media';
+import Movie from '../components/Overview/Movie/Movie';
 import People from './People/People';
-import Overview from '../components/Overview/Overview';
-import '../styles/Main.css';
-import PersonInformation from './People/PersonInformation';
+import Person from '../components/Overview/Person/Person';
 import ResultsPage from './Search/ResultsPage';
+import Show from './Overview/Show/Show';
+import '../styles/Main.css';
 
 const Main = () => {
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<Home />} />
+      </Route>
+
+      <Route path='/collection' element={<Layout />}>
+        <Route path=':id' element={<Collection />}/>
+      </Route>
+
+      <Route path='/company' element={<Layout />}>
+        <Route path=':id' element={<Company />}/>
+      </Route>
+
+      <Route path='/keyword' element={<Layout />}>
+        <Route path=':id' element={<Keyword />}/>
       </Route>
 
       <Route path='/movies' element={<Layout />}>
@@ -24,7 +40,21 @@ const Main = () => {
       </Route>
 
       <Route path='/movie' element={<Layout />}>
-        <Route path=':id' element={<Overview />} />
+        <Route path=':id' element={<Movie />} />
+      </Route>
+
+      <Route path='/people' element={<Layout />}>
+        <Route path='popular_people' element={<People />} />
+        <Route index element={<People />} />
+      </Route>
+
+      <Route path='/person' element={<Layout />}>
+        <Route path=':id' element={<Person />} />
+      </Route>
+
+      <Route path='/search' element={<Layout />}>
+        <Route path=':searchParam' element={<ResultsPage />} />
+        <Route index element={<ResultsPage />} />
       </Route>
 
       <Route path='/shows' element={<Layout />}>
@@ -36,22 +66,7 @@ const Main = () => {
       </Route>
 
       <Route path='tv' element={<Layout />}>
-        <Route path=':id' />
-      </Route>
-
-      <Route path='collection' element={<Layout />}>
-        <Route path=':id' />
-      </Route>
-
-      <Route path='/people' element={<Layout />}>
-        <Route path='popular_people' element={<People />} />
-        <Route path='person/:id' element={<PersonInformation />} />
-        <Route index element={<People />} />
-      </Route>
-
-      <Route path='/search' element={<Layout />}>
-        <Route path=':searchParam' element={<ResultsPage />} />
-        <Route index element={<ResultsPage />} />
+        <Route path=':id' element={<Show />} />
       </Route>
     </Routes>
   );
