@@ -9,7 +9,7 @@ import Movie from '../components/Overview/Movie/Movie';
 import People from './People/People';
 import Person from '../components/Overview/Person/Person';
 import ResultsPage from './Search/ResultsPage';
-import Show from './Overview/Show/Show';
+import Show from '../components/Overview/Show/Show';
 import '../styles/Main.css';
 
 const Main = () => {
