@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import api_key from '../../../data/Key';
 import Header from '../Header';
+import '../../../styles/Overview/Movie/Movie.css';
 
 const Movie = () => {
     const [movieData, setMovieData] = useState([]);
