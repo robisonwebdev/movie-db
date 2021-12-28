@@ -44,7 +44,7 @@ const OverviewTitle = ({ media, format }) => {
 
         if (format === 'yyyy') return year;
 
-        if (format === 'mm/dd/yyyy') return `${month}/${day}/${year}`;
+        if (format === 'mm/dd/yyyy') return `${month}/${day}/${year} (US)`;
 
         return null;
     }
