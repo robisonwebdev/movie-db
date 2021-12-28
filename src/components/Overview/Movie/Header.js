@@ -1,5 +1,6 @@
 import React from 'react';
 import Poster from '../Poster';
+import Title from './Title';
 import '../../../styles/Overview/Header.css';
 
 const Header = ({ movie }) => {  
@@ -16,10 +17,7 @@ const Header = ({ movie }) => {
             <div className='overview_header_content'>
                 <Poster media={movie} />
                 <div className='overview_header_info'>
-                    {/* <Title
-                        media={media}
-                        format={format}
-                    /> */}
+                    <Title movie={movie} />
                     {/* <Description
                         description={movie.overview}
                         tagline={movie.tagline}
