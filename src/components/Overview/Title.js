@@ -22,7 +22,7 @@ const OverviewTitle = ({ media, format }) => {
     //     return genresList.join(', ');
     // }
 
-    const getCertification = () => {
+    const getMovieCertification = () => {
         const releaseDates = media['release_dates']['results'];
         const findUSReleaseDates = releaseDates.find(({ iso_3166_1 }) => iso_3166_1 === 'US');
         const findCertification = findUSReleaseDates['release_dates'].find(({ certification }) => certification !== '');
@@ -31,6 +31,16 @@ const OverviewTitle = ({ media, format }) => {
         if (findCertification === undefined) return '404';
 
         return certification
+    }
+
+    const getShowCertification = () => {
+        const contentRatings = media.content_ratings.results;
+        const findUSRatings = contentRatings.find(({ iso_3166_1 }) => iso_3166_1 === 'US');
+        const rating = findUSRatings['rating'];
+
+        if (findUSRatings === undefined) return '404';
+
+        return rating;
     }
 
     const getDate = (format) => {
@@ -57,12 +67,23 @@ const OverviewTitle = ({ media, format }) => {
                     <h1 className='title_Date'>{`(${getDate('yyyy')})`}</h1>
                 </div>
                 <div className='overviewFacts'> 
-                    <p className='overviewCert'>{getCertification()}</p>
+                    <p className='overviewCert'>{getMovieCertification()}</p>
                     <p>{getDate('mm/dd/yyyy')}</p>
                     {/* <p className='bulletPoint'>•</p>
                     <p>{getAndJoinGenres()}</p>
                     <p className='bulletPoint'>•</p>
                    <p>{convertRuntime()}</p> */}
+                </div>
+            </div>
+        );
+    }
+
+    if (format === 'show') {
+        return (
+            <div className='overviewTitle'>
+                <div className='overview_Title'>
+                    <h1>{title}</h1>
+                    {/* <h1 className='title_Date'>{`(${getDate('yyyy')})`}</h1> */}
                 </div>
             </div>
         );
