@@ -34,11 +34,13 @@ const OverviewTitle = ({ media, format }) => {
     }
 
     const getDate = (format) => {
-        // const apiDate = new Date(media.release_date[0]['release_dates'][0]['release_date']);
-        const apiDate = new Date(media.release_date || media.first_air_date);
-        const year = apiDate.getUTCFullYear();
-        const month = apiDate.getUTCMonth() + 1;
-        const day = apiDate.getUTCDate();
+        const releaseDates = media['release_dates']['results']; // Need to add shows
+        const findUSReleaseDates = releaseDates.find(({ iso_3166_1 }) => iso_3166_1 === 'US');
+        const findReleaseDate = findUSReleaseDates['release_dates'].find(({ release_date }) => release_date !== '');
+        const getDate = new Date(findReleaseDate['release_date']);
+        const year = getDate.getUTCFullYear();
+        const month = getDate.getUTCMonth() + 1;
+        const day = getDate.getUTCDate();
 
         if (format === 'yyyy') return year;
 
@@ -56,8 +58,8 @@ const OverviewTitle = ({ media, format }) => {
                 </div>
                 <div className='overviewFacts'> 
                     <p className='overviewCert'>{getCertification()}</p>
-                    {/* <p>{getDate('mm/dd/yyyy')}</p>
-                    <p className='bulletPoint'>•</p>
+                    <p>{getDate('mm/dd/yyyy')}</p>
+                    {/* <p className='bulletPoint'>•</p>
                     <p>{getAndJoinGenres()}</p>
                     <p className='bulletPoint'>•</p>
                    <p>{convertRuntime()}</p> */}
