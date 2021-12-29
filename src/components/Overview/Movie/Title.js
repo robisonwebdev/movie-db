@@ -2,6 +2,25 @@ import React from 'react';
 import '../../../styles/Overview/Title.css';
 
 const Title = ({ movie }) => {
+    const convertRuntime = () => {
+        const runtime = movie.runtime;
+        const runtimeToHours = (runtime / 60);
+        const hours = Math.floor(runtimeToHours);
+        const minutes = Math.round((runtimeToHours - hours) * 60);
+
+        return hours >=1 ? `${hours}h ${minutes}m` : `${minutes}m`;
+    };
+
+    const getAndJoinGenres = () => {
+        const genresList = [];
+
+        movie.genres.forEach(genre => {
+            genresList.push(genre.name);
+        });
+
+        return genresList.join(', ');
+    };
+
     const getDate = (format) => {
         const releaseDates = movie['release_dates']['results'];
         const findUSReleaseDates = releaseDates.find(({ iso_3166_1 }) => iso_3166_1 === 'US');
@@ -38,10 +57,10 @@ const Title = ({ movie }) => {
             <div className='overview_title_facts'> 
                 <p className='overview_rating'>{getRating()}</p>
                 <p>{getDate('mm/dd/yyyy')}</p>
-                {/* <p className='bulletPoint'>•</p> */}
-                {/* <p>{getAndJoinGenres()}</p> */}
-                {/* <p className='bulletPoint'>•</p> */}
-                {/* <p>{convertRuntime()}</p> */}
+                <p className='bulletPoint'>•</p>
+                <p>{getAndJoinGenres()}</p>
+                <p className='bulletPoint'>•</p>
+                <p>{convertRuntime()}</p>
             </div>
         </div>
     )
