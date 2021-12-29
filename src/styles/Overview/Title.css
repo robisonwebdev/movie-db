@@ -1,9 +1,9 @@
-.overviewTitle {
+.overview_title {
     display: flex;
     flex-direction: column;
 }
 
-.overview_Title {
+.overview_title_bar {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -13,11 +13,7 @@
     font-size: 1.3em;
 }
 
-.title_Date {
-    color: #dcdcda;
-}
-
-.overviewFacts {
+.overview_title_facts {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -26,11 +22,11 @@
     font-size: 1em;
 }
 
-.titleDate {
+.overview_title_date {
     color: #dcdcdb;
 }
 
-.overviewCert {
+.overview_rating {
     border: 1px solid #a5a2a2;
     border-radius: 2px;
     color: #a5a2a2;
