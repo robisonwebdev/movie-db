@@ -28,6 +28,13 @@
     width: 75%;
 }
 
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .filters {
     display: flex;
     flex-direction: column;
@@ -54,15 +61,5 @@
 .filter_List {
     padding: 10px 0;
     height: auto;
-    width: 100%;
-}
-
-.results {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 25px;
-
     width: 100%;
 }
