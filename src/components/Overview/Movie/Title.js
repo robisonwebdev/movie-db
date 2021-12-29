@@ -17,16 +17,27 @@ const Title = ({ movie }) => {
 
         return null;
     };
-    
+
+    const getRating = () => {
+        const releaseDates = movie['release_dates']['results'];
+        const findUSReleaseDates = releaseDates.find(({ iso_3166_1 }) => iso_3166_1 === 'US');
+        const findCertification = findUSReleaseDates['release_dates'].find(({ certification }) => certification !== '');
+        const certification = findCertification['certification'];
+
+        if (findCertification === undefined) return 'NA';
+
+        return certification
+    };
+
     return (
         <div className='overview_title'>            
             <div className='overview_title_bar'>
                 <h1>{movie.title}</h1>
-                <h1 className='title_date'>{`(${getDate('yyyy')})`}</h1>
+                <h1 className='overview_title_date'>{`(${getDate('yyyy')})`}</h1>
             </div>
             <div className='overview_title_facts'> 
-                {/* <p className='overviewCert'>{getMovieCertification()}</p> */}
-                {/* <p>{getMovieDate('mm/dd/yyyy')}</p> */}
+                <p className='overview_rating'>{getRating()}</p>
+                <p>{getDate('mm/dd/yyyy')}</p>
                 {/* <p className='bulletPoint'>•</p> */}
                 {/* <p>{getAndJoinGenres()}</p> */}
                 {/* <p className='bulletPoint'>•</p> */}
