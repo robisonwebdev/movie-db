@@ -57,7 +57,7 @@ const Title = ({ movie }) => {
                 <h1 className='overview_title_date'>{`(${getDate('yyyy')})`}</h1>
             </div>
             <div className='overview_title_facts'> 
-                <p className='overview_rating'>{getRating()}</p>
+                <p className='overview_title_rating'>{getRating()}</p>
                 <p>{getDate('mm/dd/yyyy')}</p>
                 <p className='bulletPoint'>•</p>
                 <p>{getAndJoinGenres()}</p>
