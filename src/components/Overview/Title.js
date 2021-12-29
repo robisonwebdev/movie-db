@@ -43,7 +43,15 @@ const OverviewTitle = ({ media, format }) => {
         return rating;
     }
 
-    const getDate = (format) => {
+    const getShowDate = () => {
+        const firstAirDate =  new Date(media.first_air_date);
+        const year = firstAirDate.getUTCFullYear();
+
+        
+        return year;
+    }
+
+    const getMovieDate = (format) => {
         const releaseDates = media['release_dates']['results']; // Need to add shows
         const findUSReleaseDates = releaseDates.find(({ iso_3166_1 }) => iso_3166_1 === 'US');
         const findReleaseDate = findUSReleaseDates['release_dates'].find(({ release_date }) => release_date !== '');
@@ -64,11 +72,11 @@ const OverviewTitle = ({ media, format }) => {
             <div className='overviewTitle'>            
                 <div className='overview_Title'>
                     <h1>{title}</h1>
-                    <h1 className='title_Date'>{`(${getDate('yyyy')})`}</h1>
+                    <h1 className='title_Date'>{`(${getMovieDate('yyyy')})`}</h1>
                 </div>
                 <div className='overviewFacts'> 
                     <p className='overviewCert'>{getMovieCertification()}</p>
-                    <p>{getDate('mm/dd/yyyy')}</p>
+                    <p>{getMovieDate('mm/dd/yyyy')}</p>
                     {/* <p className='bulletPoint'>•</p>
                     <p>{getAndJoinGenres()}</p>
                     <p className='bulletPoint'>•</p>
@@ -83,7 +91,7 @@ const OverviewTitle = ({ media, format }) => {
             <div className='overviewTitle'>
                 <div className='overview_Title'>
                     <h1>{title}</h1>
-                    {/* <h1 className='title_Date'>{`(${getDate('yyyy')})`}</h1> */}
+                    <h1 className='title_Date'>{`(${getShowDate('yyyy')})`}</h1>
                 </div>
             </div>
         );
