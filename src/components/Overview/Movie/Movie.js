@@ -2,20 +2,24 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import api_key from '../../../data/Key';
-import Header from '../Header';
-import '../../../styles/Overview/Movie/Movie.css';
+import Header from './Header';
+import '../../../styles/Overview/Overview.css';
 
 const Movie = () => {
+    const [loading, setLoading] = useState(true);
     const [movieData, setMovieData] = useState([]);
     const { id } = useParams();
 
     const fetchData = useCallback(() => {
         const movieAPI = `https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&append_to_response=release_dates,credits&&language=en-US`;
 
+        setLoading(true);
+
         axios
         .get(movieAPI)
         .then(res => {
             setMovieData(res.data)
+            setLoading(false);
         })
         .catch(err => console.log(err))
     }, [id]);
@@ -25,8 +29,8 @@ const Movie = () => {
     }, [fetchData])
 
     return (
-        <div className='movie_Overview'>
-            <Header media={movieData} />
+        <div className='overview'>
+            {loading ? null : <Header movie={movieData} />}
         </div>
     )
 };
