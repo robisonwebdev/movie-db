@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import api_key from '../../../data/Key';
+import Description from './Description';
 import Header from './Header';
 import '../../../styles/Overview/Overview.css';
 
@@ -31,6 +32,7 @@ const Movie = () => {
     return (
         <div className='overview'>
             {loading ? null : <Header movie={movieData} />}
+            {loading ? null : <Description movie={movieData} />}
         </div>
     )
 };
