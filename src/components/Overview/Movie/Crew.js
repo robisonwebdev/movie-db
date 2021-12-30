@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Crew = () => {
+const Crew = ({ credits }) => {
+    const [crew] = useState(credits.crew);
+
     return (
         <div className='overview_crew'>
             
