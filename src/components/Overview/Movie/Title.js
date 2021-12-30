@@ -30,8 +30,6 @@ const Title = ({ movie }) => {
         const month = getDate.getUTCMonth() + 1;
         const day = getDate.getUTCDate();
 
-        console.log('Date', findUSReleaseDates)
-
         if (format === 'yyyy') return year;
 
         if (format === 'mm/dd/yyyy') return `${month}/${day}/${year} (US)`;
