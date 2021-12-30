@@ -1,4 +1,5 @@
 import React from 'react';
+import Crew from './Crew';
 import Description from './Description';
 import Poster from '../Poster';
 import Title from './Title';
@@ -20,9 +21,7 @@ const Header = ({ movie }) => {
                 <div className='overview_header_info'>
                     <Title movie={movie} />
                     <Description movie={movie} />
-                    {/* <Crew
-                        credits={credits}
-                    /> */}
+                    <Crew credits={movie.credits} />
                 </div>
             </div>
         </div>
