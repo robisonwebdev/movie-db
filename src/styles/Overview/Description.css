@@ -1,4 +1,10 @@
 .overview_description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+
     height: auto;
     width: 100%;
 }
@@ -11,5 +17,4 @@
     color: var(--liteGrey);
     font-size: 1.2em;
     font-style: italic;
-    padding-bottom: 10px;
 }
