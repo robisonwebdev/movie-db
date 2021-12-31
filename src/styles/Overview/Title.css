@@ -8,9 +8,10 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
 
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 
 .overview_title_facts {
@@ -24,6 +25,7 @@
 
 .overview_title_date {
     color: #dcdcdb;
+    font-weight: normal;
 }
 
 .overview_title_rating {
