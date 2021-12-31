@@ -1,6 +1,10 @@
-.overviewDescription {
+.overview_description {
     height: auto;
     width: 100%;
+}
+
+.overview_description h2 {
+    font-weight: 600;
 }
 
 .tagline {
