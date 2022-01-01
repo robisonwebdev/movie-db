@@ -164,7 +164,7 @@ const ResultsPage = () => {
                 filter: shows,
                 id: 'shows_001',
                 name: 'TV Shows',
-                type: 'shows'
+                type: 'tv'
             },
             {
                 filter: movies,
