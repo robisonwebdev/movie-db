@@ -7,7 +7,7 @@ import '../../styles/Search/Results.css';
 
 const Results = ({ media, type }) => {
     // Media Type movie, shows, or collection
-    if (type === 'movie' || type==='shows' || type==='collection') {
+    if (type === 'movie' || type==='tv' || type==='collection') {
         const mapMedia = media.results?.map(item => {
             return <MediaCard key={item.id} media={item} type={type} />
         });
