@@ -41,11 +41,10 @@ const Title = ({ movie }) => {
         const releaseDates = movie['release_dates']['results'];
         const findUSReleaseDates = releaseDates.find(({ iso_3166_1 }) => iso_3166_1 === 'US');
         const findCertification = findUSReleaseDates['release_dates'].find(({ certification }) => certification !== '');
-        const certification = findCertification['certification'];
 
         if (findCertification === undefined) return 'NA';
 
-        return certification
+        return findCertification['certification'];
     };
 
     return (
