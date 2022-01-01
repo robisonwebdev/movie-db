@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Description = () => {
+const Description = ({ collection }) => {
     return (
-        <div>
-            
+        <div className='overview_description'>
+            <h2>Overview</h2>
+            <p>{collection.overview}</p>
         </div>
     )
 };
