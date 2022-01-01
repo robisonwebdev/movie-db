@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../styles/Overview/Title.css'
 
 const Title = ({ show }) => {
     const convertRuntime = () => {
