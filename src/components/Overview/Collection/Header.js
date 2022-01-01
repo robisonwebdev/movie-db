@@ -1,4 +1,7 @@
 import React from 'react';
+import Description from './Description';
+import Poster from '../Poster';
+import Title from './Title';
 import '../../../styles/Overview/Header.css';
 
 const Header = ({ collection }) => {
@@ -12,7 +15,13 @@ const Header = ({ collection }) => {
 
     return (
         <div className='overview_header' style={backdropStyle}>
-            
+            <div className='overview_header_content'>
+                <Poster media={collection} />
+                <div className='overview_header_info'>
+                    <Title collection={collection} />
+                    <Description collection={collection} />
+                </div>
+            </div>
         </div>
     )
 };
