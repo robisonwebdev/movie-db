@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Creator = () => {
+const Creators = () => {
     return (
-        <div>
+        <div className='overview_creators'>
             
         </div>
     )
 };
 
-export default Creator;
+export default Creators;
