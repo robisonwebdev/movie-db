@@ -1,9 +1,8 @@
-.overview_crew {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+.overview_crew, .overview_creators {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
 
+    height: auto;
     width: 100%;
 }
