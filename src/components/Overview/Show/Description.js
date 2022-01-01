@@ -4,7 +4,7 @@ import '../../../styles/Overview/Description.css';
 const Description = ({ show }) => {
     return (
         <div className='overview_description'>
-            <p className='tagline'>{show.tagline}</p>
+            {show.tagline === "" ? null : <p className='tagline'>{show.tagline}</p>}
             <h2>Overview</h2>
             <p>{show.overview}</p>
         </div>
