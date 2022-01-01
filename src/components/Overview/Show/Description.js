@@ -1,9 +1,12 @@
 import React from 'react';
+import '../../../styles/Overview/Description.css';
 
-const Description = () => {
+const Description = ({ show }) => {
     return (
-        <div>
-            
+        <div className='overview_description'>
+            <p className='tagline'>{show.tagline}</p>
+            <h2>Overview</h2>
+            <p>{show.overview}</p>
         </div>
     )
 };
