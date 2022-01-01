@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Header from './Header';
 import api_key from '../../../data/Key';
 
 const Collection = () => {
@@ -27,7 +28,8 @@ const Collection = () => {
     }, [fetchData]);
 
     return (
-        <div className='collection_overview'>
+        <div className='overview'>
+            {loading ? null : <Header collection={collection} />}
             {loading ? null : console.log(collection)}
         </div>
     )
