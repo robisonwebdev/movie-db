@@ -42,25 +42,33 @@ const Title = ({ collection }) => {
                     genresIDs.push(genre);
                 }
             })
+
+            
         });
 
         // Find name for each genre code
         genresIDs.forEach(genre => {
-            movieCodes.find(code => {
-                if (code.id === genre) {
-                    genres.push(code.name);
-                } else {
-                    showCodes.find(code => {
-                        if (code.id === genre) {
-                            genres.push(code.name);
-                        }
-
-                        return null;
-                    });
-                };
+            // Search movie codes
+            movieCodes.filter(object => {
+                if (object.id === genre) {
+                    if (genres.includes(object.name) !== true) {
+                        genres.push(object.name);
+                    }
+                }
 
                 return null;
-            });
+            })
+
+            // Search show codes
+            showCodes.filter(object => {
+                if (object.id === genre) {
+                    if (genres.includes(object.name) !== true) {
+                        genres.push(object.name);
+                    }
+                }
+
+                return null;
+            })
         });
 
         return genres.join(', ');
