@@ -4,7 +4,7 @@ header {
     justify-content: center;
     align-items: center;
 
-    background-color: var(--tmdbDarkBlue);
+    background-color: var(--darkBlue);
     color: #fff;
     height: auto;
     width: 100%;
