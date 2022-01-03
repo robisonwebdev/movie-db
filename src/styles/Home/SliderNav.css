@@ -14,7 +14,7 @@
     justify-content: flex-start;
     align-items: center;
 
-    border: 1px solid #032541;
+    border: 1px solid var(--darkBlue);
     border-radius: 25px;
     list-style-type: none;
 }
@@ -25,8 +25,8 @@
 }
 
 .activeTab {
-    background-color: #032541;
+    background-color: var(--darkBlue);
     border-radius: 25px;
-    color: white;
+    color: #fff;
     font-weight: bold;
 }
