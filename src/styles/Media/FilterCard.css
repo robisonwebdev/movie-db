@@ -4,8 +4,8 @@
     align-items: flex-start;
     justify-content: space-between;
 
-    background-color: white;
-    border: 1px solid #e3e3e3;
+    background-color: #fff;
+    border: 1px solid var(--darkWhite);
     border-radius: 8px;
     box-shadow: 0 2px 8px var(--lightBlack2);
     font-weight: bold;
@@ -25,7 +25,7 @@
 }
 
 .filterContent {
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid var(--darkWhite);
     padding: 12px;
     width: 100%;
 }
