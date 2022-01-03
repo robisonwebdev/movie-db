@@ -5,7 +5,7 @@
 }
 
 .logo h3 {
-    background-image: linear-gradient(to right, rgba(30, 213, 169, 1) 0%, rgba(1, 180, 228, 1) 100%);
+    background-image: linear-gradient(to right, var(--lightGreen) 0%, var(--lightBlue) 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
