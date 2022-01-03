@@ -32,9 +32,9 @@
 }
 
 .cardContent h4:hover {
-    color: rgb(1, 180, 228);
+    color: var(--lightBlue);
 }
 
 .showDate {
-    color: #666666;
+    color: var(--lightBlack);
 }
