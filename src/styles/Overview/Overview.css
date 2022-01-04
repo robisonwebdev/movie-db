@@ -10,15 +10,14 @@
     width: 100%;
 }
 
-.overviewDivider {
+.overview_main {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 25px;
 
     height: 100%;
-    width: 85%;
+    width: 75%;
 }
 
 .dividerLeft {
