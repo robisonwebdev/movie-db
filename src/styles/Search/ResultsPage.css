@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
 
-    border-bottom: 1px solid #e3e3e3;
+    border-bottom: 1px solid var(--darkerWhite);
     width: 100%;
 }
 
@@ -41,7 +41,7 @@
     align-items: flex-start;
     justify-content: center;
 
-    border: 1px solid #e3e3e3;
+    border: 1px solid var(--darkerWhite);
     border-radius: 8px;
 
     height: auto;
@@ -49,10 +49,10 @@
 }
 
 .filters h3 {
-    background-color: #01b4e4;
+    background-color: var(--lightBlue);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    color: white;
+    color: #fff;
     font-weight: 600;
     padding: 20px 20px;
     width: 100%;
