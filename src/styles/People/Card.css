@@ -4,8 +4,8 @@
     align-content: flex-start;
     justify-content: center;
 
-    border: 1px solid #e3e3e3;
-    box-shadow: 0px 0px 3px 2px #efefef;
+    border: 1px solid var(--darkerWhite);
+    box-shadow: 0px 0px 3px 2px var(--darkerWhite);
     height: 100%;
     width: 100%;
 }
@@ -22,5 +22,5 @@
 }
 
 .noImage {
-    background-color: #dbdbdb;
+    background-color: var(--darkerWhite);
 }
