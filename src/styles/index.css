@@ -5,8 +5,17 @@
 }
 
 :root {
-    --liteGrey: #cacac7;
-    --tmdbDarkBlue: rgb(3, 37, 65);
+    --darkBlue: rgb(3, 37, 65);
+    --darkerWhite: #e3e3e3;
+    --darkWhite_2: #e4e7eb;
+    --lightBlack: rgba(0, 0, 0, 0.6);
+    --lightBlack2: rgba(0, 0, 0, 0.1);
+    --lightBlack_3: #212529;
+    --lightBlue: rgb(1, 180, 228);
+    --lightGreen: rgb(30, 213, 169);
+    --lightGrey_2: #ced3db;
+    --lighterGrey: rgba(227, 227, 227, 0.24);
+    --rating: #a5a2a2;
 }
 
 body {
