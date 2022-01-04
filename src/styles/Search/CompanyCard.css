@@ -3,7 +3,7 @@
     align-items: center;
     gap: 10px;
 
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid var(--lightGrey_2);
     list-style: none;
     height: auto;
     width: 100%;
@@ -15,9 +15,9 @@
 }
 
 .company span {
-    background-color: #cccccc;
+    background-color: var(--lightGrey_2);
     border-radius: 5px;
-    color: white;
+    color: #fff;
     font-size: 12px;
     font-weight: normal;
     padding: 2px 8px;
