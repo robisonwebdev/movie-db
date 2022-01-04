@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
 import api_key from '../../../data/Key';
+import '../../../styles/Overview/Facts.css';
 
 const Facts = ({ movie }) => {
     const [languages, setLanguages] = useState([]);
