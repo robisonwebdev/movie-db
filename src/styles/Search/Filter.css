@@ -8,11 +8,11 @@
 }
 
 .filter:hover {
-    background-color: #ebebeb;
+    background-color: var(--darkerWhite);
 }
 
 .filter:hover > .filter_number {
-    background-color: white;
+    background-color: #fff;
 }
 
 .filter_title {
@@ -20,7 +20,7 @@
 }
 
 .filter_number {
-    background-color: #ebebeb;
+    background-color: var(--darkerWhite);
     border-radius: 10px;
     font-size: 14px;
     padding: 2px 13px;
