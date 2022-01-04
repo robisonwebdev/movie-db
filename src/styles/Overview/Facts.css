@@ -1,0 +1,8 @@
+.overview_facts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    height: 100%;
+    width: 100%;
+}
