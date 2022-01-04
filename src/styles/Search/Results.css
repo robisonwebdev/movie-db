@@ -4,7 +4,7 @@
     align-items: flex-start;
     gap: 15px;
 
-    border: 1px solid #e3e3e3;
+    border: 1px solid var(--darkerWhite);
     border-radius: 8px;
 
     height: auto;
@@ -12,7 +12,7 @@
 }
 
 .mediaCard a {
-    color: black;
+    color: #000;
     text-decoration: none;
 
     height: 141px;
@@ -53,9 +53,9 @@
 }
 
 .companies span {
-    background-color: #cccccc;
+    background-color: var(--darkerWhite);
     border-radius: 5px;
-    color: white;
+    color: #fff;
     font-size: 12px;
     font-weight: normal;
     padding: 2px 3px;
