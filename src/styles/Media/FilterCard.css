@@ -5,7 +5,7 @@
     justify-content: space-between;
 
     background-color: #fff;
-    border: 1px solid var(--darkWhite);
+    border: 1px solid var(--darkerWhite);
     border-radius: 8px;
     box-shadow: 0 2px 8px var(--lightBlack2);
     font-weight: bold;
@@ -25,7 +25,7 @@
 }
 
 .filterContent {
-    border-top: 1px solid var(--darkWhite);
+    border-top: 1px solid var(--darkerWhite);
     padding: 12px;
     width: 100%;
 }
