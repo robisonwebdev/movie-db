@@ -24,14 +24,14 @@
 }
 
 .overview_title_date {
-    color: #dcdcdb;
+    color: var(--lightGrey_2);
     font-weight: normal;
 }
 
 .overview_title_rating {
-    border: 1px solid #a5a2a2;
+    border: 1px solid var(--rating);
     border-radius: 2px;
-    color: #a5a2a2;
+    color: var(--rating);
     padding: 0 4px;
 }
 
