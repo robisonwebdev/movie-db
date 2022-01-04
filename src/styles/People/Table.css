@@ -1,13 +1,13 @@
 .credits_table {
     background-color: darkkhaki;
-    border: 1px solid black;
+    border: 1px solid #000;
     border-bottom: none;
     border-spacing: 0;
     width: 100%;
 }
 
 .tableGroup table {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000;
     padding: 10px 0;
     width: 100%;
 }
