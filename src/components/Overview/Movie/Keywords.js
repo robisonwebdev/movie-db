@@ -10,7 +10,7 @@ const Keywords = ({ keywords }) => {
 
     return (
         <section className='overview_keywords'>
-            <h4>Keywords</h4>
+            <h3>Keywords</h3>
             <div className='keywords'>
                 <ul>
                     {getKeywords}
