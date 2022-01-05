@@ -48,7 +48,7 @@ const Title = ({ movie }) => {
     };
 
     return (
-        <div className='overview_title'>            
+        <section className='overview_title'>            
             <div className='overview_title_bar'>
                 <h1>{movie.title}</h1>
                 <h1 className='overview_title_date'>{`(${getDate('yyyy')})`}</h1>
@@ -61,7 +61,7 @@ const Title = ({ movie }) => {
                 <p className='bulletPoint'>•</p>
                 <p>{convertRuntime()}</p>
             </div>
-        </div>
+        </section>
     )
 };
 
