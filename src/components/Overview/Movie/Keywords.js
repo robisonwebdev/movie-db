@@ -3,7 +3,7 @@ import React from 'react';
 const Keywords = ({ keywords }) => {
     const getKeywords = keywords.map(keyword => {
         return (
-            <li key={keyword.id}>{keyword.name}</li>
+            <li key={keyword.id} className='keyword'>{keyword.name}</li>
         );
     })
 
