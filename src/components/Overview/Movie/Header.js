@@ -15,7 +15,7 @@ const Header = ({ movie }) => {
     };
 
     return (
-        <div className='overview_header' style={backdropStyle}>
+        <section className='overview_header' style={backdropStyle}>
             <div className='overview_header_content'>
                 <Poster media={movie} />
                 <div className='overview_header_info'>
@@ -24,7 +24,7 @@ const Header = ({ movie }) => {
                     <Crew credits={movie.credits} />
                 </div>
             </div>
-        </div>
+        </section>
     )
 };
 
