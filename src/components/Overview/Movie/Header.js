@@ -18,11 +18,11 @@ const Header = ({ movie }) => {
         <section className='overview_header' style={backdropStyle}>
             <div className='overview_header_content'>
                 <Poster media={movie} />
-                <div className='overview_header_info'>
+                <section className='overview_header_info'>
                     <Title movie={movie} />
                     <Description movie={movie} />
                     <Crew credits={movie.credits} />
-                </div>
+                </section>
             </div>
         </section>
     )
