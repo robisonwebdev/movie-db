@@ -28,11 +28,11 @@ const Crew = ({ credits }) => {
     }, [crew]);
 
     return (
-        <div className='overview_crew'>
+        <section className='overview_crew'>
             <CrewInfo job={'Director'} name={director} />            
             <CrewInfo job={'Producer'} name={producer} />            
             <CrewInfo job={'Screenplay'} name={screenplay} />
-        </div>
+        </section>
     )
 };
 
