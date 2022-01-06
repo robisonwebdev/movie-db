@@ -11,11 +11,12 @@ const TopCast = ({ cast }) => {
 
     return (
         <section className='overview_topCast'>
-            <h3>Top Billed Cast</h3>
+            <h2>Top Billed Cast</h2>
             <div className='topCast'>
                 {topNine}
                 <h4 className='viewMore'>View More <i className='las la-arrow-right' /></h4>
             </div>
+            <h3>{`Full Cast & Crew`}</h3>
         </section>
     )
 };
