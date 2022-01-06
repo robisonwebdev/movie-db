@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import api_key from '../../../data/Key';
 import Header from './Header';
+import Social from './Social';
 import Stats from './Stats';
 import TopCast from './TopCast';
 import '../../../styles/Overview/Overview.css';
@@ -35,8 +36,13 @@ const Movie = () => {
             {loading ? null : console.log('movieData:', movieData)}
             {loading ? null : <Header movie={movieData} />}
             <section className='overview_main'>
-                {loading ? null : <TopCast cast={movieData.credits.cast} />}
-                {loading ? null : <Stats movie={movieData} />}                
+                <div className='main_left'>
+                    {loading ? null : <TopCast cast={movieData.credits.cast} />}
+                    {loading ? null : <Social movie={movieData} />}
+                </div>
+                <div className='main_right'>
+                    {loading ? null : <Stats movie={movieData} />}
+                </div>                               
             </section>
         </div>
     )
