@@ -25,6 +25,18 @@ const ReviewCard = ({ review }) => {
         return null;
     }
 
+    const getReview = () => {
+        const content = review.content;
+
+        if (content.length > 600) {
+            return (
+                <p>{content.slice(0, 601)}... <span className='read_more'>read the rest.</span></p>
+            );
+        }
+
+        return content;
+    }
+
     const getWrittenDate = () => {
         const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         const initalDate = review.created_at;
@@ -49,8 +61,7 @@ const ReviewCard = ({ review }) => {
                 </div>
             </div>
             <div className='review_content'>
-                {console.log(review)}
-                <p>{review.content}</p>
+                {getReview()}
             </div>
         </section>
     )
