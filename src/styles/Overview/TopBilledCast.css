@@ -5,8 +5,10 @@
     justify-content: flex-start;
     gap: 20px;
 
+    padding-bottom: 25px;
+
     height: 100%;
-    width: 75%;
+    width: 100%;
 }
 
 .overview_topCast h2, .overview_topCast h3 {
