@@ -10,7 +10,7 @@ const TopCast = ({ cast }) => {
     })
 
     return (
-        <section className='overview_topCast'>
+        <section className='overview_topCast borderBottom'>
             <h2>Top Billed Cast</h2>
             <div className='topCast'>
                 {topNine}
