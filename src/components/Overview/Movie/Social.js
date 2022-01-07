@@ -1,8 +1,11 @@
 import React from 'react';
+import ReviewCard from './ReviewCard';
 import '../../../styles/Overview/Social.css';
 
 const Social = ({ movie }) => {
+    const reviews = movie.reviews.results;
     const reviewsTotal = movie.reviews.total_results;
+    const randomReview = reviews[Math.floor(Math.random() * reviews.length)];
 
     return (
         <section className='overview_social borderBottom'>
@@ -13,7 +16,7 @@ const Social = ({ movie }) => {
                 </ul>
             </div>
             <div className='social_content'>
-                TEMP
+                <ReviewCard review={randomReview} />
             </div>
         </section>
     )
