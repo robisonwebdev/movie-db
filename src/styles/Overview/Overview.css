@@ -20,20 +20,21 @@
     width: 75%;
 }
 
-.dividerLeft {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
+.main_left {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    gap: 20px;
 
-    height: 100%;
-    width: 72%;
+    height: auto;
+    width: 75%;
 }
 
-.dividerRight {
-
-    background-color: indianred;
+.main_right {
     height: 100%;
-    width: 28%;
+    width: 25%;
+}
+
+.borderBottom {
+    border-bottom: 1px solid var(--borderGrey);
 }
