@@ -15,9 +15,9 @@ const Social = ({ movie }) => {
                     <li>Reviews <span>{reviewsTotal}</span></li>
                 </ul>
             </div>
-            <div className='social_content'>
-                <ReviewCard review={randomReview} />
-                <strong>Read All Reviews</strong>
+            <div className='social_content'>                
+                {reviews.length === 0 ? <p>{`We don't have any reviews for ${movie.title}`}</p> : <ReviewCard review={randomReview} />}
+                {reviews.length === 0 ? null : <strong>Read All Reviews</strong>}
             </div>
         </section>
     )
