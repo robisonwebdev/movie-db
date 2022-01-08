@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import api_key from '../../../data/Key';
+import CollectionCard from './CollectionCard';
 import Header from './Header';
 import Social from './Social';
 import Stats from './Stats';
@@ -39,6 +40,7 @@ const Movie = () => {
                 <div className='main_left'>
                     {loading ? null : <TopCast cast={movieData.credits.cast} />}
                     {loading ? null : <Social movie={movieData} />}
+                    {loading ? null : movieData.belongs_to_collection === null ? null : <CollectionCard collection={movieData.belongs_to_collection} />}
                 </div>
                 <div className='main_right'>
                     {loading ? null : <Stats movie={movieData} />}
