@@ -1,0 +1,38 @@
+.overview_collection_card {
+    padding-top: 12px;
+    padding-bottom: 30px;
+    height: auto;
+    width: 100%;
+}
+
+.collection_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    border-radius: 8px;
+    color: #fff;
+    padding-left: 25px;
+    height: 260px;
+    width: 100%;
+}
+
+.collection_card_title h1 {
+    font-size: 30px;  
+}
+
+.collection_card button {
+    background-color: var(--lightBlack);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+.collection_card button:hover {
+    background-color: #000;
+
+}
