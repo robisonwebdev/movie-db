@@ -48,3 +48,13 @@
     height: auto;
     width: 100%;
 }
+
+.social_content strong {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.social_content strong:hover {
+    color: var(--lightBlack);
+}
