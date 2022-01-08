@@ -39,3 +39,12 @@
     font-size: 18px;
     font-weight: 600;
 }
+
+.social_content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    height: auto;
+    width: 100%;
+}
