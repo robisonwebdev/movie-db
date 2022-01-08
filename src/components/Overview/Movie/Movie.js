@@ -15,7 +15,7 @@ const Movie = () => {
     const { id } = useParams();
 
     const fetchData = useCallback(() => {
-        const movieAPI = `https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&append_to_response=release_dates,credits,keywords,recommendations,reviews&&language=en-US`;
+        const movieAPI = `https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&append_to_response=release_dates,credits,keywords,recommendations,reviews,videos&&language=en-US`;
 
         setLoading(true);
 
