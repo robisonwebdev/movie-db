@@ -17,6 +17,7 @@ const Social = ({ movie }) => {
             </div>
             <div className='social_content'>
                 <ReviewCard review={randomReview} />
+                <strong>Read All Reviews</strong>
             </div>
         </section>
     )
