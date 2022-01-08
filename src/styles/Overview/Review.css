@@ -26,6 +26,8 @@
 
 .review_header img {
     border-radius: 50%;
+    height: 64px;
+    width: 64px;
 }
 
 .review_title div {
@@ -60,4 +62,8 @@
     padding-left: 84px;
     height: auto;
     width: 100%;
+}
+
+.read_more {
+    text-decoration: underline;
 }
