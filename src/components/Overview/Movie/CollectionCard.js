@@ -50,7 +50,7 @@ const CollectionCard = ({ collection }) => {
             <div className='collection_card' style={backdropStyle}>
                 <div className='collection_card_title'>
                     <h1>{`Part of the ${collection.name}`}</h1>
-                    <p>{`Includes ${getCollectionMovies()}`}</p>
+                    {loading ? null : <p>{`Includes ${getCollectionMovies()}`}</p>}
                 </div>
                 <Link to={`/collection/${collection.id}`}><button type='button'>View the Collection</button></Link>
             </div>
