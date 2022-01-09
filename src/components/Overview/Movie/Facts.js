@@ -28,6 +28,14 @@ const Facts = ({ movie }) => {
         }
 
         return `$${budget.toLocaleString('en-US')}`;
+    };
+
+    const getRevenue = () => {
+        if (revenue === 0) {
+            return '-';
+        }
+
+        return `$${revenue.toLocaleString('en-US')}`;
     }
 
     useEffect(() => {
@@ -62,7 +70,7 @@ const Facts = ({ movie }) => {
             </div>
             <div>
                 <strong>Revenue</strong>
-                <p>{`$${revenue.toLocaleString('en-US')}`}</p>
+                <p>{getRevenue()}</p>
             </div>
         </section>
     )
