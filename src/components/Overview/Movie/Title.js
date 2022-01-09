@@ -24,7 +24,7 @@ const Title = ({ movie }) => {
     const getDate = (format) => {
         const releaseDates = movie['release_dates']['results'];
         const findUSReleaseDates = releaseDates.find(({ iso_3166_1 }) => iso_3166_1 === 'US');
-        const findReleaseDate = findUSReleaseDates['release_dates'].find(({ type }) => type === 3);
+        const findReleaseDate = findUSReleaseDates['release_dates'].find(({ type }) => type === 3 || type !== 3);
         const getDate = new Date(findReleaseDate['release_date']);
         const year = getDate.getUTCFullYear();
         const month = getDate.getUTCMonth() + 1;
