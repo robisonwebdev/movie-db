@@ -22,6 +22,14 @@ const Facts = ({ movie }) => {
         .catch(err => console.log(err))
     }, []);
 
+    const getBudget = () => {
+        if (budget === 0) {
+            return '-';
+        }
+
+        return `$${budget.toLocaleString('en-US')}`;
+    }
+
     useEffect(() => {
         fetchData();
     }, [fetchData])
@@ -50,7 +58,7 @@ const Facts = ({ movie }) => {
             </div>
             <div>
                 <strong>Budget</strong>
-                <p>{`$${budget.toLocaleString('en-US')}`}</p>
+                <p>{getBudget()}</p>
             </div>
             <div>
                 <strong>Revenue</strong>
