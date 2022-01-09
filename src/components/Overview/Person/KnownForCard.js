@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/People/KnownForCard.css';
+import '../../../styles/Overview/Person/KnownForCard.css';
 
 function KnownForCard({ image, title }) {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import KnownForCard from './KnownForCard';
-import '../../styles/People/KnownFor.css';
+import '../../../styles/Overview/Person/KnownFor.css';
 
 const KnownFor = ({ knownFor }) => {
     const topEight = knownFor.cast.sort((a, b) => parseFloat(b.vote_count) - parseFloat(a.vote_count)).slice(0, 8);

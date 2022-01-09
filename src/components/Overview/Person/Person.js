@@ -4,7 +4,7 @@ import PersonalInfo from './PersonalInfo';
 import Biography from './Biography';
 import KnownFor from './KnownFor';
 import Credits from './Credits';
-import '../../styles/People/PersonInformation.css';
+import '../../../styles/Overview/Person/Person.css';
 import axios from 'axios';
 
 const PersonInformation = () => {

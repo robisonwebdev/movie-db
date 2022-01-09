@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/People/Biography.css';
+import '../../../styles/Overview/Person/Biography.css';
 
 const Biography = ({ text }) => {
     return (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Table from './Table';
-import '../../styles/People/Credits.css';
+import '../../../styles/Overview/Person/Credits.css';
 
 const Credits = ({ credits }) => {
     const [department, setDepartment] = useState('Acting');

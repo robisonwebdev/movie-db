@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/People/PersonalInfo.css';
+import '../../../styles/Overview/Person/PersonalInfo.css';
 
 const PersonalInfo = ({ combinedCredits, person }) => {
     const getBirthDay = () => {
