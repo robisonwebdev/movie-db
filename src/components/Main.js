@@ -7,7 +7,7 @@ import Keyword from '../components/Overview/Keyword/Keyword';
 import Media from './Media/Media';
 import Movie from '../components/Overview/Movie/Movie';
 import People from './People/People';
-import Person from '../components/Overview/Person/Person';
+import Person from './Overview/Person/Person';
 import ResultsPage from './Search/ResultsPage';
 import Show from '../components/Overview/Show/Show';
 import '../styles/Main.css';
