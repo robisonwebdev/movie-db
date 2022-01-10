@@ -17,9 +17,9 @@ const Card = ({ person }) => {
 
     return (
         <div className='person'>
-            <Link to={`/people/person/${person.id}`}>{getImage()}</Link>
+            <Link to={`/person/${person.id}`}>{getImage()}</Link>
             <div className='personInfo'>
-                <Link to={`/people/person/${person.id}`}><h3>{person.name}</h3></Link>
+                <Link to={`/person/${person.id}`}><h3>{person.name}</h3></Link>
                 <p>{'movies'}</p>
             </div>
         </div>
