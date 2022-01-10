@@ -10,7 +10,7 @@ const CastCard = ({ person }) => {
         <div className='castCard'>
             <Link to={`/person/${id}`}><img src={poster} alt={name} /></Link>
             <div className='castCard_Info'>
-                <Link to={`person/${id}`}><h4>{name}</h4></Link>
+                <Link to={`/person/${id}`}><h4>{name}</h4></Link>
                 <p>{character}</p>
             </div>
         </div>
