@@ -4,6 +4,7 @@ import axios from 'axios';
 import api_key from '../../../data/Key';
 import CollectionCard from './CollectionCard';
 import Header from './Header';
+import Recommendation from './Recommendation';
 import Social from './Social';
 import Stats from './Stats';
 import TopCast from './TopCast';
@@ -41,6 +42,7 @@ const Movie = () => {
                     {loading ? null : <TopCast cast={movieData.credits.cast} />}
                     {loading ? null : <Social movie={movieData} />}
                     {loading ? null : movieData.belongs_to_collection === null ? null : <CollectionCard collection={movieData.belongs_to_collection} />}
+                    {loading ? null : <Recommendation />}
                 </div>
                 <div className='main_right'>
                     {loading ? null : <Stats movie={movieData} />}
