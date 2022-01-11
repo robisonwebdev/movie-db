@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import api_key from '../../../data/Key'
 import Header from './Header';
+import SeriesCast from './SeriesCast';
 
 const Show = () => {
     const [loading, setLoading] = useState(true);
@@ -32,7 +33,9 @@ const Show = () => {
             {loading ? null : console.log('showData', showData)}
             {loading ? null : <Header show={showData} />}
             <section className='overview_main'>
-                <div className='main_left'></div>
+                <div className='main_left'>
+                    {loading ? null : <SeriesCast cast={showData.credits.cast} />}
+                </div>
                 <div className='main_right'></div>
             </section>
         </div>
