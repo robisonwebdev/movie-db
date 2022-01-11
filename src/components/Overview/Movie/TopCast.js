@@ -1,6 +1,6 @@
 import React from 'react';
 import CastCard from './CastCard';
-import '../../../styles/Overview/TopBilledCast.css';
+import '../../../styles/Overview/CastAndCrew.css';
 
 const TopCast = ({ cast }) => {
     const topCast = cast.slice(0, 9);
