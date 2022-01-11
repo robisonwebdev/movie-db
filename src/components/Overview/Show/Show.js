@@ -29,8 +29,12 @@ const Show = () => {
 
     return (
         <div className='overview'>
+            {loading ? null : console.log('showData', showData)}
             {loading ? null : <Header show={showData} />}
-            {console.log('showData', showData)}
+            <section className='overview_main'>
+                <div className='main_left'></div>
+                <div className='main_right'></div>
+            </section>
         </div>
     )
 };
