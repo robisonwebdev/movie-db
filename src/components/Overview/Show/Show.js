@@ -4,6 +4,7 @@ import axios from 'axios';
 import api_key from '../../../data/Key'
 import Header from './Header';
 import SeriesCast from './SeriesCast';
+import Stats from './Stats';
 
 const Show = () => {
     const [loading, setLoading] = useState(true);
@@ -36,7 +37,9 @@ const Show = () => {
                 <div className='main_left'>
                     {loading ? null : <SeriesCast cast={showData.credits.cast} />}
                 </div>
-                <div className='main_right'></div>
+                <div className='main_right'>
+                    {loading ? null :  <Stats show={showData} />}
+                </div>
             </section>
         </div>
     )
