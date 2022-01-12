@@ -13,8 +13,8 @@ const SeriesCast = ({ cast }) => {
         <section className='overview_seriesCast borderBottom'>
             <h2>Series Cast</h2>
             <div className='seriesCast'>
-                {topNine}
-                <h4 className='viewMore'>View More <i className='las la-arrow-right' /></h4>
+                {cast.length !== 0 ? topNine : <p>No API Data</p>}
+                {cast.length !== 0 ? <h4 className='viewMore'>View More <i className='las la-arrow-right' /></h4> :null}
             </div>
             <h3>{`Full Cast & Crew`}</h3>
         </section>
