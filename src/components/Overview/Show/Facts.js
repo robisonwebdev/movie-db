@@ -21,11 +21,15 @@ const Facts = ({ show }) => {
     }
 
     const getNetwork = () => {
-        const networkLogo = `http://image.tmdb.org/t/p/h30/${networks[0]?.logo_path}`;
-
         if (networks.length === 0) return '-';
 
-        return <img src={networkLogo} alt={networks.name} />
+        const allNetworks = networks.map(network => {
+            const logoPath = `http://image.tmdb.org/t/p/h30/${network.logo_path}`;
+
+            return <img key={network.id} src={logoPath} alt={network.name} />
+        });
+
+        return allNetworks;
     };
 
     const fetchData = useCallback(() => {
