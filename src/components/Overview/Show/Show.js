@@ -12,7 +12,7 @@ const Show = () => {
     const { id } = useParams();
 
     const fetchData = useCallback(() => {
-        const showAPI = `https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}&append_to_response=first_air_date,credits,content_ratings&language=en-US`;
+        const showAPI = `https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}&append_to_response=first_air_date,credits,content_ratings,keywords&language=en-US`;
 
         setLoading(true);
 
