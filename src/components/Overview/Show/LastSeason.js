@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../styles/Overview/Show/LastSeason.css';
 
 const LastSeason = ({ seasons }) => {
     const seasonsWithAirDates = seasons.filter(season => season.air_date !== null);
