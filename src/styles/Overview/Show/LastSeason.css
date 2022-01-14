@@ -1,0 +1,50 @@
+.overview_lastSeason {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+
+    padding-bottom: 25px;
+    height: auto;
+    width: 100%;
+}
+
+.overview_lastSeason h2, .overview_lastSeason h3 {
+    font-weight: 600;
+}
+
+.last_season_card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+
+    border: 1px solid var(--lightGrey);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--lightBlack2);
+    padding-right: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.last_season_card .card_content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+
+    height: 100%;
+    width: 100%;
+}
+
+.last_season_card img {
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.last_season_card .card_title h2 {
+    font-weight: 600;
+}
