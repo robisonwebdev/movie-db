@@ -17,7 +17,7 @@ const LastSeason = ({ seasons }) => {
         const imagePath = `https://image.tmdb.org/t/p/w130_and_h195_bestv2/${lastSeason.poster_path}`;
 
         if (lastSeason.poster_path === null) {
-            const noImage = `https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg`;
+            const noImage = 'https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg';
 
             return <img src={noImage} alt={lastSeason.name} />
         }
@@ -34,19 +34,19 @@ const LastSeason = ({ seasons }) => {
     };
 
     return (
-        <section className='overview_lastSeason'>
-            <h3>Last Season</h3>
+        <section className='overview_lastSeason borderBottom'>
+            <h2>Last Season</h2>
             <div className='last_season_card'>
                 {getImage()}
                 <div className='card_content'>
                     <div className='card_title'>
-                        <h3>{lastSeason.name}</h3>
+                        <h2>{lastSeason.name}</h2>
                         <strong>{`${getYear()} | ${getEpisodes()}`}</strong>
                     </div>
                     <p>{lastSeason.overview}</p>
                 </div>
             </div>
-            <h4>View All Seasons</h4>
+            <h3>View All Seasons</h3>
         </section>
     )
 };
