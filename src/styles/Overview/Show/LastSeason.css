@@ -41,6 +41,7 @@
 }
 
 .last_season_card img {
+    background-color: #dbdbdb;
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
     height: 195px;
