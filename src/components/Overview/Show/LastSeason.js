@@ -43,7 +43,7 @@ const LastSeason = ({ seasons }) => {
                         <h2>{lastSeason.name}</h2>
                         <strong>{`${getYear()} | ${getEpisodes()}`}</strong>
                     </div>
-                    <p>{lastSeason.overview}</p>
+                    {lastSeason.overview === '' ? null : <p>{lastSeason.overview}</p>}
                 </div>
             </div>
             <h3>View All Seasons</h3>
