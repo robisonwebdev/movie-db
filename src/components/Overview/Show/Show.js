@@ -5,6 +5,7 @@ import api_key from '../../../data/Key'
 import Header from './Header';
 import LastSeason from './LastSeason';
 import SeriesCast from './SeriesCast';
+import Social from './Social';
 import Stats from './Stats';
 
 const Show = () => {
@@ -13,7 +14,7 @@ const Show = () => {
     const { id } = useParams();
 
     const fetchData = useCallback(() => {
-        const showAPI = `https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}&append_to_response=first_air_date,credits,content_ratings,keywords&language=en-US`;
+        const showAPI = `https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}&append_to_response=first_air_date,credits,content_ratings,keywords,reviews&language=en-US`;
 
         setLoading(true);
 
@@ -38,6 +39,7 @@ const Show = () => {
                 <div className='main_left'>
                     {loading ? null : <SeriesCast cast={showData.credits.cast} />}
                     {loading ? null : <LastSeason seasons={showData.seasons} />}
+                    {loading ? null : <Social show={showData} />}
                 </div>
                 <div className='main_right'>
                     {loading ? null :  <Stats show={showData} />}
