@@ -16,3 +16,7 @@
     height: auto;
     width: 100%;
 }
+
+.overview_facts img {
+    padding-bottom: 10px;
+}
