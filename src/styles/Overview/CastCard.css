@@ -36,3 +36,8 @@
 .castCard_Info p {
     font-size: 14px;
 }
+
+.castCard a {
+    color: #000;
+    text-decoration: none;
+}
