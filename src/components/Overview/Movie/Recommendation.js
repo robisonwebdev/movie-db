@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../../styles/Overview/Recommendations.css';
 
 const Recommendations = ({ recommendations }) => {
@@ -17,9 +18,9 @@ const Recommendations = ({ recommendations }) => {
 
         return (
             <div className='recommendation_item'>
-                {getImage()}
+                <Link to={`/movie/${item.id}`}>{getImage()}</Link>
                 <div>
-                    <p>{item.title}</p>
+                    <Link to={`/movie/${item.id}`}><p>{item.title}</p></Link>
                     <p>{`${getPercentage()}%`}</p>
                 </div>
             </div>
