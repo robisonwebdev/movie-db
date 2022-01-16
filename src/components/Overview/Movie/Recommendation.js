@@ -17,7 +17,7 @@ const Recommendations = ({ recommendations }) => {
         }
 
         return (
-            <div className='recommendation_item'>
+            <div key={item.id} className='recommendation_item'>
                 <Link to={`/movie/${item.id}`}>{getImage()}</Link>
                 <div>
                     <Link to={`/movie/${item.id}`}><p>{item.title}</p></Link>
