@@ -1,0 +1,40 @@
+.overview_recommendations {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    overflow-x: scroll;
+    height: auto;
+    width: 100%;
+}
+
+.recommendation_list {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+
+    height: auto;
+    width: 100%;
+}
+
+.recommendation_item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    height: auto;
+    width: auto;
+}
+
+.recommendation_item div {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.recommendation_item img {
+    border-radius: 8px;
+    height: 141px;
+    width: 250px;
+}
