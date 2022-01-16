@@ -33,6 +33,10 @@
     width: 140px;
 }
 
+.castCard_Info h4:hover {
+    color: var(--lightBlack);
+}
+
 .castCard_Info p {
     font-size: 14px;
 }
