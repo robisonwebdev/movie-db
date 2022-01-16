@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../styles/Overview/Recommendations.css';
 
 const Recommendations = ({ recommendations }) => {
     const getRecommendations = recommendations.map(item => {
