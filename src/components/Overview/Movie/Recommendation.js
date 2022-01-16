@@ -4,7 +4,7 @@ import '../../../styles/Overview/Recommendations.css';
 const Recommendations = ({ recommendations }) => {
     const getRecommendations = recommendations.map(item => {
         const getImage = () => {
-            const imagePath = `https://image.tmdb.org/t/p/w250_and_h141_face/${item.poster_path}`;
+            const imagePath = `https://image.tmdb.org/t/p/w250_and_h141_face/${item.backdrop_path}`;
 
             return <img src={imagePath} alt={item.title} />
         };
@@ -16,13 +16,13 @@ const Recommendations = ({ recommendations }) => {
         }
 
         return (
-            <>
+            <div className='recommendation_item'>
                 {getImage()}
-                <div className='recommendation_item'>
+                <div>
                     <p>{item.title}</p>
                     <p>{`${getPercentage()}%`}</p>
                 </div>
-            </>
+            </div>
         );
     });
 
