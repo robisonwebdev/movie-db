@@ -5,6 +5,22 @@ const Media = ({ movie }) => {
     const { backdrops, posters } = movie.images;
     const videos = movie.videos.results;
 
+    const getBackdrops = () => {
+        const firstSixBackdrops = backdrops.slice(0, 6);
+
+        const displayBackdrops = firstSixBackdrops.map(backdrop => {
+            const backdropPath = `https://image.tmdb.org/t/p/w533_and_h300_bestv2${backdrop.file_path}`;
+
+            return (
+                <div key={backdrop.file_path} className='media_backdrop'>
+                    <img src={backdropPath} />
+                </div>
+            );
+        });
+
+        return displayBackdrops;
+    };
+
     const getPosters = () => {
         const firstSixPosters = posters.slice(0, 6);
 
@@ -16,10 +32,10 @@ const Media = ({ movie }) => {
                     <img src={posterPath} />
                 </div>
             );
-        })
+        });
 
         return displayPosters;
-    }
+    };
 
     return (
         <section className='overview_media borderBottom'>
@@ -32,8 +48,8 @@ const Media = ({ movie }) => {
                     <h4>Posters <span>{posters.length}</span></h4>
                 </div>
             </div>
-            <div className='media_content'>
-                {getPosters()}
+            <div className='media_main'>
+                {getBackdrops()}
             </div>
         </section>
     )
