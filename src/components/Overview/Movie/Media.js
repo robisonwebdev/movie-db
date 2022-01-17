@@ -19,7 +19,12 @@ const Media = ({ movie }) => {
             );
         });
 
-        return displayBackdrops;
+        return (
+            <>
+                {displayBackdrops}
+                {backdrops.length > 6 ? <h4 className='viewMore'>View More <i className='las la-arrow-right' /></h4> : null}
+            </>
+        );
     }, [backdrops, movie.title]);
 
     const getPosters = useCallback(() => {
@@ -35,7 +40,12 @@ const Media = ({ movie }) => {
             );
         });
 
-        return displayPosters;
+        return (
+            <>
+                {displayPosters}
+                {posters.length > 6 ? <h4 className='viewMore'>View More <i className='las la-arrow-right' /></h4> : null}
+            </>
+        );
     }, [posters, movie.title]);
 
     useEffect(() => {
