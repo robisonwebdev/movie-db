@@ -37,3 +37,12 @@
 .media_nav span {
     color: var(--rating);
 }
+
+.media_content {
+    display: flex;
+    align-items: center;
+
+    overflow-x: scroll;
+    height: auto;
+    width: 100%;
+}
