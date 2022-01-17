@@ -16,6 +16,10 @@
     width: 100%;
 }
 
+.media_header h2 {
+    font-weight: 600;
+}
+
 .media_nav {
     display: flex;
     align-items: center;
@@ -25,11 +29,11 @@
     width: auto;
 }
 
-.media_header h2 {
+.media_nav h4 {
+    font-size: 17px;
     font-weight: 600;
 }
 
-.media_header h4 {
-    font-size: 17px;
-    font-weight: 600;
+.media_nav span {
+    color: var(--rating);
 }
