@@ -6,7 +6,8 @@ const Media = ({ movie }) => {
 
     return (
         <section className='overview_media borderBottom'>
-            
+            <div className='media_header'></div>
+            <div className='media_content'></div>
         </section>
     )
 };
