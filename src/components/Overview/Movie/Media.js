@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Media = () => {
+const Media = ({ movie }) => {
+    const { backdrops, posters } = movie.images;
+    const videos = movie.videos.results;
+
     return (
-        <section>
+        <section className='overview_media borderBottom'>
             
         </section>
     )
