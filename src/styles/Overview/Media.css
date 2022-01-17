@@ -1,0 +1,35 @@
+.overview_media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    height: auto;
+    width: 100%;
+}
+
+.media_header {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    height: auto;
+    width: 100%;
+}
+
+.media_nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    height: auto;
+    width: auto;
+}
+
+.media_header h2 {
+    font-weight: 600;
+}
+
+.media_header h4 {
+    font-size: 17px;
+    font-weight: 600;
+}
