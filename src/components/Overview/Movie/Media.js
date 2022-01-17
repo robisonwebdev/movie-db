@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import '../../../styles/Overview/Media.css';
 
 const Media = ({ movie }) => {
+    const [mediaContent, setMediaContent] = useState();
     const { backdrops, posters } = movie.images;
     const videos = movie.videos.results;
 
-    const getBackdrops = () => {
+    const getBackdrops = useCallback(() => {
         const firstSixBackdrops = backdrops.slice(0, 6);
 
         const displayBackdrops = firstSixBackdrops.map(backdrop => {
@@ -13,15 +14,15 @@ const Media = ({ movie }) => {
 
             return (
                 <div key={backdrop.file_path} className='media_backdrop'>
-                    <img src={backdropPath} />
+                    <img src={backdropPath} alt={movie.title} />
                 </div>
             );
         });
 
         return displayBackdrops;
-    };
+    }, [backdrops, movie.title]);
 
-    const getPosters = () => {
+    const getPosters = useCallback(() => {
         const firstSixPosters = posters.slice(0, 6);
 
         const displayPosters = firstSixPosters.map(poster => {
@@ -29,27 +30,31 @@ const Media = ({ movie }) => {
 
             return (
                 <div key={poster.file_path} className='media_poster'>
-                    <img src={posterPath} />
+                    <img src={posterPath} alt={movie.title} />
                 </div>
             );
         });
 
         return displayPosters;
-    };
+    }, [posters, movie.title]);
+
+    useEffect(() => {
+        setMediaContent(getPosters());
+    }, [getPosters])
 
     return (
         <section className='overview_media borderBottom'>
             <div className='media_header'>
                 <h2>Media</h2>
                 <div className='media_nav'>
-                    <h4>Most Popular</h4>
-                    <h4>Videos <span>{videos.length}</span></h4>
-                    <h4>Backdrops <span>{backdrops.length}</span></h4>
-                    <h4>Posters <span>{posters.length}</span></h4>
+                    <h4 onClick={() => setMediaContent()}>Most Popular</h4>
+                    <h4 onClick={() => setMediaContent()}>Videos <span>{videos.length}</span></h4>
+                    <h4 onClick={() => setMediaContent(getBackdrops())}>Backdrops <span>{backdrops.length}</span></h4>
+                    <h4 onClick={() => setMediaContent(getPosters())}>Posters <span>{posters.length}</span></h4>
                 </div>
             </div>
             <div className='media_main'>
-                {getBackdrops()}
+                {mediaContent}
             </div>
         </section>
     )
