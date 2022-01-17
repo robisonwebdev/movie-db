@@ -3,6 +3,8 @@
     flex-direction: column;
     gap: 20px;
 
+    border-top-left-radius: 8px;
+    padding-bottom: 30px;
     height: auto;
     width: 100%;
 }
@@ -38,11 +40,27 @@
     color: var(--rating);
 }
 
-.media_content {
+.media_main{
     display: flex;
+    flex-direction: row;
     align-items: center;
 
     overflow-x: scroll;
+    overflow-y: hidden;
     height: auto;
     width: 100%;
+}
+
+.media_poster {
+    height: 300px;
+    width: 200px;
+}
+
+.media_poster img {
+    height: 300px;
+    width: 200px;
+}
+
+.media_poster:first-child, .media_poster:first-child img {
+    border-top-left-radius: 8px;
 }
