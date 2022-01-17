@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../styles/Overview/Media.css';
 
 const Media = ({ movie }) => {
     const { backdrops, posters } = movie.images;
