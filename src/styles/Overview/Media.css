@@ -68,3 +68,11 @@
 .media_poster:first-child img {
     border-top-left-radius: 8px;
 }
+
+.media_view_all {
+    color: var(--lightBlue);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: auto;
+}
