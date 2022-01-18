@@ -32,6 +32,7 @@
 }
 
 .media_nav h4 {
+    cursor: pointer;
     font-size: 17px;
     font-weight: 600;
 }
