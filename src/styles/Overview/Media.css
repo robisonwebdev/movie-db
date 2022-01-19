@@ -65,7 +65,9 @@
 .media_backdrop:first-child,
 .media_backdrop:first-child img,
 .media_poster:first-child, 
-.media_poster:first-child img {
+.media_poster:first-child img,
+.media_video:first-child,
+.media_video:first-child div {
     border-top-left-radius: 8px;
 }
 
