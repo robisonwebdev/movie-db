@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import ReactPlayer from 'react-player/youtube';
 import '../../../styles/Overview/Media.css';
 
 const Media = ({ movie }) => {
@@ -49,6 +50,21 @@ const Media = ({ movie }) => {
         );
     }, [posters, movie.title]);
 
+    const getVideos = useCallback(() => {
+        const fristSixVideos = videos.slice(0, 6);
+
+        const displayVideos = fristSixVideos.map(video => {
+            return (
+                <div key={video.key} className='media_video'>
+                    <ReactPlayer url={`https://www.youtube.com/watch?v=${video.key}`} light={true} controls={true} height='300px' width='533px' />
+                </div>
+            );
+        });
+
+        return displayVideos;
+
+    }, [videos]);
+
     useEffect(() => {
         setMediaContent(getPosters());
     }, [getPosters])
@@ -59,7 +75,7 @@ const Media = ({ movie }) => {
                 <h2>Media</h2>
                 <div className='media_nav'>
                     <h4 onClick={() => {setMediaContent(); setViewAll(null)}}>Most Popular</h4>
-                    <h4 onClick={() => {setMediaContent(); setViewAll('Videos')}}>Videos <span>{videos.length}</span></h4>
+                    <h4 onClick={() => {setMediaContent(getVideos()); setViewAll('Videos')}}>Videos <span>{videos.length}</span></h4>
                     <h4 onClick={() => {setMediaContent(getBackdrops()); setViewAll('Backdrops')}}>Backdrops <span>{backdrops.length}</span></h4>
                     <h4 onClick={() => {setMediaContent(getPosters()); setViewAll('Posters')}}>Posters <span>{posters.length}</span></h4>
                 </div>
