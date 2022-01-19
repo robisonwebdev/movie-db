@@ -76,3 +76,8 @@
     font-weight: 600;
     margin-left: auto;
 }
+
+.media_video {
+    height: 300px;
+    width: 533px;
+}
