@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from './Card';
+import '../../styles/Home/DisplayMedia.css';
 
 const DisplayMedia = ({ media }) => {
     const buildCards = media?.map(item => {
