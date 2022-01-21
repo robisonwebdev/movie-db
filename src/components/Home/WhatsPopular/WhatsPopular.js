@@ -1,8 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import api_key from '../../../data/Key';
+import DisplayMedia from '../DisplayMedia';
+import MediaNav from '../MediaNav';
 
 const WhatsPopular = () => {
+    const [cardData, setCardData] = useState();
     const [loading, setLoading] = useState(true);
     const [rentData, setRentData] = useState([]);
     const [theatherData, setTheatherData] = useState([]);
@@ -42,13 +45,28 @@ const WhatsPopular = () => {
         }))
     }, []);
 
+    const handleNav = (item) => {
+        if (item === 'On TV') {
+            setCardData(tvData);                     
+        }
+
+        if (item === 'For Rent') {
+            setCardData(rentData);
+        }
+
+        if (item === 'In Theaters') {
+            setCardData(theatherData);
+        }
+    }
+
     useEffect(() => {
         fetchData();
     }, [fetchData])
 
     return (
-        <section className='home_media_content'>
-            
+        <section className='home_media_container'>
+            <MediaNav handleNav={handleNav} items={['On TV', 'For Rent', 'In Theaters']} title={`What's Popular`} />
+            <DisplayMedia media={cardData} />
         </section>
     )
 };
