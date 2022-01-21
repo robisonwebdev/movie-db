@@ -1,17 +1,20 @@
 import React from 'react';
 
-const MediaNav = ({ items }) => {
+const MediaNav = ({ handleNav, items, title }) => {
     const buildNav = items.map(item => {
-        return <li key={item}>{item}</li>
+        return <li onClick={() => handleNav(item)} key={item}>{item}</li>
     });
 
 
     return (
-        <nav className='home_media_nav'>
-            <ul>
-                {buildNav}
-            </ul>
-        </nav>
+        <div className='home_media_header'>
+            <h2>{title}</h2>
+            <nav className='home_media_nav'>
+                <ul>
+                    {buildNav}
+                </ul>
+            </nav>
+        </div>        
     );
 };
 
