@@ -41,6 +41,7 @@ const WhatsPopular = () => {
             setRentData(rent_Data);
             setTheatherData(theather_Data);
             setTVData(tv_Data);
+            setCardData(tv_Data);
             setLoading(false);
         }))
     }, []);
@@ -66,7 +67,7 @@ const WhatsPopular = () => {
     return (
         <section className='home_media_container'>
             <MediaNav handleNav={handleNav} items={['On TV', 'For Rent', 'In Theaters']} title={`What's Popular`} />
-            <DisplayMedia media={cardData} />
+            {loading === true ? null : <DisplayMedia media={cardData} />}
         </section>
     )
 };
