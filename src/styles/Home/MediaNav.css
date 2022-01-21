@@ -1,0 +1,30 @@
+.home_media_header {
+    display: flex;
+    align-items: center;
+}
+
+.home_media_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    height: 100%;
+    width: auto;
+}
+
+.home_media_nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    border: 1px solid var(--darkBlue);
+    border-radius: 25px;
+    list-style-type: none;
+}
+
+.home_media_nav ul li {
+    cursor: pointer;
+    padding: 3px 20px;
+}
