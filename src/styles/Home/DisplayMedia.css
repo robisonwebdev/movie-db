@@ -1,0 +1,13 @@
+.home_media_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+
+    overflow-x: scroll;
+    padding: 10px;
+
+    height: auto;
+    width: 100%;
+}
