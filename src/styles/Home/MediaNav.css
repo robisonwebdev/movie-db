@@ -3,6 +3,11 @@
     align-items: center;
 }
 
+.home_media_header h2 {
+    font-weight: 600;
+    padding: 0 20px;
+}
+
 .home_media_nav {
     display: flex;
     flex-direction: row;
@@ -33,6 +38,7 @@
 .activeTab {
     background-color: var(--darkBlue);
     border-radius: 25px;
+
 }
 
 .activeTabText {    
