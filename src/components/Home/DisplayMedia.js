@@ -1,15 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Card from './Card';
 import '../../styles/Home/DisplayMedia.css';
 
 const DisplayMedia = ({ media }) => {
-    const buildCards = media?.map(item => {
-        if (item.release_date) {
-            return <Link key={item.id} to={`movie/${item.id}`}><Card media={item} /></Link>
-        };
-        
-       return <Link key={item.id} to={`tv/${item.id}`}><Card media={item} /></Link>;
+    const buildCards = media?.map(item => { 
+       return <Card key={item.id} media={item} />
     });
 
     return (
