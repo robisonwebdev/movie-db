@@ -26,12 +26,20 @@
 
 .home_media_nav ul li {
     cursor: pointer;
+    font-weight: 600;
     padding: 3px 20px;
 }
 
 .activeTab {
     background-color: var(--darkBlue);
     border-radius: 25px;
-    color: #fff;
-    font-weight: bold;
+}
+
+.activeTabText {    
+    background-image: linear-gradient(to right, var(--lightGreen) 0%, var(--lightBlue) 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
 }
