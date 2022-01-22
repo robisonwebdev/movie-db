@@ -1,4 +1,4 @@
-.card {
+.home_media_card {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -8,33 +8,38 @@
     width: 147px;
 }
 
-.card img {
+.home_media_card img {
     border-radius: 8px;
     height: 225px;
     width: 145px;
 }
 
-.cardContent {
+.home_media_card a {
+    text-decoration: none;
+}
+
+.card_content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
 
-    font-size: 17px;
-    padding: 20px 10px;
+    padding: 15px 10px;
     height: auto;
     width: 145px;
 }
 
-.cardContent h4 {
+.card_content h2 {
+    font-size: 1rem;
     color: black;
     cursor: pointer;
 }
 
-.cardContent h4:hover {
+.card_content h2:hover {
     color: var(--lightBlue);
 }
 
 .showDate {
     color: var(--lightBlack);
+    font-size: 1rem;
 }
