@@ -11,7 +11,7 @@ const MediaNav = ({ handleNav, items, title }) => {
                 key={item}
                 onClick={() => {handleNav(item); setActive(item)}}
             >
-                {item}
+                <p className={active === item ? 'activeTabText' : null}>{item}</p>
             </li>
         );
     });
