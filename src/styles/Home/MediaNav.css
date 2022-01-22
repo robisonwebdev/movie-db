@@ -28,3 +28,10 @@
     cursor: pointer;
     padding: 3px 20px;
 }
+
+.activeTab {
+    background-color: var(--darkBlue);
+    border-radius: 25px;
+    color: #fff;
+    font-weight: bold;
+}
