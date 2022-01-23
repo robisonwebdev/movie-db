@@ -33,6 +33,10 @@ const Trending = () => {
         .catch(err => console.log(err))
     }, []);
 
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
+
     return (
         <section className='home_media_container'>
 
