@@ -5,9 +5,15 @@ import DisplayMedia from '../DisplayMedia';
 import MediaNav from '../MediaNav';
 
 const FreeToWatch = () => {
+    const [cardData, setCardData] = useState();
+    const [loading, setLoading] = useState(true);
+    const [movieData, setMovieData] = useState([]);
+    const [tvData, setTVData] = useState([]);
+
     return (
         <section className='home_media_container'>
-            
+            <MediaNav />
+            <DisplayMedia />
         </section>
     );
 };
