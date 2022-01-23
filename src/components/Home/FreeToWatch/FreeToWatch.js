@@ -31,6 +31,10 @@ const FreeToWatch = () => {
         }))
     }, []);
 
+    useEffect(() => {
+        fetchData();
+    }, [fetchData]);
+
     return (
         <section className='home_media_container'>
             <MediaNav />
