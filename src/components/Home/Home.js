@@ -1,9 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import FreeToWatch from './FreeToWatch/FreeToWatch';
 import Welcome from './Welcome';
 import WhatsPopular from './WhatsPopular/WhatsPopular';
-import Discover from './Discover';
 import '../../styles/Home/Home.css';
 
 const Home = () => {
