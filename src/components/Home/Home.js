@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
+import FreeToWatch from './FreeToWatch/FreeToWatch';
 import Welcome from './Welcome';
+import WhatsPopular from './WhatsPopular/WhatsPopular';
 import Discover from './Discover';
 import '../../styles/Home/Home.css';
 
@@ -103,18 +105,20 @@ useEffect(() => {
 
 useEffect(() => {
     if (!loading) {
-        console.log('Streaming Movie', popularStreamingMovies);
-        console.log('Streaming Shows', popularStreamingShows);
-        console.log('TV', popularOnTV);
-        console.log('For Rent', popularForRent);
-        console.log('Theater', popularInTheaters);
+        // console.log('Streaming Movie', popularStreamingMovies);
+        // console.log('Streaming Shows', popularStreamingShows);
+        // console.log('TV', popularOnTV);
+        // console.log('For Rent', popularForRent);
+        // console.log('Theater', popularInTheaters);
     }
 }, [loading, popularStreamingMovies, popularStreamingShows, popularOnTV, popularForRent, popularInTheaters]);
 
     return (
         <div className='home'>
             <Welcome />
-            {loading
+            <WhatsPopular />
+            <FreeToWatch />
+            {/* {loading
                 ?   null
                 :   <Discover
                         className='whatsPopular'
@@ -136,7 +140,7 @@ useEffect(() => {
                         selectors={['Movies', 'TV']}
                         title='Free To Watch'
                     />    
-            }
+            } */}
         </div>
     )
 };
