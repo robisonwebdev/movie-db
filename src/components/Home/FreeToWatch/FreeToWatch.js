@@ -48,7 +48,8 @@ const FreeToWatch = () => {
 
     return (
         <section className='home_media_container'>
-            <MediaNav />
+            <MediaNav handleNav={handleNav} items={['Movies', 'TV']} title='Free To Watch' />
+            {loading ? null : <DisplayMedia media={cardData} />}
             <DisplayMedia />
         </section>
     );
