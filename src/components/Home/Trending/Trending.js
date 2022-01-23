@@ -5,9 +5,14 @@ import DisplayMedia from '../DisplayMedia';
 import MediaNav from '../MediaNav';
 
 const Trending = () => {
+    const [cardData, setCardData] = useState();
+    const [loading, setLoading] = useState(true);
+    const [todayData, setTodayData] = useState([]);
+    const [weekData, setWeekDate] = useState([]);
+
     return (
         <section className='home_media_container'>
-            
+
         </section>
     );
 };
