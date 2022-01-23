@@ -27,9 +27,20 @@ const FreeToWatch = () => {
 
             setMovieData(movie_data);
             setTVData(tv_data);
+            setCardData(movieData);
             setLoading(false);
         }))
     }, []);
+
+    const handleNav = (item) => {
+        if (item === 'Movies') {
+            setCardData(movieData);                     
+        }
+
+        if (item === 'TV') {
+            setCardData(tvData);
+        }
+    }
 
     useEffect(() => {
         fetchData();
