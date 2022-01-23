@@ -49,7 +49,8 @@ const Trending = () => {
 
     return (
         <section className='home_media_container'>
-
+            <MediaNav handleNav={handleNav} items={['Today', 'This Week']} title='Trending' />
+            {loading ? null : <DisplayMedia media={cardData} />}
         </section>
     );
 };
