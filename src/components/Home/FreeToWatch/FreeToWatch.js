@@ -10,6 +10,27 @@ const FreeToWatch = () => {
     const [movieData, setMovieData] = useState([]);
     const [tvData, setTVData] = useState([]);
 
+    const fetchData = useCallback(() => {
+        const movieAPI = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_watch_monetization_types=free`;
+        const tvAPI = `https://api.themoviedb.org/3/discover/tv?api_key=${api_key}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_monetization_types=free`;
+
+        const getMovieData = axios.get(movieAPI);
+        const getTVData = axios.get(tvAPI);
+
+        setLoading(true);
+
+        axios
+        .all([getMovieData, getTVData])
+        .then(axios.spread((...allData) => {
+            const movie_data = allData[0].data.results;
+            const tv_data = allData[1].data.results;
+
+            setMovieData(movie_data);
+            setTVData(tv_data);
+            setLoading(false);
+        }))
+    }, []);
+
     return (
         <section className='home_media_container'>
             <MediaNav />
