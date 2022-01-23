@@ -27,7 +27,7 @@ const FreeToWatch = () => {
 
             setMovieData(movie_data);
             setTVData(tv_data);
-            setCardData(movieData);
+            setCardData(movie_data);
             setLoading(false);
         }))
     }, []);
