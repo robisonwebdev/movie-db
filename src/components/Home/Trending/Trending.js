@@ -33,6 +33,16 @@ const Trending = () => {
         .catch(err => console.log(err))
     }, []);
 
+    const handleNav = (item) => {
+        if (item === 'Today') {
+            setCardData(todayData);                     
+        }
+
+        if (item === 'This Week') {
+            setCardData(weekData);
+        }
+    };
+
     useEffect(() => {
         fetchData();
     }, [fetchData])
