@@ -99,48 +99,11 @@ const Home = () => {
             .catch(err => console.log(err))
     }, [mediaAPI]);
 
-useEffect(() => {
-    fetchData();
-}, [fetchData]);
-
-useEffect(() => {
-    if (!loading) {
-        // console.log('Streaming Movie', popularStreamingMovies);
-        // console.log('Streaming Shows', popularStreamingShows);
-        // console.log('TV', popularOnTV);
-        // console.log('For Rent', popularForRent);
-        // console.log('Theater', popularInTheaters);
-    }
-}, [loading, popularStreamingMovies, popularStreamingShows, popularOnTV, popularForRent, popularInTheaters]);
-
     return (
         <div className='home'>
             <Welcome />
             <WhatsPopular />
             <FreeToWatch />
-            {/* {loading
-                ?   null
-                :   <Discover
-                        className='whatsPopular'
-                        format={format || 'tv'}
-                        handleSelectors={handleSelectors}
-                        media={whatsPopular || popularOnTV}
-                        loading={loading}
-                        selectors={['On TV', 'For Rent', 'In Theaters']}
-                        title="What's Popular"
-                    />
-            }
-            {loading
-                ?   null
-                :   <Discover 
-                        className='freeToWatch'
-                        format={format || 'movie'}
-                        handleSelectors={handleSelectors}
-                        media={freeToWatch || freeMovies}
-                        selectors={['Movies', 'TV']}
-                        title='Free To Watch'
-                    />    
-            } */}
         </div>
     )
 };
