@@ -11,8 +11,8 @@ const FreeToWatch = () => {
     const [tvData, setTVData] = useState([]);
 
     const fetchData = useCallback(() => {
-        const movieAPI = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_watch_monetization_types=free`;
-        const tvAPI = `https://api.themoviedb.org/3/discover/tv?api_key=${api_key}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_monetization_types=free`;
+        const movieAPI = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&watch_region=US&&with_watch_monetization_types=free`;
+        const tvAPI = `https://api.themoviedb.org/3/discover/tv?api_key=${api_key}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&watch_region=US&with_watch_monetization_types=free`;
 
         const getMovieData = axios.get(movieAPI);
         const getTVData = axios.get(tvAPI);
