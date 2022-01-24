@@ -1,4 +1,4 @@
-.media_image {
+.search_media_image {
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
 
@@ -6,7 +6,7 @@
     width: 94px;
 }
 
-.media_content {
+.search_media_content {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -16,7 +16,7 @@
     width: 100%;
 }
 
-.media_text {
+.search_media_text {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
