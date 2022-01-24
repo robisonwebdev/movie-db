@@ -23,22 +23,22 @@ const MediaCard = ({ media, type }) => {
         const imagePath = (media.poster_path || media.profile_path);
 
         if (media.poster_path === null || media.poster_path === null) {
-            return <img className='media_image noImage' src={noImage} alt='' />;
+            return <img className='search_media_image noImage' src={noImage} alt='' />;
         }
 
-        return <img className='media_image' src={`https://image.tmdb.org/t/p/${imageSize}/${imagePath}`} alt={`${media.name || media.title} poster`} />
+        return <img className='search_media_image' src={`https://image.tmdb.org/t/p/${imageSize}/${imagePath}`} alt={`${media.name || media.title} poster`} />
     };
 
     return (
-        <div className='mediaCard'>
+        <div className='search_media_card'>
             <Link to={`/${type}/${media.id}`}>{getImage()}</Link>
-            <div className='media_content'>
-                <div className='media_header'>
+            <div className='search_media_content'>
+                <div className='search_media_header'>
                     <Link to={`/${type}/${media.id}`}><h3>{media.title || media.name}</h3></Link>
                     {getDate()}
                 </div>
-                <div className='media_body'>
-                    <p className='media_text'>{media.overview}</p>
+                <div className='search_media_body'>
+                    <p className='search_media_text'>{media.overview}</p>
                 </div>
             </div>
         </div>
