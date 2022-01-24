@@ -6,7 +6,10 @@ import MediaNav from '../MediaNav';
 
 const LatestTrailers = () => {
     return (
-        <section></section>
+        <section className='home_media_container'>
+            <MediaNav />
+            {loading ? null : <DisplayMedia />}
+        </section>
     );
 };
 
