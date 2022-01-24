@@ -25,13 +25,13 @@ const Welcome = () => {
     }, []);
 
     return (
-        <div className='welcome' style={image}>
+        <section className='welcome' style={image}>
             <div>
                 <h1>Welcome.</h1>
                 <p>Millions of movies, TV shows and people to discover. Explore now.</p>
             </div>
             <Search />
-        </div>
+        </section>
     )
 };
 
