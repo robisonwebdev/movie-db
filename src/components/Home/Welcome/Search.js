@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import '../../styles/Home/Search.css';
+import '../../../styles/Home/Search.css';
 
 const Search = () => {
     const [value, setValue] = useState('');
