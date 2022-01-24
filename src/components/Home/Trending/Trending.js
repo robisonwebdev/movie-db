@@ -9,6 +9,13 @@ const Trending = () => {
     const [loading, setLoading] = useState(true);
     const [todayData, setTodayData] = useState([]);
     const [weekData, setWeekDate] = useState([]);
+    const backgroundImage = 'https://www.themoviedb.org/assets/2/v4/misc/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg';
+    const backgroundStyle = {
+        background: `url(${backgroundImage})`,
+        backgroundPosition: 'center bottom',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100%'
+    };
 
     const fetchData = useCallback(() => {
         const todayAPI = `https://api.themoviedb.org/3/trending/all/day?api_key=${api_key}`;
@@ -50,7 +57,7 @@ const Trending = () => {
     return (
         <section className='home_media_container'>
             <MediaNav handleNav={handleNav} items={['Today', 'This Week']} title='Trending' />
-            {loading ? null : <DisplayMedia media={cardData} />}
+            {loading ? null : <DisplayMedia media={cardData} style={backgroundStyle} />}
         </section>
     );
 };
