@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Search from './Search';
-import '../../styles/Home/Welcome.css';
+import '../../../styles/Home/Welcome.css';
 
 const Welcome = () => {
     const [image, setImage] = useState({});
