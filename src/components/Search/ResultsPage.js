@@ -201,13 +201,7 @@ const ResultsPage = () => {
         setFilters(filtersArray);
         setMediaList(filtersArray[0].filter);
         setMediaType(filtersArray[0].type)
-        // console.log(`Collection`, collections);
-        // console.log(`Companies`, companies);
-        // console.log(`Keywords`, keywords);
-        // console.log(`Movies`, movies);
-        // console.log(`People`, people);
-        // console.log(`Shows`, shows);
-    }
+    };
 
     useEffect(() => {
         if (!loading) {
@@ -215,11 +209,9 @@ const ResultsPage = () => {
         }
     }, [loading]);
 
-    // console.log(mediaList)
-
     return (
-        <section className='resultsPage'>
-            <div className='resultsPage_Search'>
+        <section className='search_results_page'>
+            <div className='results_page_searchbar'>
                 <Search searchValue={searchValue} setSearchValue={setSearchValue} />
             </div>
             <div className='resultsPage_Content'>                
