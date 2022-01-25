@@ -2,7 +2,7 @@ import React from 'react';
 import Filter from '../Filter';
 import '../../../styles/Search/ResultsPanel.css';
 
-const ResultsPanel = ({ results }) => {
+const ResultsPanel = ({ results, setMediaList, setMediaType }) => {
     const [ collections, companies, keywords, movies, people, shows ] = results;
     const filters = [
         {
@@ -37,18 +37,51 @@ const ResultsPanel = ({ results }) => {
         }
     ];
 
-    filters.sort((a, b) => {
-        return b.filter.total_results - a.filter.total_results;
-    });
+    const generateFilterPanel = () => {
+        filters.sort((a, b) => {
+            return b.filter.total_results - a.filter.total_results;
+        });
 
-    const generateFilterPanel = filters.map(obj => {
-        return <Filter key={obj.id} number={obj.filter.total_results}  title={obj.title} />
-    }); 
+        const mapFilters = filters.map(obj => {
+            return <Filter key={obj.id} number={obj.filter.total_results} onClick={() => handleClick(obj.id)}  title={obj.title} />
+        });
+
+        return mapFilters;
+    };
+
+    const handleClick = (id) => {
+        switch (id) {
+            case 'collections_001':
+                setMediaList(collections);
+                setMediaType('collection');
+                break;
+            case 'companies_001':
+                setMediaList(companies);
+                setMediaType('companies');
+                break;
+            case 'keywords_001':
+                setMediaList(keywords);
+                setMediaType('keywords');
+                break;
+            case 'movies_001':
+                setMediaList(movies);
+                setMediaType('movie');
+                break;
+            case 'people_001':
+                setMediaList(people);
+                setMediaType('people');
+                break;
+            case 'shows_001':
+                setMediaList(shows);
+                setMediaType('tv');
+                break;
+        };
+    }
 
     return (
         <section className='search_results_panel'>
             <h3>Search Results</h3>
-            {generateFilterPanel}
+            {generateFilterPanel()}
         </section>
     );
 };
