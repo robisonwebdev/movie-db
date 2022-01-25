@@ -214,9 +214,9 @@ const ResultsPage = () => {
             <div className='results_page_searchbar'>
                 <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
             </div>
-            <div className='resultsPage_Content'>                
+            <div className='results_page_content'>                
                 <ResultsPanel results={[collections, companies, keywords, movies, people, shows]} />
-                <div className='results'>
+                <div className='results_list'>
                     <Results media={mediaList} type={mediaType} />
                     <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={mediaList.total_pages} />
                 </div>
