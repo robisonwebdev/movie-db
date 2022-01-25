@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState} from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
+import api_key from '../../data/Key';
 import SearchBar from './SearchBar';
 import Pagination from '../Pagination';
 import ResultsPanel from './ResultsPanel/ResultsPanel';
@@ -9,7 +10,6 @@ import Results from './Results';
 
 const ResultsPage = () => {
     const { searchParam } = useParams();
-    const [apiKey] = useState('9289aca3a6413b200619b263ac82e4c0');
     const [collections, setCollections] = useState([]);
     const [companies, setComponies] = useState([]);
     const [currentPage, setCurrentPage] = useState(1)
@@ -22,26 +22,15 @@ const ResultsPage = () => {
     const [shows, setShows] = useState([]);
     const [mediaList, setMediaList] = useState([]);
     const [mediaType, setMediaType] = useState('')
-    const initialRender = useRef(true);
-
-    const handleFilterSelection = (filter) => {
-        filters.forEach(object => {
-            if (filter === object.filter) {
-                setCurrentPage(1);
-                setMediaList(object.filter);
-                setMediaType(object.type);
-                
-            }
-        })
-    };   
+    const initialRender = useRef(true);  
 
     const fetchData = useCallback((query) => {
-        const collections_API = `https://api.themoviedb.org/3/search/collection?api_key=${apiKey}&language=en-US&query=${query}&page=1`;
-        const companies_API = `https://api.themoviedb.org/3/search/company?api_key=${apiKey}&query=${query}&page=1`;
-        const keywords_API = `https://api.themoviedb.org/3/search/keyword?api_key=${apiKey}&query=${query}&page=1`;
-        const movies_API = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`;
-        const people_API = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`;
-        const shows_API = `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&language=en-US&page=1&query=${query}&include_adult=false`;
+        const collections_API = `https://api.themoviedb.org/3/search/collection?api_key=${api_key}&language=en-US&query=${query}&page=1`;
+        const companies_API = `https://api.themoviedb.org/3/search/company?api_key=${api_key}&query=${query}&page=1`;
+        const keywords_API = `https://api.themoviedb.org/3/search/keyword?api_key=${api_key}&query=${query}&page=1`;
+        const movies_API = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&query=${query}&page=1&include_adult=false`;
+        const people_API = `https://api.themoviedb.org/3/search/person?api_key=${api_key}&language=en-US&query=${query}&page=1&include_adult=false`;
+        const shows_API = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&language=en-US&page=1&query=${query}&include_adult=false`;
 
         const getCollections_Data = axios.get(collections_API);
         const getCompanies_Data = axios.get(companies_API);
@@ -71,33 +60,33 @@ const ResultsPage = () => {
             setMediaList(shows_Data);
             setLoading(false);
         }))
-    }, [apiKey]);
+    }, []);
 
     const fetchPageData = useCallback((page) => {
         let update_API;
 
         if (mediaType === 'shows') {
-            update_API = `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&language=en-US&page=${page}&query=${searchValue}&include_adult=false`;
+            update_API = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&language=en-US&page=${page}&query=${searchValue}&include_adult=false`;
         }
 
         if (mediaType === 'movie') {
-            update_API = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${searchValue}&page=${page}&include_adult=false`;
+            update_API = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&query=${searchValue}&page=${page}&include_adult=false`;
         }
 
         if (mediaType === 'people') {
-            update_API = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&language=en-US&query=${searchValue}&page=${page}&include_adult=false`;
+            update_API = `https://api.themoviedb.org/3/search/person?api_key=${api_key}&language=en-US&query=${searchValue}&page=${page}&include_adult=false`;
         }
 
         if (mediaType === 'keywords') {
-            update_API = `https://api.themoviedb.org/3/search/keyword?api_key=${apiKey}&query=${searchValue}&page=${page}`;
+            update_API = `https://api.themoviedb.org/3/search/keyword?api_key=${api_key}&query=${searchValue}&page=${page}`;
         }
 
         if (mediaType === 'collection') {
-            update_API = `https://api.themoviedb.org/3/search/collection?api_key=${apiKey}&language=en-US&query=${searchValue}&page=${page}`;
+            update_API = `https://api.themoviedb.org/3/search/collection?api_key=${api_key}&language=en-US&query=${searchValue}&page=${page}`;
         }
 
         if (mediaType === 'companies') {
-            update_API = `https://api.themoviedb.org/3/search/company?api_key=${apiKey}&query=${searchValue}&page=${page}`;
+            update_API = `https://api.themoviedb.org/3/search/company?api_key=${api_key}&query=${searchValue}&page=${page}`;
         }
 
         // setLoading(true);
@@ -138,7 +127,7 @@ const ResultsPage = () => {
             // setLoading(false);
         })
         .catch(err => console.log(err))
-    }, [apiKey, searchValue, mediaType, setMediaList]);
+    }, [searchValue, mediaType, setMediaList]);
 
     // Runs on initial render and searchValue change.
     useEffect(() => {
@@ -215,7 +204,7 @@ const ResultsPage = () => {
                 <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
             </div>
             <div className='results_page_content'>                
-                <ResultsPanel results={[collections, companies, keywords, movies, people, shows]} />
+                <ResultsPanel results={[collections, companies, keywords, movies, people, shows]} setMediaList={setMediaList} setMediaType={setMediaType} />
                 <div className='results_list'>
                     <Results media={mediaList} type={mediaType} />
                     <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={mediaList.total_pages} />
