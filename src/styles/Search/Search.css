@@ -1,4 +1,4 @@
-.resultsPage_Search form {
+.results_page_searchbar form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@
     width: 75%;
 }
 
-.resultsPage_Search form input {
+.results_page_searchbar form input {
     border: none;
     caret-color: #b6b4b4;
     color: #6b6b6b;
@@ -21,7 +21,7 @@
     width: 100%;
 }
 
-.resultsPage_Search form input:focus {
+.results_page_searchbar form input:focus {
     outline: none;
 }
 

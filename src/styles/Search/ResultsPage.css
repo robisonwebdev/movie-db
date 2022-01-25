@@ -1,4 +1,4 @@
-.resultsPage {
+.search_results_page {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 50px 1fr;
@@ -8,7 +8,7 @@
     width: 100%;
 }
 
-.resultsPage_Search {
+.results_page_searchbar {
     display: flex;
     justify-content: center;
     align-items: center;
