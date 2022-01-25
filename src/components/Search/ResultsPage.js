@@ -21,7 +21,7 @@ const ResultsPage = () => {
     const [searchValue, setSearchValue] = useState(searchParam);
     const [shows, setShows] = useState([]);
     const [mediaList, setMediaList] = useState([]);
-    const [mediaType, setMediaType] = useState('')
+    const [mediaID, setMediaID] = useState('')
     const initialRender = useRef(true);  
 
     const fetchData = useCallback((query) => {
@@ -65,27 +65,27 @@ const ResultsPage = () => {
     const fetchPageData = useCallback((page) => {
         let update_API;
 
-        if (mediaType === 'shows') {
+        if (mediaID === 'shows') {
             update_API = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&language=en-US&page=${page}&query=${searchValue}&include_adult=false`;
         }
 
-        if (mediaType === 'movie') {
+        if (mediaID === 'movie') {
             update_API = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&query=${searchValue}&page=${page}&include_adult=false`;
         }
 
-        if (mediaType === 'people') {
+        if (mediaID === 'people') {
             update_API = `https://api.themoviedb.org/3/search/person?api_key=${api_key}&language=en-US&query=${searchValue}&page=${page}&include_adult=false`;
         }
 
-        if (mediaType === 'keywords') {
+        if (mediaID === 'keywords') {
             update_API = `https://api.themoviedb.org/3/search/keyword?api_key=${api_key}&query=${searchValue}&page=${page}`;
         }
 
-        if (mediaType === 'collection') {
+        if (mediaID === 'collection') {
             update_API = `https://api.themoviedb.org/3/search/collection?api_key=${api_key}&language=en-US&query=${searchValue}&page=${page}`;
         }
 
-        if (mediaType === 'companies') {
+        if (mediaID === 'companies') {
             update_API = `https://api.themoviedb.org/3/search/company?api_key=${api_key}&query=${searchValue}&page=${page}`;
         }
 
@@ -94,32 +94,32 @@ const ResultsPage = () => {
         axios
         .get(update_API)
         .then(res => {
-            if (mediaType === 'shows') {
+            if (mediaID === 'shows') {
                 setShows(res.data);
                 setMediaList(shows);
             }
     
-            if (mediaType === 'movie') {
+            if (mediaID === 'movie') {
                 setMovies(res.data);
                 setMediaList(movies);
             }
     
-            if (mediaType === 'people') {
+            if (mediaID === 'people') {
                 setPeople(res.data);
                 setMediaList(people);
             }
     
-            if (mediaType === 'keywords') {
+            if (mediaID === 'keywords') {
                 setKeywords(res.data);
                 setMediaList(keywords);
             }
     
-            if (mediaType === 'collection') {
+            if (mediaID === 'collection') {
                 setCollections(res.data);
                 setMediaList(collections);
             }
     
-            if (mediaType === 'companies') {
+            if (mediaID === 'companies') {
                 setComponies(res.data);
                 setMediaList(companies);
             }
@@ -127,7 +127,7 @@ const ResultsPage = () => {
             // setLoading(false);
         })
         .catch(err => console.log(err))
-    }, [searchValue, mediaType, setMediaList]);
+    }, [searchValue, mediaID, setMediaList]);
 
     // Runs on initial render and searchValue change.
     useEffect(() => {
@@ -189,7 +189,7 @@ const ResultsPage = () => {
 
         setFilters(filtersArray);
         setMediaList(filtersArray[0].filter);
-        setMediaType(filtersArray[0].type)
+        setMediaID(filtersArray[0].id)
     };
 
     useEffect(() => {
@@ -204,9 +204,9 @@ const ResultsPage = () => {
                 <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
             </div>
             <div className='results_page_content'>                
-                <ResultsPanel results={[collections, companies, keywords, movies, people, shows]} setMediaList={setMediaList} setMediaType={setMediaType} />
+                <ResultsPanel results={[collections, companies, keywords, movies, people, shows]} setMediaList={setMediaList} setMediaID={setMediaID} />
                 <div className='results_list'>
-                    <Results media={mediaList} type={mediaType} />
+                    <Results mediaList={mediaList} mediaID={mediaID} />
                     <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={mediaList.total_pages} />
                 </div>
             </div>
