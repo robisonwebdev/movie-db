@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState} from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
-import Filter from './Filter';
 import Search from './Search';
 import Pagination from '../Pagination';
+import ResultsPanel from './ResultsPanel/ResultsPanel';
 import '../../styles/Search/ResultsPage.css';
 import Results from './Results';
 
@@ -33,11 +33,7 @@ const ResultsPage = () => {
                 
             }
         })
-    };
-
-    const buildFiltersList = filters.map(obj => {
-        return <Filter key={obj.id} number={obj.filter.total_results} onClick={() => handleFilterSelection(obj.filter)} title={obj.name} />
-    });   
+    };   
 
     const fetchData = useCallback((query) => {
         const collections_API = `https://api.themoviedb.org/3/search/collection?api_key=${apiKey}&language=en-US&query=${query}&page=1`;
@@ -205,10 +201,10 @@ const ResultsPage = () => {
         setFilters(filtersArray);
         setMediaList(filtersArray[0].filter);
         setMediaType(filtersArray[0].type)
-        console.log(`Collection`, collections);
+        // console.log(`Collection`, collections);
         // console.log(`Companies`, companies);
         // console.log(`Keywords`, keywords);
-        console.log(`Movies`, movies);
+        // console.log(`Movies`, movies);
         // console.log(`People`, people);
         // console.log(`Shows`, shows);
     }
@@ -219,7 +215,7 @@ const ResultsPage = () => {
         }
     }, [loading]);
 
-    console.log(mediaList)
+    // console.log(mediaList)
 
     return (
         <section className='resultsPage'>
@@ -227,12 +223,7 @@ const ResultsPage = () => {
                 <Search searchValue={searchValue} setSearchValue={setSearchValue} />
             </div>
             <div className='resultsPage_Content'>                
-                <div className='filters'>
-                    <h3>Search Results</h3>
-                    <div className='filter_List'>
-                        {buildFiltersList}
-                    </div>
-                </div>
+                <ResultsPanel results={[collections, companies, keywords, movies, people, shows]} />
                 <div className='results'>
                     <Results media={mediaList} type={mediaType} />
                     <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={mediaList.total_pages} />
