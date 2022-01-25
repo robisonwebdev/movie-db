@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState} from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
-import Search from './Search';
+import SearchBar from './SearchBar';
 import Pagination from '../Pagination';
 import ResultsPanel from './ResultsPanel/ResultsPanel';
 import '../../styles/Search/ResultsPage.css';
@@ -212,7 +212,7 @@ const ResultsPage = () => {
     return (
         <section className='search_results_page'>
             <div className='results_page_searchbar'>
-                <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+                <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
             </div>
             <div className='resultsPage_Content'>                
                 <ResultsPanel results={[collections, companies, keywords, movies, people, shows]} />
