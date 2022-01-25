@@ -5,11 +5,11 @@ import MediaCard from './MediaCard';
 import PeopleCard from './PeopleCard';
 import '../../styles/Search/Results.css';
 
-const Results = ({ media, type }) => {
+const Results = ({ mediaList, mediaID }) => {
     // Media Type movie, shows, or collection
-    if (type === 'movie' || type==='tv' || type==='collection') {
-        const mapMedia = media.results?.map(item => {
-            return <MediaCard key={item.id} media={item} type={type} />
+    if (mediaID === 'movies_001' || mediaID==='shows_001' || mediaID==='collections_001') {
+        const mapMedia = mediaList.results?.map(item => {
+            return <MediaCard key={item.id} media={item} type={mediaID} />
         });
 
         return (
@@ -20,8 +20,8 @@ const Results = ({ media, type }) => {
     }
 
     // People
-    if (type === 'people') {
-        const mapPeople = media.results?.map(person => {
+    if (mediaID === 'people_001') {
+        const mapPeople = mediaList.results?.map(person => {
             return <PeopleCard key={person.id} person={person} />
         });
 
@@ -33,8 +33,8 @@ const Results = ({ media, type }) => {
     }
 
     // Company
-    if (type === 'companies') {
-        const mapCompanies = media.results?.map(company => {
+    if (mediaID === 'companies_001') {
+        const mapCompanies = mediaList.results?.map(company => {
             return <CompanyCard key={company.id} company={company} />
         });
 
@@ -45,8 +45,8 @@ const Results = ({ media, type }) => {
         );
     }
 
-    if (type === 'keywords') {
-        const mapKeywords = media.results?.map(keyword => {
+    if (mediaID === 'keywords_001') {
+        const mapKeywords = mediaList.results?.map(keyword => {
             return <KeywordCard key={keyword.id} keyword={keyword} />
         });
 
