@@ -2,7 +2,7 @@ import React from 'react';
 import Filter from '../Filter';
 import '../../../styles/Search/ResultsPanel.css';
 
-const ResultsPanel = ({ results, setMediaList, setMediaType }) => {
+const ResultsPanel = ({ results, setMediaList, setMediaID }) => {
     const [ collections, companies, keywords, movies, people, shows ] = results;
     const filters = [
         {
@@ -53,27 +53,27 @@ const ResultsPanel = ({ results, setMediaList, setMediaType }) => {
         switch (id) {
             case 'collections_001':
                 setMediaList(collections);
-                setMediaType('collection');
+                setMediaID(id);
                 break;
             case 'companies_001':
                 setMediaList(companies);
-                setMediaType('companies');
+                setMediaID(id);
                 break;
             case 'keywords_001':
                 setMediaList(keywords);
-                setMediaType('keywords');
+                setMediaID(id);
                 break;
             case 'movies_001':
                 setMediaList(movies);
-                setMediaType('movie');
+                setMediaID(id);
                 break;
             case 'people_001':
                 setMediaList(people);
-                setMediaType('people');
+                setMediaID(id);
                 break;
             case 'shows_001':
                 setMediaList(shows);
-                setMediaType('tv');
+                setMediaID(id);
                 break;
         };
     }
