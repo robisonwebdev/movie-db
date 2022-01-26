@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState} from 'react';
+import React, { useCallback, useEffect, useState} from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import api_key from '../../data/Key';
@@ -21,8 +21,7 @@ const ResultsPage = () => {
     const [searchValue, setSearchValue] = useState(searchParam);
     const [shows, setShows] = useState([]);
     const [mediaList, setMediaList] = useState([]);
-    const [mediaID, setMediaID] = useState('')
-    const initialRender = useRef(true);  
+    const [mediaID, setMediaID] = useState('') 
 
     const fetchData = useCallback((query) => {
         const collections_API = `https://api.themoviedb.org/3/search/collection?api_key=${api_key}&language=en-US&query=${query}&page=1`;
@@ -62,86 +61,10 @@ const ResultsPage = () => {
         }))
     }, []);
 
-    const fetchPageData = useCallback((page) => {
-        let update_API;
-
-        if (mediaID === 'shows') {
-            update_API = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&language=en-US&page=${page}&query=${searchValue}&include_adult=false`;
-        }
-
-        if (mediaID === 'movie') {
-            update_API = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&query=${searchValue}&page=${page}&include_adult=false`;
-        }
-
-        if (mediaID === 'people') {
-            update_API = `https://api.themoviedb.org/3/search/person?api_key=${api_key}&language=en-US&query=${searchValue}&page=${page}&include_adult=false`;
-        }
-
-        if (mediaID === 'keywords') {
-            update_API = `https://api.themoviedb.org/3/search/keyword?api_key=${api_key}&query=${searchValue}&page=${page}`;
-        }
-
-        if (mediaID === 'collection') {
-            update_API = `https://api.themoviedb.org/3/search/collection?api_key=${api_key}&language=en-US&query=${searchValue}&page=${page}`;
-        }
-
-        if (mediaID === 'companies') {
-            update_API = `https://api.themoviedb.org/3/search/company?api_key=${api_key}&query=${searchValue}&page=${page}`;
-        }
-
-        // setLoading(true);
-
-        axios
-        .get(update_API)
-        .then(res => {
-            if (mediaID === 'shows') {
-                setShows(res.data);
-                setMediaList(shows);
-            }
-    
-            if (mediaID === 'movie') {
-                setMovies(res.data);
-                setMediaList(movies);
-            }
-    
-            if (mediaID === 'people') {
-                setPeople(res.data);
-                setMediaList(people);
-            }
-    
-            if (mediaID === 'keywords') {
-                setKeywords(res.data);
-                setMediaList(keywords);
-            }
-    
-            if (mediaID === 'collection') {
-                setCollections(res.data);
-                setMediaList(collections);
-            }
-    
-            if (mediaID === 'companies') {
-                setComponies(res.data);
-                setMediaList(companies);
-            }
-
-            // setLoading(false);
-        })
-        .catch(err => console.log(err))
-    }, [searchValue, mediaID, setMediaList]);
-
     // Runs on initial render and searchValue change.
     useEffect(() => {
         fetchData(searchValue);
     }, [fetchData, searchValue]);
-
-    // No Initial Render. Runs on currentPage Change.
-    useEffect(() => {
-        if (initialRender.current) {
-            initialRender.current = false;
-        } else {
-            fetchPageData(currentPage)
-        }
-    }, [fetchPageData, currentPage])
 
     const testFun = () => {
         const filtersArray = [
