@@ -14,7 +14,6 @@ const ResultsPage = () => {
     const [companies, setComponies] = useState([]);
     const [currentPage, setCurrentPage] = useState(1)
     const [keywords, setKeywords] = useState([]);
-    const [filters, setFilters] = useState([]);
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState([]);
     const [people, setPeople] = useState([]);
@@ -61,68 +60,63 @@ const ResultsPage = () => {
         }))
     }, []);
 
-    // Runs on initial render and searchValue change.
-    useEffect(() => {
-        fetchData(searchValue);
-    }, [fetchData, searchValue]);
-
-    const testFun = () => {
-        const filtersArray = [
-            {
-                filter: shows,
-                id: 'shows_001',
-                name: 'TV Shows',
-                type: 'tv'
-            },
-            {
-                filter: movies,
-                id: 'movies_001',
-                name: 'Movies',
-                type: 'movie'
-            },
-            {
-                filter: people,
-                id: 'people_001',
-                name: 'People',
-                type: 'people'
-            },
-            {
-                filter: keywords,
-                id: 'keywords_001',
-                name: 'Keywords',
-                type: 'keywords'
-            },
+    const sortResults = () => {
+        const results = [
             {
                 filter: collections,
-                id: 'collections_001', 
-                name: 'Collections',
-                type: 'collection'
+                id: 'collections_001',
+                title: 'Collections'
             },
             {
                 filter: companies,
                 id: 'companies_001',
-                name: 'Companies',
-                type: 'companies'
+                title: 'Companies'
+            },
+            {
+                filter: keywords,
+                id: 'keywords_001',
+                title: 'Keywords'
+            },
+            {
+                filter: movies,
+                id: 'movies_001',
+                title: 'Movies'
+            },
+            {
+                filter: people,
+                id: 'people_001',
+                title: 'People'
+            },
+            {
+                filter: shows,
+                id: 'shows_001',
+                title: 'TV Shows'
             }
         ];
 
-        filtersArray.sort((a, b) => {
+        results.sort((a, b) => {
             return b.filter.total_results - a.filter.total_results;
         });
 
-        setFilters(filtersArray);
-        setMediaList(filtersArray[0].filter);
-        setMediaID(filtersArray[0].id)
+        setMediaList(results[0].filter);
+        setMediaID(results[0].id);
     };
 
+    // Runs on initial render and searchValue change.
+    useEffect(() => {
+        fetchData(searchValue);
+    }, [fetchData, searchValue]);    
+
+    // Calls sortResults to sort from highest to lowest
     useEffect(() => {
         if (!loading) {
-            testFun();
+            sortResults();
         }
     }, [loading]);
 
     return (
         <section className='search_results_page'>
+            {loading ? null : console.log('mediaList', mediaList)}
             <div className='results_page_searchbar'>
                 <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
             </div>
