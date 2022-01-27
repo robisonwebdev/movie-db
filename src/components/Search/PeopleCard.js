@@ -26,9 +26,9 @@ const PeopleCard = ({ person }) => {
 
     return (
         <div className='people_card'>
-            <Link to={`/people/person/${person.id}`}>{getImage()}</Link>
+            <Link to={`/person/${person.id}`}>{getImage()}</Link>
             <div className='people_card_content'>
-                <Link to={`/people/person/${person.id}`}><h3>{person.name}</h3></Link>
+                <Link to={`/person/${person.id}`}><h3>{person.name}</h3></Link>
                 {getInfo()}
             </div>
         </div>
