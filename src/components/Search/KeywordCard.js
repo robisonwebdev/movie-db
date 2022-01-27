@@ -3,7 +3,7 @@ import '../../styles/Search/KeywordCard.css';
 
 const KeywordCard = ({ keyword }) => {
     return (
-        <li className='keyword'>
+        <li className='keyword_card'>
             {keyword.name}
         </li>
     )
