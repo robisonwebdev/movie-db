@@ -6,62 +6,43 @@ import PeopleCard from './PeopleCard';
 import '../../styles/Search/Results.css';
 
 const Results = ({ mediaList, mediaID }) => {
-    // Media Type movie, shows, or collection
-    if (mediaID === 'movies_001' || mediaID==='shows_001' || mediaID==='collections_001') {
-        const mapMedia = mediaList.results?.map(item => {
-            return <MediaCard key={item.id} media={item} type={mediaID} />
-        });
-
-        return (
-            <div className='result_cards'>
-                {mapMedia}
-            </div>
-        );
-    }
-
-    // People
-    if (mediaID === 'people_001') {
-        const mapPeople = mediaList.results?.map(person => {
-            return <PeopleCard key={person.id} person={person} />
-        });
-
-        return (
-            <div className='result_cards'>
-                {mapPeople}
-            </div>
-        );
-    }
-
-    // Company
-    if (mediaID === 'companies_001') {
-        const mapCompanies = mediaList.results?.map(company => {
-            return <CompanyCard key={company.id} company={company} />
-        });
-
-        return (
-            <ul className='result_list'>
-                {mapCompanies}
-            </ul>
-        );
-    }
-
-    if (mediaID === 'keywords_001') {
-        const mapKeywords = mediaList.results?.map(keyword => {
-            return <KeywordCard key={keyword.id} keyword={keyword} />
-        });
-
-        return (
-            <ul className='result_list'>
-                {mapKeywords}
-            </ul>
-        );
+    const getClassName = () => {
+        switch (mediaID) {
+            case 'collections_001':
+            case 'movies_001':
+            case 'people_001':
+            case 'shows_001':
+                return 'result_cards';
+            case 'companies_001':
+            case 'keywords_001':
+                return 'result_list';
+            default:
+                return null;
+        };
     };
 
+    const mapMedia = mediaList.results?.map(media => {
+        switch (mediaID) {
+            case 'collections_001':
+                return <MediaCard key={media.id} media={media} type='collection' />
+            case 'companies_001':
+                return <CompanyCard key={media.id} company={media} />
+            case 'keywords_001':
+                return <KeywordCard key={media.id} keyword={media} />
+            case 'movies_001':
+                return <MediaCard key={media.id} media={media} type='movie' />
+            case 'people_001':
+                return <PeopleCard key={media.id} person={media} />
+            case 'shows_001':
+                return <MediaCard key={media.id} media={media} type='tv' />
+        };
+    });
+
     return (
-        <div className='results_error'>
-            <p>ERROR</p>
-        </div>
-    )
+        <section className={getClassName()}>
+            {mapMedia}
+        </section>
+    );
 };
 
 export default Results;
