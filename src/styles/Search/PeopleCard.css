@@ -1,0 +1,26 @@
+.people_card {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.people_card_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.people_card_content h3 {
+    font-weight: 600;
+}
+
+.people_card_content a {
+    color: #000;
+    text-decoration: none;
+}
+
+.people_card_image {
+    border-radius: 8px;
+    height: 70px;
+    width: 70px;
+}
