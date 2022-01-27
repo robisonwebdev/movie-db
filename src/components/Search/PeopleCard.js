@@ -5,14 +5,13 @@ import '../../styles/Search/PeopleCard.css';
 const PeopleCard = ({ person }) => {
     const getImage = () => {
         const noImage = 'https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg';
-        const imageSize = (`w94_and_h141_bestv2` || 'w90_and_h90_face' || 'w180_and_h180_face');
         const imagePath = (person.profile_path);
 
         if (person.profile_path === null) {
-            return <img className='media_image noImage' src={noImage} alt='' />;
+            return <img className='people_card_image noImage' src={noImage} alt='' />;
         }
 
-        return <img className='media_image' src={`https://image.tmdb.org/t/p/${imageSize}/${imagePath}`} alt={`${person.name || person.title} poster`} />
+        return <img className='people_card_image' src={`https://image.tmdb.org/t/p/w90_and_h90_face/${imagePath}`} alt={person.name} />
     };
 
     const getInfo = () => {
@@ -26,9 +25,9 @@ const PeopleCard = ({ person }) => {
     }
 
     return (
-        <div className='result_card'>
+        <div className='people_card'>
             <Link to={`/people/person/${person.id}`}>{getImage()}</Link>
-            <div className='people'>
+            <div className='people_card_content'>
                 <Link to={`/people/person/${person.id}`}><h3>{person.name}</h3></Link>
                 {getInfo()}
             </div>
