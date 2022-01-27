@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../styles/Search/PeopleCard.css';
 
 const PeopleCard = ({ person }) => {
     const getImage = () => {
@@ -25,7 +26,7 @@ const PeopleCard = ({ person }) => {
     }
 
     return (
-        <div className='resultCard'>
+        <div className='result_card'>
             <Link to={`/people/person/${person.id}`}>{getImage()}</Link>
             <div className='people'>
                 <Link to={`/people/person/${person.id}`}><h3>{person.name}</h3></Link>
