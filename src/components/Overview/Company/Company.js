@@ -43,7 +43,7 @@ const Company = () => {
 
     return (
         <section className='company_overview'>
-            <Header />
+            {loading ? null : <Header data={companyData} />}
         </section>
     )
 };
