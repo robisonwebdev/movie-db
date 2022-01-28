@@ -8,13 +8,14 @@ const Company = () => {
     const [companyData, setCompanyData] = useState([]);
     const [companyMovieData, setCompanyMovieData] = useState([]);
     const [companyTVData, setCompanyTVData] = useState([]);
+    const [format, setFormat] = useState('movie');
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
 
     const fetchData = useCallback(() => {
         const company_API = `https://api.themoviedb.org/3/company/${id}?api_key=${api_key}`;
         const companyMovie_API = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_companies=${id}`;
-        const companyTV_API = `https://api.themoviedb.org/3/discover/tv?api_key=${api_key}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&with_companies=${id}&with_status=0&with_type=0`;
+        const companyTV_API = `https://api.themoviedb.org/3/discover/tv?api_key=${api_key}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&with_companies=${id}`;
 
         const getCompanyData = axios.get(company_API);
         const getCompanyMovieData = axios.get(companyMovie_API);
@@ -43,7 +44,7 @@ const Company = () => {
 
     return (
         <section className='company_overview'>
-            {loading ? null : <Header data={companyData} />}
+            {loading ? null : <Header data={[companyData, companyMovieData, companyTVData]} format={format} />}
         </section>
     )
 };
