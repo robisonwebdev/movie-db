@@ -37,6 +37,10 @@ const Company = () => {
         .catch(err => console.log(err))
     }, [id]);
 
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
+
     return (
         <section className='company_overview'>
             <Header />
