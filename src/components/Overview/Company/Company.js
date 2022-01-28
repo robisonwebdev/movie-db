@@ -2,9 +2,9 @@ import React from 'react';
 
 const Company = () => {
     return (
-        <div className='company_Overview'>
+        <section className='company_overview'>
             
-        </div>
+        </section>
     )
 };
 
