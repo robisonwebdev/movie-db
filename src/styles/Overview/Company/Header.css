@@ -24,8 +24,14 @@
     justify-content: space-between;
     align-items: center;
 
+    color: #fff;
+    font-size: 18px;
     height: 100%;
     width: 90%;
+}
+
+.company_header_upper h2 {
+    font-weight: 600;
 }
 
 .company_header_upper img {
@@ -62,4 +68,13 @@
 
 .company_header_lower .las {
     font-size: 1.6rem;
+}
+
+.company_header_lower a {
+    color: var(--rating);
+    text-decoration: none;
+}
+
+.company_header_lower a:hover {
+    text-decoration: underline;
 }
