@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../styles/Overview/Company/Header.css';
 
 const Header = ({ data, format }) => {
     const [companyData, companyMovieData, companyTVData] = data;
@@ -12,7 +13,7 @@ const Header = ({ data, format }) => {
       return (
         <ul>
           {name === null ? null : <li><i class="las la-id-card-alt" /> {name}</li>}
-          {headquarters === null ? null : <li><i class="las la-map-marker-alt" /> {headquarters}</li>}
+          {headquarters === null ? null : <li><i class="las la-map-marker" /> {headquarters}</li>}
           {country === null ? null : <li><i class="las la-globe-americas" /> {country}</li>}
           {homepage === null ? null : <li><i class="las la-link" /> <a href={homepage} target='_blank'>Homepage</a></li>}
         </ul>
@@ -29,6 +30,7 @@ const Header = ({ data, format }) => {
 
   return (
     <section className='overview_company_header'>
+      <div className='company_header_background'>
         {console.log('companyData', companyData)}
         <div className='company_header_upper'>
           {getLogo()}
@@ -36,6 +38,7 @@ const Header = ({ data, format }) => {
         <div className='company_header_lower'>
           {getDetails()}
         </div>
+      </div>
     </section>
   );
 };
