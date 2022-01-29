@@ -37,8 +37,10 @@
 .overview_company_header {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     
+    background-image: radial-gradient(at 30% top, #073844 0%, rgba(3, 37, 65, 1) 70%);
     height: 150px;
     width: 100%;
 }
