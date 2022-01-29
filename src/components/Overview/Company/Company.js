@@ -43,7 +43,7 @@ const Company = () => {
     }, [fetchData])
 
     return (
-        <section className='company_overview'>
+        <section className='overview'>
             {loading ? null : <Header data={[companyData, companyMovieData, companyTVData]} format={format} />}
         </section>
     )
