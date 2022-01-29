@@ -1,0 +1,65 @@
+.overview_company_header {   
+    background-image: radial-gradient(at 30% top, #073844 0%, rgba(3, 37, 65, 1) 70%);
+    height: 150px;
+    width: 100%;
+}
+
+.company_header_background {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background-image: url('https://www.themoviedb.org/assets/2/v4/account_pipes/light_blue-a230b623827400e967c6eb7241d88086f2eb9264c0789d0dab15ae6f1df1421a.svg');
+    background-position: 50% 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100%;
+    width: 100%;
+}
+
+.company_header_upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100%;
+    width: 90%;
+}
+
+.company_header_upper img {
+    height: 50px;
+    width: auto;
+}
+
+.company_header_lower {
+    display: flex;
+    justify-content: center;
+
+    background: rgba(3, 37, 65, 0.7);
+    color: var(--rating);
+    padding: 8px 0;
+    height: auto;
+    width: 100%;
+}
+
+.company_header_lower ul {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    height: auto;
+    width: 90%;
+}
+
+.company_header_lower li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style-type: none;
+}
+
+.company_header_lower .las {
+    font-size: 1.6rem;
+}
