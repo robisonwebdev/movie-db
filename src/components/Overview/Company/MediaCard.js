@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../styles/Overview/Company/MediaCard.css';
 
 const MediaCard = ({ format, media }) => {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
