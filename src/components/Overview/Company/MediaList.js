@@ -1,5 +1,6 @@
 import React from 'react';
 import MediaCard from './MediaCard';
+import '../../../styles/Overview/Company/MediaList.css';
 
 const MediaList = ({ data, format }) => {
     const movieList = data.results?.map(obj => {
