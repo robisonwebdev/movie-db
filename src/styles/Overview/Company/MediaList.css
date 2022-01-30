@@ -1,0 +1,8 @@
+.company_main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    height: auto;
+    width: 90%;
+}
