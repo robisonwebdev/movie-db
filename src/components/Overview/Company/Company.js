@@ -3,13 +3,15 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import api_key from '../../../data/Key';
 import Header from './Header';
+import MediaList from './MediaList';
 
 const Company = () => {
     const [companyData, setCompanyData] = useState([]);
     const [companyMovieData, setCompanyMovieData] = useState([]);
     const [companyTVData, setCompanyTVData] = useState([]);
-    const [format, setFormat] = useState('movie');
+    const [format, setFormat] = useState('');
     const [loading, setLoading] = useState(true);
+    const [mediaData, setMediaData] = useState([]);
     const { id } = useParams();
 
     const fetchData = useCallback(() => {
@@ -33,6 +35,8 @@ const Company = () => {
             setCompanyData(company_Data);
             setCompanyMovieData(companyMovie_Data);
             setCompanyTVData(companyTV_Data);
+            setMediaData(companyMovie_Data);
+            setFormat('movie');
             setLoading(false);
         }))
         .catch(err => console.log(err))
@@ -44,7 +48,8 @@ const Company = () => {
 
     return (
         <section className='overview'>
-            {loading ? null : <Header data={[companyData, companyMovieData, companyTVData]} format={format} />}
+            {loading ? null : <Header data={[companyData, mediaData]} format={format} />}
+            {loading ? null : <MediaList data={mediaData} format={format} />}
         </section>
     )
 };
