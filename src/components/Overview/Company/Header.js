@@ -2,7 +2,7 @@ import React from 'react';
 import '../../../styles/Overview/Company/Header.css';
 
 const Header = ({ data, format }) => {
-    const [companyData, companyMovieData, companyTVData] = data;
+    const [companyData, mediaData] = data;
 
     const getDetails = () => {
       const name = companyData.name;
@@ -29,21 +29,13 @@ const Header = ({ data, format }) => {
     }
 
     const getMediaCount = () => {
-      if (format === 'movie') {
-        return <h2>{companyMovieData.total_results} movies</h2>
-      }
-
-      if (format === 'shows') {
-        return <h2>{companyTVData.total_results} shows</h2>
-      }
-
-      return null;
-    }
+      return <h2>{mediaData.total_results} {format === 'movie' ? 'movies' : 'shows'}</h2>
+    };
 
   return (
     <section className='overview_company_header'>
       <div className='company_header_background'>
-        {console.log('companyData', companyMovieData)}
+        {console.log('companyData', mediaData)}
         <div className='company_header_upper'>
           {getLogo()}
           {getMediaCount()}
