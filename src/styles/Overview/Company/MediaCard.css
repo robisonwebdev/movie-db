@@ -1,0 +1,18 @@
+.company_media_card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    border: 1px solid var(--lightGrey);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--lightBlack2);
+    height: auto;
+    width: 100%;
+}
+
+.company_media_image {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    height: 141px;
+    width: 94px;
+}
