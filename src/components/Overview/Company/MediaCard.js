@@ -12,7 +12,8 @@ const MediaCard = ({ format, media }) => {
         const month = getDate.getUTCMonth();
         const day = getDate.getUTCDate();
 
-        console.log('running movie Date')
+        if (releaseDate === '') return null;
+
         return `${months[month]} ${day}, ${year}`;
     };
 
@@ -22,6 +23,8 @@ const MediaCard = ({ format, media }) => {
         const year = getDate.getUTCFullYear();
         const month = getDate.getUTCMonth();
         const day = getDate.getUTCDate();
+
+        if (firstAirDate === '') return null;
 
         return `${months[month]} ${day}, ${year}`;
     };
