@@ -14,7 +14,7 @@ const MediaCard = ({ format, media }) => {
 
         if (releaseDate === '') return null;
 
-        return `${months[month]} ${day}, ${year}`;
+        return <p className='media_card_date'>{`${months[month]} ${day}, ${year}`}</p>;
     };
 
     const getTVDate = () => {
@@ -26,7 +26,7 @@ const MediaCard = ({ format, media }) => {
 
         if (firstAirDate === '') return null;
 
-        return `${months[month]} ${day}, ${year}`;
+        return <p className='media_card_date'>{`${months[month]} ${day}, ${year}`}</p>;
     };
 
     const getLinkPath = () => {
