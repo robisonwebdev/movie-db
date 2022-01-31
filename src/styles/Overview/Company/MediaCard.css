@@ -27,6 +27,16 @@
     color: var(--lightBlue);
 }
 
+.media_card_date {
+    color: var(--rating);
+}
+
+.media_card_details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .media_card_details p {
     display: -webkit-box;
     -webkit-line-clamp: 2;
