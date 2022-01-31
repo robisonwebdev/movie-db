@@ -10,15 +10,6 @@
     width: 100%;
 }
 
-.media_card_details p {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-right: 20px;
-}
-
 .company_media_image {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -34,4 +25,17 @@
 
 .company_media_card a:hover {
     color: var(--lightBlue);
+}
+
+.media_card_details p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+
+.media_card_title h2 {
+    font-size: 1.2rem;
 }
