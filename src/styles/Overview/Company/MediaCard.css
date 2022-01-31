@@ -16,3 +16,13 @@
     height: 141px;
     width: 94px;
 }
+
+.company_media_card a {
+    color: #000;
+    text-decoration: none;
+    max-height: 141px;
+}
+
+.company_media_card a:hover {
+    color: var(--lightBlue);
+}
