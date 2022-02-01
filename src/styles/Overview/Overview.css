@@ -10,6 +10,11 @@
     width: 100%;
 }
 
+.overview_upper {
+    height: auto;
+    width: 100%;
+}
+
 .overview_main {
     display: flex;
     flex-direction: row;
