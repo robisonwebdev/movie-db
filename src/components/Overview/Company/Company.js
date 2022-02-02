@@ -4,6 +4,7 @@ import axios from 'axios';
 import api_key from '../../../data/Key';
 import Header from './Header';
 import MediaList from './MediaList';
+import Navigation from './Navigation';
 
 const Company = () => {
     const [companyData, setCompanyData] = useState([]);
@@ -35,8 +36,8 @@ const Company = () => {
             setCompanyData(company_Data);
             setCompanyMovieData(companyMovie_Data);
             setCompanyTVData(companyTV_Data);
-            setMediaData(companyMovie_Data);
-            setFormat('movie');
+            setMediaData(companyTV_Data);
+            setFormat('show');
             setLoading(false);
         }))
         .catch(err => console.log(err))
@@ -48,7 +49,10 @@ const Company = () => {
 
     return (
         <section className='overview'>
-            {loading ? null : <Header data={[companyData, mediaData]} format={format} />}
+            <div className='overview_upper'>
+                {loading ? null : <Header data={[companyData, mediaData]} format={format} />}
+                {loading ?  null : <Navigation />}
+            </div>
             {loading ? null : <MediaList data={mediaData} format={format} />}
         </section>
     )
