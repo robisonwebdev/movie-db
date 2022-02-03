@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../../styles/Overview/Company/Header.css';
+import Navigation from './Navigation';
 
 const Header = ({ data, format }) => {
     const [companyData, mediaData] = data;
@@ -44,6 +45,7 @@ const Header = ({ data, format }) => {
           {getDetails()}
         </div>
       </div>
+      <Navigation />
     </section>
   );
 };
