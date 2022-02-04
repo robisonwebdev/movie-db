@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import '../../../styles/Overview/Navigation/Dropdown.css';
 
-const Dropdown = ({ items, title }) => {
+const Dropdown = ({ onClick, items, title }) => {
     const [show, setShow] = useState(false);
 
     const buildMenu = items.map(item => {
-        return (<button className='overview_dropdown_item'>{item}</button>);
+        return (<button className='overview_dropdown_item' onClick={() => onClick(item)}>{item}</button>);
     })
 
     return (
