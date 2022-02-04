@@ -7,8 +7,8 @@ const Navigation = () => {
         <section className='overview_navigation'>
             <ul className='navigation_company'>
                 <Dropdown items={['Main', 'Changes']} title='Overview' />
-                <Dropdown items={[]} title='Movies' />
-                <Dropdown items={[]} title='Sort' />
+                <Dropdown items={['Movies', 'TV Shows']} title='Movies' />
+                <Dropdown items={['Popularity', 'Rating', 'Release Date']} title='Sort' />
             </ul>
         </section>
     );
