@@ -43,6 +43,19 @@ const Company = () => {
         .catch(err => console.log(err))
     }, [id]);
 
+    const handleNavChange = (selected) => {
+        switch (selected) {
+            case 'Movies':
+                setMediaData(companyMovieData);
+                break;
+            case 'TV Shows':
+                setMediaData(companyTVData);
+                break;
+            default:
+                break;
+        };
+    }
+
     useEffect(() => {
         fetchData();
     }, [fetchData])
@@ -51,7 +64,7 @@ const Company = () => {
         <section className='overview'>
             <div className='overview_upper'>
                 {loading ? null : <Header data={[companyData, mediaData]} format={format} />}
-                {loading ?  null : <Navigation />}
+                {loading ?  null : <Navigation handleNavChange={handleNavChange} />}
             </div>
             {loading ? null : <MediaList data={mediaData} format={format} />}
         </section>
